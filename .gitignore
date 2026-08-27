@@ -1,0 +1,34 @@
+# ==== BuildV: o repo versiona SÓ o entregável de deploy + estado ====
+# Material-fonte fica local + Google Drive
+_raw/
+imagens/
+Marca/
+Copys/
+design-system/
+Site/
+brief-pack.md
+site antigo/
+_painel/
+
+# Segredos — NUNCA versionar
+db-config.php
+**/db-config.php
+.env
+.env.*
+!.env.example
+*-config.local.*
+credenciais*
+*.pem
+*.key
+
+# Sistema / editor
+Thumbs.db
+desktop.ini
+.DS_Store
+.vscode/
+.idea/
+*.log
+node_modules/
+__pycache__/
+*.pyc
+.claude/

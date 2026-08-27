@@ -1,0 +1,77 @@
+{
+ "projeto": "Pilares Engenharia e Construções",
+ "slug": "pilares",
+ "cliente": "Pilares Engenharia LTDA",
+ "setor": "construtora e incorporadora",
+ "etapa_atual": 5,
+ "atualizado_em": "2026-08-27",
+ "etapas": [
+  {
+   "n": 1,
+   "nome": "Extrair do Drive",
+   "status": "done",
+   "nota": "rclone; 30 arquivos / 37MB; pastas 02 e 03 do Drive estão VAZIAS"
+  },
+  {
+   "n": 2,
+   "nome": "Organizar pastas",
+   "status": "done",
+   "nota": "Marca/ Copys/ imagens/ + .gitignore + PROJETO.md + state.json"
+  },
+  {
+   "n": "2b",
+   "nome": "Repo GitHub",
+   "status": "pending",
+   "nota": ""
+  },
+  {
+   "n": 3,
+   "nome": "Design system",
+   "status": "done",
+   "nota": "paleta amostrada do vetor do cartão (#0A0B32/#5E4C9A); AA verificado; ui-ux-pro-max só p/ anti-padrões"
+  },
+  {
+   "n": 4,
+   "nome": "Extrair copy",
+   "status": "done",
+   "nota": "copy oficial da apresentação institucional + cartão; 6 discrepâncias registradas"
+  },
+  {
+   "n": 5,
+   "nome": "Front-end",
+   "status": "doing",
+   "nota": ""
+  },
+  {
+   "n": 6,
+   "nome": "Ajustes finais / imagens",
+   "status": "doing",
+   "nota": "imagens já tratadas: 16.2MB -> 2.88MB webp (-82%)"
+  },
+  {
+   "n": 7,
+   "nome": "Tags e módulos",
+   "status": "pending",
+   "nota": ""
+  },
+  {
+   "n": 8,
+   "nome": "Revisão humana",
+   "status": "pending",
+   "nota": "gate humano"
+  },
+  {
+   "n": 9,
+   "nome": "Deploy",
+   "status": "blocked",
+   "nota": "falta hospedagem + domínio"
+  }
+ ],
+ "links": {
+  "drive": "https://drive.google.com/drive/folders/1yISMYB-iFyZtYk_73C4vo6u2F0wNvwMF",
+  "repo": null,
+  "preview": null,
+  "dominio": null
+ },
+ "pendencias": []
+}
