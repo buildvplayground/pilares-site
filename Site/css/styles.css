@@ -276,7 +276,7 @@ html[data-motion="on"] .hero.is-in .hero__media{
   .hero{align-items:center;min-height:auto;padding-bottom:var(--s-8)}
   .hero__panel{inset:0;background:rgba(10,11,50,.88)}
   .hero__panel::after{display:none}
-  .hero__box{max-width:34ch}
+  .hero__box{max-width:30rem}   /* `ch` aqui usa o corpo (16px) e daria só ~272px */
   .hero__media img{object-position:50% 45%}
 }
 @media (max-width:560px){
