@@ -247,8 +247,11 @@ html[data-motion="on"] .hero.is-in .hero__media{
    (16px) e não no do h1 (68px+), o que fazia a palavra mais longa transbordar */
 .hero__box{max-width:30rem}
 .hero .eyebrow{color:var(--c-accent-light);margin-bottom:var(--s-5)}
+.hero h1 > span{display:block}
 .hero h1{
   color:#fff;text-wrap:balance;margin-bottom:var(--s-5);
+  /* cada frase do h1 é um bloco: a quebra acontece na PONTUAÇÃO, em qualquer
+     largura, em vez de as duas frases escorrerem juntas */
   /* teto menor que --t-5xl: a palavra mais longa tem de caber no painel */
   font-size:clamp(2.125rem,1.35rem + 2vw,3rem);
 }
