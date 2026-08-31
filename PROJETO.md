@@ -18,7 +18,7 @@
 - [x] **6. Ajustes finais** — imagens webp + auditoria por medição (overflow, WCAG)
 - [x] **7. Tags e módulos** — LGPD completo; GTM/Merlin pulados (sem IDs)
 - [ ] **8. Revisão humana** 🛑 gate — preview em http://localhost:8795/
-- [ ] **9. Deploy** 🛑 falta hospedagem, domínio e segredos
+- [ ] **9. Deploy** 🛑 `deploy-vercel/` pronta; falta importar na Vercel, domínio e `RESEND_API_KEY`
 
 ## O que foi entregue
 
@@ -33,14 +33,19 @@
 | `Site/js/form.js` | validação do formulário no cliente |
 | `Site/php/` | backend do formulário + schema SQL + README de instalação |
 | `Site/assets/img/` | 34 webp (2 larguras) + logo em 2 versões + símbolo |
-| `.github/workflows/` | deploy por FTP (aguardando segredos) |
+| `.github/workflows/` | deploy por FTP para Hostinger (alternativa, aguardando segredos) |
+| `deploy-vercel/` | **pasta de publicação na Vercel** — gerada por `node _raw/build-deploy-vercel.js` |
 
 ## Fluxo de seções da home
 
 hero (foto full-bleed) → números → sobre (split, imagem sangrando) → faixa de imagem →
 frentes de atuação (zigzag, imagens sangrando) → processo (banda escura) → obras (mosaico
-com lightbox) → obra em destaque → depoimento → clientes → faixa de imagem → CTA WhatsApp
-→ rodapé
+com lightbox) → obra em destaque → depoimento → clientes → faixa de imagem → CTA (banda
+escura + foto com corte diagonal + timeline de 3 passos) → rodapé
+
+Botão flutuante de WhatsApp nas 3 páginas: aparece depois do hero, sai da ordem de
+tabulação enquanto invisível, some com lightbox/menu aberto e sobe quando a barra de
+cookies está na tela.
 
 Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cada 2-3 seções.
 
@@ -65,6 +70,13 @@ Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cad
    container do header. A sangria usa `padding` na coluna de texto, nunca margem negativa
    com `vw` — assim a barra de rolagem não vira overflow.
 8. **Stack:** HTML + CSS + JS vanilla, sem framework e sem dependência externa de JS.
+9. **Botão de WhatsApp:** o contêiner é da marca e só o **glifo** usa o verde real
+   (`#25D366`). Texto branco sobre o verde puro dá 1.98:1 e reprovaria AA; o glifo sobre
+   o ink dá 9.57:1 e preserva o reconhecimento do canal (guard rail do `design-bank`).
+10. **Deploy na Vercel:** `deploy-vercel/` é **sempre gerada** por
+   `node _raw/build-deploy-vercel.js`, nunca editada à mão — `Site/` continua sendo a
+   fonte única. Na variante da Vercel o backend PHP sai e entra uma serverless function;
+   o campo de anexo sai (upload exigiria dependência externa) e a página pede por e-mail.
 
 ## Como rodar o preview
 

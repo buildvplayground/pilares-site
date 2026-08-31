@@ -41,7 +41,7 @@
    "n": 5,
    "nome": "Front-end",
    "status": "done",
-   "nota": "HTML+CSS+JS vanilla. Hero foto full-bleed com véu; imagens das seções sangram até a borda; portfólio mosaico 6 obras com lightbox de galeria; motor de movimento próprio (reveal up/soft/fig/mask, split de título, scrub do processo, parallax ≤0.12)"
+   "nota": "HTML+CSS+JS vanilla. Hero foto full-bleed com véu; imagens das seções sangram até a borda; portfólio mosaico 6 obras com lightbox; CTA redesenhado (banda escura + foto com corte diagonal + timeline de 3 passos); botão flutuante de WhatsApp nas 3 páginas; motor de movimento próprio"
   },
   {
    "n": 6,
@@ -65,22 +65,30 @@
    "n": 9,
    "nome": "Deploy",
    "status": "blocked",
-   "nota": "falta definir hospedagem, registrar/apontar domínio e cadastrar segredos. Workflow de FTP já preparado em .github/workflows/deploy-hostinger.yml"
+   "nota": "pasta deploy-vercel/ gerada e versionada (Root Directory = deploy-vercel). Falta importar na Vercel, apontar o domínio e cadastrar RESEND_API_KEY para o formulário."
   }
  ],
  "links": {
   "drive": "https://drive.google.com/drive/folders/1yISMYB-iFyZtYk_73C4vo6u2F0wNvwMF",
   "repo": "https://github.com/dev-buildv/pilares-site",
   "preview": "http://localhost:8795/",
-  "dominio": null
+  "dominio": null,
+  "deploy_vercel": "deploy-vercel/ (gerada por node _raw/build-deploy-vercel.js)"
  },
  "pendencias": [
   {
    "id": "hospedagem",
    "grupo": "Deploy",
    "prioridade": "alta",
-   "titulo": "Definir a hospedagem (Vercel ou Hostinger)",
-   "detalhe": "A escolha muda o backend do formulário de Fornecedores: em Hostinger o PHP já está pronto; em Vercel (estático) é preciso serverless function, serviço de formulário ou só WhatsApp. Ver Site/php/README.md."
+   "titulo": "Importar o projeto na Vercel",
+   "detalhe": "A pasta deploy-vercel/ já está pronta e versionada. Na Vercel: importar o repo, Root Directory = deploy-vercel, Framework Preset = Other, Build Command e Output Directory vazios. Ver deploy-vercel/README.md."
+  },
+  {
+   "id": "resend",
+   "grupo": "Deploy",
+   "prioridade": "alta",
+   "titulo": "Criar a RESEND_API_KEY para o formulário de Fornecedores",
+   "detalhe": "Na Vercel, Project Settings > Environment Variables: RESEND_API_KEY (obrigatória), EMAIL_DESTINO e EMAIL_REMETENTE (opcionais). Sem a chave a função responde com uma mensagem clara pedindo contato por e-mail/WhatsApp — o site não quebra. O remetente precisa de domínio verificado no Resend."
   },
   {
    "id": "dominio",
@@ -92,16 +100,16 @@
   {
    "id": "ftp",
    "grupo": "Deploy",
-   "prioridade": "alta",
-   "titulo": "Cadastrar os segredos de FTP no GitHub",
-   "detalhe": "Settings > Secrets and variables > Actions: FTP_HOST, FTP_USER, FTP_PASSWORD e FTP_DIR (normalmente public_html/). Sem eles o workflow falha de propósito, sem publicar."
+   "prioridade": "baixa",
+   "titulo": "Segredos de FTP (só se for Hostinger)",
+   "detalhe": "O workflow .github/workflows/deploy-hostinger.yml existe como alternativa. Se o deploy for pela Vercel, ignorar."
   },
   {
    "id": "banco",
    "grupo": "Deploy",
-   "prioridade": "media",
+   "prioridade": "baixa",
    "titulo": "Criar o banco MySQL e o db-config.php no servidor",
-   "detalhe": "Rodar Site/php/schema.sql (cria a tabela cadastros) e copiar db-config.example.php para db-config.php com host/banco/usuário/senha. O arquivo real está no .gitignore. Só se a hospedagem tiver PHP."
+   "detalhe": "Só se a hospedagem for PHP (Hostinger). Na Vercel o formulário usa a serverless function e não há banco: o cadastro chega por e-mail."
   },
   {
    "id": "tags",
@@ -181,6 +189,7 @@
   "overflow_horizontal_320_a_1920": 0,
   "contraste_falhas_aa": 0,
   "paginas": 3,
-  "obras_no_portfolio": 6
+  "obras_no_portfolio": 6,
+  "deploy_vercel_mb": 3.7
  }
 }

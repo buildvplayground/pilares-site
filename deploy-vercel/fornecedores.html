@@ -105,8 +105,8 @@
         <p>Campos marcados com <abbr title="obrigatório">*</abbr> são obrigatórios.</p>
       </div>
 
-      <form class="form" id="formCadastro" action="php/enviar-cadastro.php" method="post"
-            enctype="multipart/form-data" novalidate>
+      <form class="form" id="formCadastro" action="/api/enviar-cadastro" method="post"
+            novalidate>
 
         <input type="hidden" name="origem" value="fornecedores">
         <!-- honeypot anti-robô: pessoas não veem, robôs preenchem -->
@@ -162,24 +162,16 @@
           <label for="mensagem">Mensagem <abbr title="obrigatório">*</abbr></label>
           <textarea id="mensagem" name="mensagem" required maxlength="2000"
                     aria-describedby="dica-mensagem erro-mensagem"></textarea>
-          <span class="dica" id="dica-mensagem">Conte brevemente sua experiência, porte da empresa ou o que você fornece.</span>
+          <span class="dica" id="dica-mensagem">Conte brevemente sua experiência, porte da empresa ou o que você fornece. Para enviar currículo, portfólio ou catálogo, escreva para <a href="mailto:contratos@pilaresengltda.com.br">contratos@pilaresengltda.com.br</a>.</span>
           <span class="erro" id="erro-mensagem" role="alert"></span>
         </div>
 
-        <div class="campo">
-          <label for="arquivo">Anexo (opcional)</label>
-          <input type="file" id="arquivo" name="arquivo"
-                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
-                 aria-describedby="dica-arquivo erro-arquivo">
-          <span class="dica" id="dica-arquivo">Currículo, portfólio ou catálogo. PDF, DOC, DOCX, JPG, PNG ou WEBP, até 5 MB.</span>
-          <span class="erro" id="erro-arquivo" role="alert"></span>
-        </div>
 
         <div class="consent">
           <input type="checkbox" id="consent" name="consent" value="1" required
                  aria-describedby="erro-consent">
           <label for="consent">
-            Autorizo a Pilares Engenharia LTDA a tratar os dados e o arquivo enviados para
+            Autorizo a Pilares Engenharia LTDA a tratar os dados enviados para
             avaliar este cadastro e me contatar sobre demandas compatíveis, conforme a
             <a href="privacidade.html">Política de Privacidade</a>. Posso revogar esta
             autorização a qualquer momento. <abbr title="obrigatório">*</abbr>
