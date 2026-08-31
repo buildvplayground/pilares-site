@@ -312,6 +312,25 @@
   }
 
   /* ---------------------------------------------------------------------
+     8d. Botão flutuante de WhatsApp — só aparece depois do hero, para não
+         competir com o CTA principal na primeira tela
+     --------------------------------------------------------------------- */
+  var waFlutua = $('#waFlutua');
+  var heroEl = $('.hero');
+
+  function atualizaFlutuante() {
+    if (!waFlutua) return;
+    var gatilho = heroEl ? heroEl.offsetHeight * 0.72 : 420;
+    var mostrar = window.scrollY > gatilho;
+    if (waFlutua.getAttribute('data-visivel') !== String(mostrar)) {
+      waFlutua.setAttribute('data-visivel', String(mostrar));
+      // fora da ordem de tabulação enquanto invisível
+      if (mostrar) waFlutua.removeAttribute('tabindex');
+      else waFlutua.setAttribute('tabindex', '-1');
+    }
+  }
+
+  /* ---------------------------------------------------------------------
      9. Scrollspy — marca a seção atual na navegação
      --------------------------------------------------------------------- */
   var linksNav = $$('.nav a[href^="#"]');
@@ -344,6 +363,7 @@
       atualizaHeader();
       atualizaParallax();
       atualizaProcesso();
+      atualizaFlutuante();
       atualizaSpy();
       sincronizaEntradas();
     });
@@ -467,12 +487,23 @@
     try { return localStorage.getItem(CHAVE); } catch (e) { return null; }
   }
 
+  function marcaBarraCookies(aberta) {
+    document.body.classList.toggle('ck-aberta', aberta);
+    if (aberta && ck) {
+      // altura real da barra: o botão flutuante sobe exatamente o necessário
+      document.documentElement.style.setProperty('--ck-altura', ck.offsetHeight + 'px');
+    }
+  }
+
   if (ck) {
     var salvo = leConsentimento();
     if (salvo) {
       empurraConsentimento(salvo);
     } else {
-      setTimeout(function () { ck.setAttribute('data-open', 'true'); }, 900);
+      setTimeout(function () {
+        ck.setAttribute('data-open', 'true');
+        marcaBarraCookies(true);
+      }, 900);
     }
 
     $$('[data-ck]', ck).forEach(function (b) {
@@ -481,6 +512,7 @@
         try { localStorage.setItem(CHAVE, valor); } catch (e) {}
         empurraConsentimento(valor);
         ck.setAttribute('data-open', 'false');
+        marcaBarraCookies(false);
       });
     });
   }

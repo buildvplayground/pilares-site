@@ -7,7 +7,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body,h1,h2,h3,h4,p,ul,ol,figure,blockquote,dl,dd{margin:0}
-ul[class],ol[class]{list-style:none;padding:0}
+ul,ol{list-style:none;padding:0}
 img,picture,svg{display:block;max-width:100%;height:auto}
 button,input,select,textarea{font:inherit;color:inherit}
 a{color:inherit}
@@ -574,23 +574,36 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 }
 
 /* =========================================================================
-   CTA final — banda com o gradiente da marca + 3 passos animados
+   CTA final — banda escura com foto sangrando e CORTE DIAGONAL
+   (bricknet-cta-banner-split-imagem + o corte diagonal do planeta-cta-banda)
+   Sem gradiente tricolor: fundo chapado da marca + foto real.
    ========================================================================= */
-.cta{
-  background:linear-gradient(118deg,var(--c-ink) 0%,var(--c-indigo) 52%,var(--c-violet) 100%);
-  color:#fff;
+.cta{background:var(--c-ink);color:#fff;padding:0;overflow:hidden}
+.cta__grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch}
+.cta__texto{
+  padding-block:var(--sec-y);
+  padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)));
+  padding-right:clamp(2rem,5vw,4.5rem);
+  display:grid;align-content:center;gap:var(--s-4);
 }
-.cta__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,6vw,5rem);align-items:start}
-.cta__grid>*{min-width:0}
-/* em --t-4xl o título quebrava em "Vamos construir" / "juntos?" (viúva).
-   Em --t-3xl cabe numa linha na coluna do CTA. */
-.cta h2{color:#fff;font-size:var(--t-3xl);max-width:24ch;text-wrap:balance}
-.cta__lede{color:var(--c-muted-dark);margin-top:var(--s-4);max-width:42ch}
+.cta h2{color:#fff;font-size:var(--t-3xl);max-width:20ch;text-wrap:balance}
+.cta__lede{color:var(--c-muted-dark);max-width:46ch}
 
-/* passos: linha vertical que desenha */
-.passos{position:relative;margin-top:var(--s-7);padding-left:var(--s-6);display:grid;gap:var(--s-6)}
+/* a foto sangra até a borda e o bloco escuro entra nela na diagonal */
+.cta__foto{position:relative;overflow:hidden;margin:0;
+  clip-path:polygon(15% 0, 100% 0, 100% 100%, 0 100%)}
+.cta__foto img{width:100%;height:100%;object-fit:cover;min-height:560px}
+.cta__foto::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(10,11,50,.86) 0%, rgba(10,11,50,.30) 46%, rgba(10,11,50,.10) 100%);
+}
+/* o próprio corte diagonal já faz a borda; nada de filete atravessando a foto */
+
+/* passos: numeral serifado + linha vertical que desenha (requisito BuildV) */
+.passos{position:relative;margin-top:var(--s-5);padding-left:var(--s-7);display:grid;gap:var(--s-6)}
+/* o filete fica no eixo dos marcadores: 13px = centro do ponto de 12px em 8px */
 .passos::before{
-  content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;
+  content:"";position:absolute;left:13px;top:10px;bottom:10px;width:2px;
   background:var(--c-accent-light);transform:scaleY(0);transform-origin:top;
 }
 html[data-motion="on"] .passos::before{transition:transform 1s var(--ease-out)}
@@ -598,42 +611,75 @@ html[data-motion="on"] .passos::before{transition:transform 1s var(--ease-out)}
 html:not([data-motion="on"]) .passos::before{transform:scaleY(1)}
 .passo{position:relative}
 .passo::before{
-  content:"";position:absolute;left:calc(-1 * var(--s-6) + 4px);top:8px;
+  content:"";position:absolute;left:calc(-1 * var(--s-7) + 8px);top:9px;
   width:12px;height:12px;border-radius:50%;
-  background:var(--c-violet);border:2px solid var(--c-accent-light);
+  background:var(--c-ink);border:2px solid var(--c-accent-light);
 }
-.passo b{display:block;font-family:var(--f-display);font-size:var(--t-lg);font-weight:600}
-.passo p{font-size:var(--t-sm);color:var(--c-muted-dark);margin-top:var(--s-2);max-width:38ch}
-html[data-motion="on"] .passos .passo{opacity:0}
-html[data-motion="on"] .passos.is-in .passo{animation:passo-in .7s var(--ease-out) forwards}
-html[data-motion="on"] .passos.is-in .passo:nth-child(1){animation-delay:.18s}
-html[data-motion="on"] .passos.is-in .passo:nth-child(2){animation-delay:.38s}
-html[data-motion="on"] .passos.is-in .passo:nth-child(3){animation-delay:.58s}
-@keyframes passo-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.passo b{display:block;font-family:var(--f-display);font-size:var(--t-xl);font-weight:600}
+.passo p{font-size:var(--t-sm);color:var(--c-muted-dark);margin-top:var(--s-2);max-width:40ch}
+/* entrada escalonada dos passos: usa o mesmo motor de reveal do resto do site
+   (transição + [data-reveal]), então o conteúdo aparece mesmo sem animação */
+.passo[data-reveal]:nth-child(1){--d:180ms}
+.passo[data-reveal]:nth-child(2){--d:380ms}
+.passo[data-reveal]:nth-child(3){--d:580ms}
 @media (prefers-reduced-motion: reduce){
-  html[data-motion="on"] .passos .passo{opacity:1;animation:none}
   html[data-motion="on"] .passos::before{transform:scaleY(1)}
 }
 
-.cta__card{
-  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);
-  border-radius:var(--r-lg);padding:clamp(1.5rem,3.5vw,2.5rem);
-  display:grid;gap:var(--s-6);
+/* ação: botão + contatos em linha (o card pesado saiu; o rodapé já repete tudo) */
+.cta__acao{margin-top:var(--s-6);display:grid;gap:var(--s-5);justify-items:start}
+.cta__contatos{display:grid;gap:var(--s-3)}
+.cta__contatos li{display:flex;align-items:center;gap:var(--s-3);font-size:var(--t-sm)}
+.cta__contatos svg{width:18px;height:18px;flex:none;color:var(--c-accent-light)}
+.cta__contatos a,.cta__contatos span{color:var(--c-muted-dark);text-decoration:none;overflow-wrap:anywhere}
+.cta__contatos a{display:inline-flex;align-items:center;min-height:28px}
+.cta__contatos a:hover{color:#fff}
+
+@media (max-width:900px){
+  .cta__grid{grid-template-columns:1fr}
+  .cta__foto{order:-1;clip-path:none}
+  .cta__foto img{min-height:0;aspect-ratio:16/10;height:auto}
+  .cta__foto::after{background:linear-gradient(to top, rgba(10,11,50,.72), rgba(10,11,50,.18))}
+  .cta__texto{padding-inline:var(--gut)}
 }
-.contatos{display:grid;gap:var(--s-5)}
-.contatos a,.contatos div{display:flex;align-items:flex-start;gap:var(--s-4);
-  text-decoration:none;font-size:var(--t-base);color:#fff;max-width:none}
-.contatos a:hover{color:var(--c-accent-light)}
-.contatos svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--c-accent-light)}
-.contatos small{display:block;font-size:var(--t-xs);letter-spacing:.08em;text-transform:uppercase;
-  color:var(--c-muted-dark);margin-bottom:3px}
-/* E-mail/endereço são strings longas. Precisa ser `anywhere`, não `break-word`:
-   só `anywhere` entra no cálculo de min-content — com `break-word` a trilha do
-   grid crescia até caber o e-mail inteiro e estourava o documento em 320px. */
-.contatos span{display:block;overflow-wrap:anywhere}
-.contatos a,.contatos div{min-width:0}
-.ft a,.ft li{overflow-wrap:anywhere}
-@media (max-width:900px){ .cta__grid{grid-template-columns:1fr} }
+
+/* =========================================================================
+   Botão flutuante de WhatsApp
+   O contêiner é da MARCA; só o glifo usa o verde real do WhatsApp (#25D366,
+   9.57:1 sobre o ink) — reconhecimento do canal sem reprovar contraste, que é
+   o que acontece com texto branco sobre o verde puro (1.98:1).
+   ========================================================================= */
+.wa-flutua{
+  position:fixed;right:clamp(1rem,3vw,2rem);bottom:clamp(1rem,3vw,2rem);z-index:85;
+  display:inline-flex;align-items:center;gap:var(--s-3);
+  min-height:56px;padding:0 var(--s-5) 0 var(--s-4);
+  background:var(--c-ink);color:#fff;text-decoration:none;
+  border:1px solid rgba(255,255,255,.16);border-radius:var(--pill);
+  box-shadow:0 10px 30px -10px rgba(10,11,50,.55);
+  font-size:var(--t-sm);font-weight:600;letter-spacing:.03em;white-space:nowrap;
+  opacity:0;visibility:hidden;transform:translateY(14px);
+  transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease),
+             visibility var(--dur), background var(--dur-fast) var(--ease),
+             bottom var(--dur) var(--ease);
+}
+.wa-flutua[data-visivel="true"]{opacity:1;visibility:visible;transform:none}
+.wa-flutua:hover{background:var(--c-indigo)}
+.wa-flutua:active{transform:scale(.98)}
+.wa-flutua__ico{display:grid;place-items:center;width:32px;height:32px;flex:none;color:#25D366}
+.wa-flutua__ico svg{width:28px;height:28px}
+/* sobe quando a barra de cookies está aberta, para não cobrir os botões dela */
+body.ck-aberta .wa-flutua{bottom:calc(clamp(1rem,3vw,2rem) + var(--ck-altura,140px))}
+/* some com lightbox ou menu abertos */
+body.is-locked .wa-flutua{opacity:0;visibility:hidden}
+
+@media (max-width:560px){
+  .wa-flutua{min-height:52px;padding:0 var(--s-4) 0 var(--s-3);font-size:var(--t-xs)}
+  .wa-flutua__ico{width:28px;height:28px}
+  .wa-flutua__ico svg{width:24px;height:24px}
+}
+@media (prefers-reduced-motion: reduce){
+  .wa-flutua{transition:opacity 1ms linear, visibility 1ms linear}
+}
 
 /* =========================================================================
    Footer
