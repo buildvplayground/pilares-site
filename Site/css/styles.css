@@ -360,6 +360,9 @@ html[data-motion="on"] .hero.is-in .hero__media{
 .band{position:relative;padding:0;overflow:hidden;isolation:isolate}
 .band__media{position:relative;height:clamp(300px,52vh,560px);overflow:hidden}
 .band__media img{width:100%;height:126%;object-fit:cover;object-position:50% 40%;will-change:transform}
+/* foto em retrato recortada numa faixa larga: sem descer o enquadramento,
+   a faixa mostra só o céu e perde o assunto (a estrutura sobre a água) */
+.band__media--baixo img{object-position:50% 62%}
 .band__media::after{
   content:"";position:absolute;inset:0;
   background:linear-gradient(90deg,rgba(10,11,50,.62) 0%,rgba(10,11,50,.34) 46%,rgba(10,11,50,.06) 100%);
@@ -427,7 +430,9 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
   transition:transform .7s var(--ease-out);
 }
 .obra--big .obra__fig{height:100%;min-height:360px}
-.obra--big .obra__fig img{aspect-ratio:auto}
+.obra--big .obra__fig img{aspect-ratio:auto;object-position:50% 30%}
+/* o card grande é quase quadrado; numa foto retrato o recorte central cai no
+   piso e perde o assunto — sobe o enquadramento */
 .obra:hover .obra__fig img,.obra:focus-visible .obra__fig img{transform:scale(1.045)}
 .obra__zoom{
   position:absolute;right:var(--s-4);bottom:var(--s-4);
