@@ -19,6 +19,8 @@ html{
 }
 @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} }
 
+main{overflow-x:clip}
+
 body{
   margin:0;
   background:var(--c-bg);
@@ -117,6 +119,13 @@ section{padding:var(--sec-y) 0}
 .btn--wa{--btn-bg:var(--c-accent)}
 .btn--wa:hover{--btn-bg:var(--c-accent-strong)}
 .btn--lg{min-height:58px;padding:0 var(--s-6);font-size:var(--t-base)}
+/* em tela muito estreita o rótulo não quebra (nowrap), então é o respiro
+   interno e o tracking que cedem — nunca a legibilidade */
+@media (max-width:400px){
+  .btn{padding:0 var(--s-4);letter-spacing:.04em}
+  .btn--lg{padding:0 var(--s-4);font-size:var(--t-xs)}
+  .cta__card{padding:var(--s-5)}
+}
 .btn--ghost{--btn-bg:transparent;--btn-fg:var(--c-ink);border-color:var(--c-line)}
 .btn--ghost:hover{--btn-bg:transparent;--btn-fg:var(--c-accent);border-color:var(--c-accent)}
 .btn--on-dark{--btn-bg:#fff;--btn-fg:var(--c-ink)}
@@ -217,7 +226,7 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 }
 
 /* =========================================================================
-   Hero — foto full-bleed + painel indigo de borda dura
+   Hero: foto full-bleed em 100% da largura + véu para legibilidade
    ========================================================================= */
 .hero{
   position:relative;isolation:isolate;
@@ -261,7 +270,7 @@ html[data-motion="on"] .hero.is-in .hero__media{
   /* cada frase do h1 é um bloco: a quebra acontece na PONTUAÇÃO, em qualquer
      largura, em vez de as duas frases escorrerem juntas */
   /* teto menor que --t-5xl: a palavra mais longa tem de caber no painel */
-  font-size:clamp(2.25rem,1.5rem + 2.6vw,4rem);
+  font-size:clamp(2rem,1.15rem + 2.9vw,4rem);   /* em 375px cabe 1 frase por linha */
 }
 .hero__lede{color:#DDDCE8;font-size:var(--t-lg);max-width:56ch;margin-bottom:var(--s-6)}
 .hero__actions{display:flex;flex-wrap:wrap;gap:var(--s-4)}
@@ -323,7 +332,7 @@ html[data-motion="on"] .hero.is-in .hero__media{
 .split__media{position:relative}
 .split__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
 .split__body{display:grid;gap:var(--s-5);align-content:center}
-.split__body h2{max-width:24ch;text-wrap:balance}
+.split__body h2{font-size:var(--t-3xl);max-width:26ch;text-wrap:balance}
 /* filete-assinatura: agora POR DENTRO da figura (ela sangra até a borda) */
 .split__media::after{
   content:"";position:absolute;right:0;bottom:0;width:3px;height:88px;background:var(--c-accent)
@@ -363,7 +372,7 @@ html[data-motion="on"] .hero.is-in .hero__media{
   display:flex;align-items:center;gap:var(--s-4);
 }
 .frente__n::after{content:"";height:1px;flex:1;background:var(--c-line)}
-.frente h3{font-size:var(--t-2xl);max-width:22ch}
+.frente h3{font-size:var(--t-2xl);max-width:30ch}
 .frente__scope{display:flex;flex-wrap:wrap;gap:var(--s-3) 0;margin-top:var(--s-2)}
 .frente__scope li{
   font-size:var(--t-xs);letter-spacing:.06em;text-transform:uppercase;color:var(--c-muted);
@@ -414,9 +423,9 @@ html[data-motion="on"] .hero.is-in .hero__media{
 }
 
 /* =========================================================================
-   Processo — banda escura, 5 colunas com filete vertical (os pilares)
+   Processo: banda escura, filete vertical por etapa (os pilares)
    ========================================================================= */
-.proc__grid{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s-5)}
+.proc__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-7) var(--s-6)}
 .step{position:relative;padding-left:var(--s-5)}
 .step::before{
   content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
@@ -435,9 +444,9 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
   color:var(--c-accent-light);
 }
 .step h3{font-size:var(--t-lg);margin:var(--s-3) 0}
-.step p{font-size:var(--t-sm);color:var(--c-muted-dark);max-width:34ch}
-@media (max-width:1079px){ .proc__grid{grid-template-columns:repeat(2,1fr);gap:var(--s-6) var(--s-5)} }
-@media (max-width:560px){ .proc__grid{grid-template-columns:1fr} }
+.step p{font-size:var(--t-base);color:var(--c-muted-dark);max-width:42ch}
+@media (max-width:1023px){ .proc__grid{grid-template-columns:repeat(2,1fr);gap:var(--s-6) var(--s-5)} }
+@media (max-width:640px){ .proc__grid{grid-template-columns:1fr} }
 
 /* =========================================================================
    Portfólio — mosaico 3x3 com destaque 2x2; cards SEM caixa própria
@@ -520,7 +529,7 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 .dest__body{padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
 .dest__media img{width:100%;object-fit:cover;aspect-ratio:4/5}
 .dest__body{display:grid;gap:var(--s-5)}
-.dest__body h2{max-width:20ch;text-wrap:balance}
+.dest__body h2{font-size:var(--t-3xl);max-width:24ch;text-wrap:balance}
 .ficha{display:grid;grid-template-columns:repeat(3,auto);gap:var(--s-6);
   padding:var(--s-5) 0;border-top:1px solid var(--c-line);border-bottom:1px solid var(--c-line);
   justify-content:start}
@@ -834,3 +843,7 @@ body.is-locked{overflow:hidden}
 
 /* honeypot: invisível para gente, presente para robô */
 .hp{position:absolute !important;left:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* link sozinho num <dd> não é "inline num bloco de texto": vale o mínimo de
+   alvo de toque de 24px (WCAG 2.2 SC 2.5.8) */
+.prosa dd > a:only-child{display:inline-flex;align-items:center;min-height:28px}

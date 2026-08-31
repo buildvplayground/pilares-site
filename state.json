@@ -3,75 +3,184 @@
  "slug": "pilares",
  "cliente": "Pilares Engenharia LTDA",
  "setor": "construtora e incorporadora",
- "etapa_atual": 5,
- "atualizado_em": "2026-08-27",
+ "praca": "Salvador, BA",
+ "etapa_atual": 8,
+ "atualizado_em": "2026-08-31",
  "etapas": [
   {
    "n": 1,
    "nome": "Extrair do Drive",
    "status": "done",
-   "nota": "rclone; 30 arquivos / 37MB; pastas 02 e 03 do Drive estão VAZIAS"
+   "nota": "rclone; 30 arquivos / 37MB. As pastas '02. Criativos' e '03. Site e páginas' do Drive estão VAZIAS."
   },
   {
    "n": 2,
    "nome": "Organizar pastas",
    "status": "done",
-   "nota": "Marca/ Copys/ imagens/ + .gitignore + PROJETO.md + state.json"
+   "nota": "Marca/ Copys/ imagens/ design-system/ + .gitignore seguro + PROJETO.md + state.json"
   },
   {
    "n": "2b",
    "nome": "Repo GitHub",
-   "status": "pending",
-   "nota": ""
+   "status": "done",
+   "nota": "dev-buildv/pilares-site privado; versiona Site/ (pasta de deploy), estado e .github/"
   },
   {
    "n": 3,
    "nome": "Design system",
    "status": "done",
-   "nota": "paleta amostrada do vetor do cartão (#0A0B32/#5E4C9A); AA verificado; ui-ux-pro-max só p/ anti-padrões"
+   "nota": "paleta amostrada do VETOR do cartão aprovado (#0A0B32 / #5E4C9A / #EBEBF4); AA calculado par a par; ui-ux-pro-max usado só para anti-padrões"
   },
   {
    "n": 4,
    "nome": "Extrair copy",
    "status": "done",
-   "nota": "copy oficial da apresentação institucional + cartão; 6 discrepâncias registradas"
+   "nota": "fonte canônica = apresentação institucional + cartão (consistentes entre si). 6 discrepâncias registradas em Copys/_discrepancias.md. Sem travessão na copy."
   },
   {
    "n": 5,
    "nome": "Front-end",
-   "status": "doing",
-   "nota": ""
+   "status": "done",
+   "nota": "HTML+CSS+JS vanilla. Hero foto full-bleed com véu; imagens das seções sangram até a borda; portfólio mosaico 6 obras com lightbox de galeria; motor de movimento próprio (reveal up/soft/fig/mask, split de título, scrub do processo, parallax ≤0.12)"
   },
   {
    "n": 6,
-   "nome": "Ajustes finais / imagens",
-   "status": "doing",
-   "nota": "imagens já tratadas: 16.2MB -> 2.88MB webp (-82%)"
+   "nome": "Ajustes finais / imagens / auditoria",
+   "status": "done",
+   "nota": "imagens 16.2MB -> 2.88MB webp (-82%). Auditoria por MEDIÇÃO via CDP: overflow 0 em 320/360/375/414/768/900/1024/1200/1440/1920; contraste AA (inclusive texto sobre foto medido em pixel real); WCAG 1.4.12 e zoom 200%/400% sem perda; foco visível em 33 controles"
   },
   {
    "n": 7,
    "nome": "Tags e módulos",
-   "status": "pending",
-   "nota": ""
+   "status": "done",
+   "nota": "LGPD instalado: banner de cookies com evento no dataLayer, Política de Privacidade, Fornecedores/Trabalhe Conosco + backend PHP (PDO, finfo, honeypot, prova de consentimento). GTM/GA4/Pixel e Merlin PULADOS: IDs não fornecidos."
   },
   {
    "n": 8,
    "nome": "Revisão humana",
    "status": "pending",
-   "nota": "gate humano"
+   "nota": "gate humano — preview local em http://localhost:8795/"
   },
   {
    "n": 9,
    "nome": "Deploy",
    "status": "blocked",
-   "nota": "falta hospedagem + domínio"
+   "nota": "falta definir hospedagem, registrar/apontar domínio e cadastrar segredos. Workflow de FTP já preparado em .github/workflows/deploy-hostinger.yml"
   }
  ],
  "links": {
   "drive": "https://drive.google.com/drive/folders/1yISMYB-iFyZtYk_73C4vo6u2F0wNvwMF",
-  "repo": null,
-  "preview": null,
+  "repo": "https://github.com/dev-buildv/pilares-site",
+  "preview": "http://localhost:8795/",
   "dominio": null
  },
- "pendencias": []
+ "pendencias": [
+  {
+   "id": "hospedagem",
+   "grupo": "Deploy",
+   "prioridade": "alta",
+   "titulo": "Definir a hospedagem (Vercel ou Hostinger)",
+   "detalhe": "A escolha muda o backend do formulário de Fornecedores: em Hostinger o PHP já está pronto; em Vercel (estático) é preciso serverless function, serviço de formulário ou só WhatsApp. Ver Site/php/README.md."
+  },
+  {
+   "id": "dominio",
+   "grupo": "Deploy",
+   "prioridade": "alta",
+   "titulo": "Registrar/apontar o domínio pilaresengltda.com.br",
+   "detalhe": "O domínio informado no material NÃO resolve (ENOTFOUND, verificado em 27/08/2026). Confirmar se foi registrado e para onde deve apontar. O site usa esse domínio em canonical, Open Graph e JSON-LD."
+  },
+  {
+   "id": "ftp",
+   "grupo": "Deploy",
+   "prioridade": "alta",
+   "titulo": "Cadastrar os segredos de FTP no GitHub",
+   "detalhe": "Settings > Secrets and variables > Actions: FTP_HOST, FTP_USER, FTP_PASSWORD e FTP_DIR (normalmente public_html/). Sem eles o workflow falha de propósito, sem publicar."
+  },
+  {
+   "id": "banco",
+   "grupo": "Deploy",
+   "prioridade": "media",
+   "titulo": "Criar o banco MySQL e o db-config.php no servidor",
+   "detalhe": "Rodar Site/php/schema.sql (cria a tabela cadastros) e copiar db-config.example.php para db-config.php com host/banco/usuário/senha. O arquivo real está no .gitignore. Só se a hospedagem tiver PHP."
+  },
+  {
+   "id": "tags",
+   "grupo": "Tags e medição",
+   "prioridade": "media",
+   "titulo": "Enviar os IDs de GTM / GA4 / Meta Pixel",
+   "detalhe": "Nenhuma tag foi instalada por falta de ID. O banner de cookies já empurra o evento 'consentimento_cookies' no dataLayer, e os cliques de WhatsApp empurram 'clique_whatsapp' com a origem — basta plugar o GTM e as tags respeitam a LGPD desde o primeiro dia."
+  },
+  {
+   "id": "merlin",
+   "grupo": "Tags e medição",
+   "prioridade": "baixa",
+   "titulo": "Enviar o ID do Merlin (popup), se for usar",
+   "detalhe": "Pulado por falta de ID."
+  },
+  {
+   "id": "cnpj-dpo",
+   "grupo": "Jurídico / LGPD",
+   "prioridade": "alta",
+   "titulo": "Informar CNPJ e o encarregado de dados (DPO)",
+   "detalhe": "A Política de Privacidade está publicada com um aviso explícito de que CNPJ e DPO serão informados. Enquanto isso, o canal de privacidade é contratos@pilaresengltda.com.br."
+  },
+  {
+   "id": "discrepancia-aprofundamento",
+   "grupo": "Copy — precisa de decisão",
+   "prioridade": "alta",
+   "titulo": "A planilha 'Aprofundamento' contradiz o material da marca",
+   "detalhe": "A planilha diz SP Capital, 15 anos, +100 projetos, +30.000 m². A apresentação e o cartão dizem Salvador/BA, DDD 71, SINAPI-BA, +3 anos, +20 obras, +1.500 m². NADA da planilha foi publicado. Confirmar qual é a realidade — se os diferenciais dela forem verdadeiros (financiamento bancário, app de gestão de obra, equipe 100% CLT), são argumentos comerciais fortes e vale adicionar."
+  },
+  {
+   "id": "certificacoes",
+   "grupo": "Copy — precisa de decisão",
+   "prioridade": "alta",
+   "titulo": "Confirmar certificações antes de publicar",
+   "detalhe": "A planilha lista ISO 9001, 'Certificação X' e 'NBR Y' — os dois últimos são campos não preenchidos. Nada foi publicado: alegar certificação não confirmada é risco legal."
+  },
+  {
+   "id": "quarta-frente",
+   "grupo": "Copy — precisa de decisão",
+   "prioridade": "media",
+   "titulo": "Confirmar a quarta frente de atuação",
+   "detalhe": "A apresentação anuncia 'quatro frentes' e descreve três. O cartão lista Projeto, Construção, Reforma e Consultoria. Foram publicadas as três descritas, sem o numeral. Se a quarta é Consultoria, enviar o parágrafo."
+  },
+  {
+   "id": "nomes-obras",
+   "grupo": "Copy — precisa de decisão",
+   "prioridade": "media",
+   "titulo": "Nomear as obras do portfólio e confirmar as fotos do LSP",
+   "detalhe": "As 26 fotos vieram sem legenda. Só o Apartamento LSP tem nome/cidade/ano confirmados (pelo PDF). As outras 5 obras usam rótulo descritivo do que a foto mostra. Confirmar nomes, cidades e se as fotos de acabamento premium são realmente do LSP."
+  },
+  {
+   "id": "depoimentos",
+   "grupo": "Copy — precisa de decisão",
+   "prioridade": "media",
+   "titulo": "Enviar mais 2 ou 3 depoimentos",
+   "detalhe": "Só existe o da 'Família Souza'. O campo de depoimentos da planilha está vazio."
+  },
+  {
+   "id": "clientes-autorizacao",
+   "grupo": "Jurídico / LGPD",
+   "prioridade": "media",
+   "titulo": "Confirmar autorização para citar clientes e parceiros",
+   "detalhe": "Estão publicados por nome (texto, sem logo): Barbosa Tinel, Reinel Construtora, Administradora Aratuba, KV Engenharia, Claudio Cazumba, Tanea Batista. Confirmar se podem aparecer."
+  },
+  {
+   "id": "material-faltante",
+   "grupo": "Material",
+   "prioridade": "baixa",
+   "titulo": "As pastas 02 (Criativos) e 03 (Site e páginas) do Drive estão vazias",
+   "detalhe": "Se houver mais material (logo em vetor original, brandbook, fotos profissionais, wireframes), enviar — o site foi construído com o que havia na pasta 01."
+  }
+ ],
+ "metricas": {
+  "imagens_origem_mb": 16.2,
+  "imagens_webp_mb": 2.88,
+  "reducao_percentual": 82,
+  "overflow_horizontal_320_a_1920": 0,
+  "contraste_falhas_aa": 0,
+  "paginas": 3,
+  "obras_no_portfolio": 6
+ }
 }

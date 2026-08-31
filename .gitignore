@@ -1,18 +1,19 @@
-# ==== BuildV: o repo versiona SÓ o entregável de deploy + estado ====
-# Material-fonte fica local + Google Drive
+# ==== BuildV: o repo versiona SÓ o entregável + estado ====
+# A pasta de deploy é a própria `Site/` (HTML estático + PHP), conforme o
+# padrão BuildV para Hostinger/FTP. Material-fonte fica local + Google Drive.
 _raw/
 imagens/
 Marca/
 Copys/
 design-system/
-
 brief-pack.md
 site antigo/
 _painel/
 
 # Segredos — NUNCA versionar
-db-config.php
+Site/php/db-config.php
 **/db-config.php
+uploads-cadastros/
 .env
 .env.*
 !.env.example

@@ -1,0 +1,53 @@
+# Publica a pasta Site/ por FTP quando houver push na main.
+#
+# 🛑 PRECISA DE SEGREDOS antes de funcionar. Em Settings > Secrets and
+#    variables > Actions, criar:
+#      FTP_HOST      ex.: ftp.seudominio.com.br
+#      FTP_USER      usuário FTP do Hostinger
+#      FTP_PASSWORD  senha do usuário FTP
+#      FTP_DIR       pasta remota (normalmente public_html/)
+#
+# Enquanto os segredos não existirem, o workflow falha de propósito com uma
+# mensagem clara em vez de publicar nada.
+name: Deploy (Hostinger / FTP)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: true
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Conferir se os segredos de FTP existem
+        env:
+          FTP_HOST: ${{ secrets.FTP_HOST }}
+          FTP_USER: ${{ secrets.FTP_USER }}
+          FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
+        run: |
+          if [ -z "$FTP_HOST" ] || [ -z "$FTP_USER" ] || [ -z "$FTP_PASSWORD" ]; then
+            echo "::error::Faltam os segredos FTP_HOST / FTP_USER / FTP_PASSWORD."
+            echo "Cadastre em Settings > Secrets and variables > Actions e rode de novo."
+            exit 1
+          fi
+
+      - name: Enviar Site/ por FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./Site/
+          server-dir: ${{ secrets.FTP_DIR || 'public_html/' }}
+          # db-config.php é criado no servidor e não deve ser sobrescrito
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/db-config.php
