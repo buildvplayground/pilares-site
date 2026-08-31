@@ -47,7 +47,7 @@
    "n": 6,
    "nome": "Ajustes finais / imagens / auditoria",
    "status": "done",
-   "nota": "imagens 16.2MB -> 2.88MB webp (-82%). Auditoria por MEDIÇÃO via CDP: overflow 0 em 320/360/375/414/768/900/1024/1200/1440/1920; contraste AA (inclusive texto sobre foto medido em pixel real); WCAG 1.4.12 e zoom 200%/400% sem perda; foco visível em 33 controles"
+   "nota": "imagens recuratadas: 12 fotos em uso (antes 17); saíram as de canteiro com entulho, escoramento sobre a água e close de alvenaria. Payload 3.70 -> 2.05 MB. Auditoria por MEDIÇÃO via CDP: overflow 0 de 320 a 1920 nas 3 páginas; contraste AA (texto sobre foto medido em pixel real); WCAG 1.4.12 e zoom 200%/400%; foco em 33 controles"
   },
   {
    "n": 7,
@@ -117,6 +117,13 @@
    "prioridade": "media",
    "titulo": "Enviar os IDs de GTM / GA4 / Meta Pixel",
    "detalhe": "Nenhuma tag foi instalada por falta de ID. O banner de cookies já empurra o evento 'consentimento_cookies' no dataLayer, e os cliques de WhatsApp empurram 'clique_whatsapp' com a origem — basta plugar o GTM e as tags respeitam a LGPD desde o primeiro dia."
+  },
+  {
+   "id": "fotos-profissionais",
+   "grupo": "Material",
+   "prioridade": "alta",
+   "titulo": "Contratar ensaio fotográfico das obras entregues",
+   "detalhe": "Das 26 fotos do Drive, só ~10 comunicam qualidade; as demais são registros de canteiro (entulho, escoramento, close de alvenaria) e saíram do site. Uma construtora vende pelo visual: um ensaio de 2 ou 3 obras entregues muda o patamar do site mais do que qualquer ajuste de layout. Hoje há UMA imagem de banco no site, ilustrando a frente de projeto/orçamentação, onde não existia foto de projeto — ela não está na seção Obras."
   },
   {
    "id": "merlin",

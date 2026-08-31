@@ -73,7 +73,14 @@ Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cad
 9. **Botão de WhatsApp:** o contêiner é da marca e só o **glifo** usa o verde real
    (`#25D366`). Texto branco sobre o verde puro dá 1.98:1 e reprovaria AA; o glifo sobre
    o ink dá 9.57:1 e preserva o reconhecimento do canal (guard rail do `design-bank`).
-10. **Deploy na Vercel:** `deploy-vercel/` é **sempre gerada** por
+10. **Curadoria de fotos:** foto que não comunica saiu do site. Das 26 do Drive, 12 estão
+   em uso; as de canteiro com entulho, escoramento sobre a água e close de alvenaria foram
+   descartadas (seguem em `imagens/tratadas/`). **Uma** imagem de banco entrou, ilustrando
+   a frente de *Gestão de obra & orçamentação*, onde o cliente não tem foto de projeto.
+   Ela **não** entra na seção Obras: ali a legenda afirma autoria da Pilares, e usar banco
+   seria fabricar portfólio. `obra-living-vidro` foi recortada para tirar latas de tinta
+   do enquadramento.
+11. **Deploy na Vercel:** `deploy-vercel/` é **sempre gerada** por
    `node _raw/build-deploy-vercel.js`, nunca editada à mão — `Site/` continua sendo a
    fonte única. Na variante da Vercel o backend PHP sai e entra uma serverless function;
    o campo de anexo sai (upload exigiria dependência externa) e a página pede por e-mail.
