@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fornecedores e Trabalhe Conosco — Pilares Engenharia e Construções</title>
+<meta name="description" content="Cadastre sua empresa como fornecedora da Pilares Engenharia ou envie sua candidatura para trabalhar com a gente em Salvador (BA).">
+<link rel="canonical" href="https://pilaresengltda.com.br/fornecedores.html">
+<meta name="theme-color" content="#0A0B32">
+
+<link rel="icon" href="assets/img/pilares-simbolo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+<script>document.documentElement.setAttribute('data-motion','on')</script>
+</head>
+<body>
+
+<a class="skip" href="#conteudo">Ir para o conteúdo</a>
+
+<header class="hdr" id="hdr">
+  <div class="container hdr__in">
+    <a class="hdr__logo" href="index.html" aria-label="Pilares Engenharia e Construções — início">
+      <img src="assets/img/pilares-logo.png" alt="Pilares Engenharia e Construções" width="169" height="145">
+    </a>
+    <nav class="nav" id="nav" aria-label="Navegação principal">
+      <a href="index.html#sobre">Sobre</a>
+      <a href="index.html#atuacao">Atuação</a>
+      <a href="index.html#processo">Processo</a>
+      <a href="index.html#obras">Obras</a>
+      <a href="index.html#contato">Contato</a>
+    </nav>
+    <div class="hdr__cta">
+      <a class="btn btn--wa" data-wa-btn="header-fornecedores"
+         href="https://wa.me/5571983979696?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+         target="_blank" rel="noopener">
+        Solicitar orçamento
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        <span class="vh">(abre o WhatsApp em nova aba)</span>
+      </a>
+    </div>
+    <button class="hdr__burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<div class="scrim" id="scrim" aria-hidden="true"></div>
+
+<nav class="drawer" id="drawer" aria-label="Navegação (menu móvel)" data-open="false">
+  <a href="index.html#sobre">Sobre</a>
+  <a href="index.html#atuacao">Atuação</a>
+  <a href="index.html#processo">Processo</a>
+  <a href="index.html#obras">Obras</a>
+  <a href="index.html#contato">Contato</a>
+  <a class="btn btn--wa" data-wa-btn="menu-fornecedores"
+     href="https://wa.me/5571983979696?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+     target="_blank" rel="noopener">
+    Solicitar orçamento
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    <span class="vh">(abre o WhatsApp em nova aba)</span>
+  </a>
+</nav>
+
+<main id="conteudo">
+
+  <section class="pg-head">
+    <div class="container">
+      <p class="eyebrow">Parcerias e carreira</p>
+      <h1>Fornecedores e Trabalhe Conosco</h1>
+      <p>
+        Trabalhamos com equipe especializada e uma rede de fornecedores que sustenta o
+        prazo e o padrão técnico das nossas obras. Se você quer fornecer para a Pilares ou
+        fazer parte do time, envie seu cadastro por aqui.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prosa">
+        <h2>Como funciona</h2>
+        <ol>
+          <li>Você envia o cadastro no formulário abaixo, indicando se é <strong>fornecedor</strong> ou <strong>candidato a vaga</strong>.</li>
+          <li>Recebemos e analisamos o material — pode anexar currículo, portfólio ou catálogo.</li>
+          <li>Guardamos seu cadastro no nosso banco de parceiros e entramos em contato quando houver demanda compatível.</li>
+        </ol>
+        <div class="nota">
+          <p>
+            <strong>Este canal não é para orçamento de obra.</strong> Se você quer contratar a
+            Pilares, fale direto pelo
+            <a href="https://wa.me/5571983979696" target="_blank" rel="noopener">WhatsApp (71) 9 8397-9696</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-alt" aria-labelledby="tituloForm">
+    <div class="container">
+      <div class="prosa" style="margin-bottom:var(--s-6)">
+        <h2 id="tituloForm">Enviar cadastro</h2>
+        <p>Campos marcados com <abbr title="obrigatório">*</abbr> são obrigatórios.</p>
+      </div>
+
+      <form class="form" id="formCadastro" action="php/enviar-cadastro.php" method="post"
+            enctype="multipart/form-data" novalidate>
+
+        <input type="hidden" name="origem" value="fornecedores">
+        <!-- honeypot anti-robô: pessoas não veem, robôs preenchem -->
+        <div class="hp" aria-hidden="true">
+          <label for="site_web">Não preencha este campo</label>
+          <input type="text" id="site_web" name="site_web" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="campo">
+          <label for="tipo">Tipo de cadastro <abbr title="obrigatório">*</abbr></label>
+          <select id="tipo" name="tipo" required aria-describedby="erro-tipo">
+            <option value="">Selecione…</option>
+            <option value="fornecedor">Sou fornecedor / prestador de serviço</option>
+            <option value="candidato">Quero trabalhar na Pilares</option>
+          </select>
+          <span class="erro" id="erro-tipo" role="alert"></span>
+        </div>
+
+        <div class="dupla">
+          <div class="campo">
+            <label for="nome">Nome completo ou razão social <abbr title="obrigatório">*</abbr></label>
+            <input type="text" id="nome" name="nome" required autocomplete="name"
+                   maxlength="120" aria-describedby="erro-nome">
+            <span class="erro" id="erro-nome" role="alert"></span>
+          </div>
+          <div class="campo">
+            <label for="email">E-mail <abbr title="obrigatório">*</abbr></label>
+            <input type="email" id="email" name="email" required autocomplete="email"
+                   maxlength="120" aria-describedby="erro-email">
+            <span class="erro" id="erro-email" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="dupla">
+          <div class="campo">
+            <label for="telefone">Telefone / WhatsApp <abbr title="obrigatório">*</abbr></label>
+            <input type="tel" id="telefone" name="telefone" required autocomplete="tel"
+                   inputmode="tel" maxlength="20" placeholder="(71) 9 0000-0000"
+                   aria-describedby="dica-telefone erro-telefone">
+            <span class="dica" id="dica-telefone">Com DDD.</span>
+            <span class="erro" id="erro-telefone" role="alert"></span>
+          </div>
+          <div class="campo">
+            <label for="area">Área de atuação ou serviço <abbr title="obrigatório">*</abbr></label>
+            <input type="text" id="area" name="area" required maxlength="120"
+                   placeholder="Ex.: elétrica, esquadrias, engenheiro de obra"
+                   aria-describedby="erro-area">
+            <span class="erro" id="erro-area" role="alert"></span>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem <abbr title="obrigatório">*</abbr></label>
+          <textarea id="mensagem" name="mensagem" required maxlength="2000"
+                    aria-describedby="dica-mensagem erro-mensagem"></textarea>
+          <span class="dica" id="dica-mensagem">Conte brevemente sua experiência, porte da empresa ou o que você fornece.</span>
+          <span class="erro" id="erro-mensagem" role="alert"></span>
+        </div>
+
+        <div class="campo">
+          <label for="arquivo">Anexo (opcional)</label>
+          <input type="file" id="arquivo" name="arquivo"
+                 accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.webp"
+                 aria-describedby="dica-arquivo erro-arquivo">
+          <span class="dica" id="dica-arquivo">Currículo, portfólio ou catálogo. PDF, DOC, DOCX, JPG, PNG ou WEBP, até 5 MB.</span>
+          <span class="erro" id="erro-arquivo" role="alert"></span>
+        </div>
+
+        <div class="consent">
+          <input type="checkbox" id="consent" name="consent" value="1" required
+                 aria-describedby="erro-consent">
+          <label for="consent">
+            Autorizo a Pilares Engenharia LTDA a tratar os dados e o arquivo enviados para
+            avaliar este cadastro e me contatar sobre demandas compatíveis, conforme a
+            <a href="privacidade.html">Política de Privacidade</a>. Posso revogar esta
+            autorização a qualquer momento. <abbr title="obrigatório">*</abbr>
+          </label>
+        </div>
+        <span class="erro" id="erro-consent" role="alert"></span>
+
+        <p class="form__aviso" id="avisoForm" role="status" hidden></p>
+
+        <div>
+          <button class="btn btn--lg" type="submit" id="btnEnviar">
+            Enviar cadastro
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="prosa">
+        <h2>Preferimos falar direto?</h2>
+        <p>
+          Também recebemos cadastros pelo e-mail
+          <a href="mailto:contratos@pilaresengltda.com.br">contratos@pilaresengltda.com.br</a>
+          ou pelo WhatsApp
+          <a href="https://wa.me/5571983979696" target="_blank" rel="noopener">(71) 9 8397-9696</a>.
+        </p>
+        <p>
+          <a class="voltar" href="index.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            Voltar para a página inicial
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="ft">
+  <div class="container">
+    <div class="ft__grid">
+      <div class="ft__brand">
+        <div class="ft__logo">
+          <img src="assets/img/pilares-logo-branco.png" alt="Pilares Engenharia e Construções" width="169" height="145">
+        </div>
+        <p>
+          Pilares Engenharia LTDA — construtora e incorporadora em Salvador (BA).
+          Gestão de obras, incorporação imobiliária e execução civil&nbsp;completa.
+        </p>
+      </div>
+      <div class="ft__col">
+        <h3>Navegar</h3>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#atuacao">Atuação</a></li>
+          <li><a href="index.html#processo">Processo</a></li>
+          <li><a href="index.html#obras">Obras</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+      <div class="ft__col">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="https://wa.me/5571983979696" target="_blank" rel="noopener">(71) 9 8397-9696</a></li>
+          <li><a href="mailto:contratos@pilaresengltda.com.br">contratos@pilaresengltda.com.br</a></li>
+          <li><a href="https://www.instagram.com/pilareseconstrutora" target="_blank" rel="noopener">@pilareseconstrutora</a></li>
+          <li>Av. Sete de Setembro, 106 — Salvador/BA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft__bot">
+      <p>&copy; <span id="ano">2026</span> Pilares Engenharia LTDA. Todos os direitos&nbsp;reservados.</p>
+      <p class="sep"><a href="privacidade.html">Política de Privacidade</a></p>
+      <p><a href="fornecedores.html" aria-current="page">Fornecedores e Trabalhe Conosco</a></p>
+    </div>
+  </div>
+</footer>
+
+<aside class="ck" id="ck" role="region" aria-label="Aviso de cookies" data-open="false">
+  <div class="container ck__in">
+    <p>
+      Usamos cookies para entender como o site é usado e melhorar sua experiência. Você
+      escolhe: aceitar todos ou manter só os necessários. Detalhes na
+      <a href="privacidade.html">Política de Privacidade</a>.
+    </p>
+    <div class="ck__acts">
+      <button class="btn btn--ghost" type="button" data-ck="reject">Só os necessários</button>
+      <button class="btn btn--on-dark" type="button" data-ck="accept">Aceitar todos</button>
+    </div>
+  </div>
+</aside>
+
+<script src="js/app.js"></script>
+<script src="js/form.js"></script>
+</body>
+</html>

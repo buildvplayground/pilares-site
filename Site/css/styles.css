@@ -103,6 +103,7 @@ section{padding:var(--sec-y) 0}
   letter-spacing:.06em;text-transform:uppercase;
   text-decoration:none;border:1px solid var(--btn-bg);border-radius:var(--r-md);
   cursor:pointer;
+  white-space:nowrap;      /* rótulo de botão não quebra em duas linhas */
   transition:background var(--dur-fast) var(--ease),
              border-color var(--dur-fast) var(--ease),
              color var(--dur-fast) var(--ease),
@@ -234,18 +235,25 @@ html[data-motion="on"] .hero.is-in .hero__media{
   clip-path:inset(0 0 0 0);
   transition:clip-path 1s var(--ease-out) .15s;
 }
-.hero__panel{
-  position:absolute;inset:0 52% 0 0;z-index:-1;
-  background:var(--c-ink);
+/* Véu sobre a foto full-bleed: forte à esquerda (onde fica o texto), quase
+   transparente à direita, para a imagem continuar aparecendo.
+   Não é gradiente decorativo — é o que garante o contraste AA do texto. */
+.hero__media::after{
+  content:"";position:absolute;inset:0;z-index:1;
+  background:
+    linear-gradient(93deg, rgba(10,11,50,.94) 0%, rgba(10,11,50,.86) 34%,
+                           rgba(10,11,50,.55) 62%, rgba(10,11,50,.30) 100%),
+    linear-gradient(to top, rgba(10,11,50,.55) 0%, rgba(10,11,50,0) 45%);
 }
-/* filete de acento na borda dura do painel */
-.hero__panel::after{
-  content:"";position:absolute;top:0;right:0;bottom:0;width:2px;background:var(--c-accent);
+/* filete de acento na base do hero, herdado do filete do cartão */
+.hero::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;z-index:2;
+  background:linear-gradient(90deg,var(--c-accent) 0%,var(--c-accent) 38%,transparent 100%);
 }
 .hero__in{position:relative;z-index:1}
 /* medida em rem, não em `ch`: `ch` aqui é calculado no font-size do contêiner
    (16px) e não no do h1 (68px+), o que fazia a palavra mais longa transbordar */
-.hero__box{max-width:30rem}
+.hero__box{max-width:44rem}   /* largura maior = menos quebras no h1 e no lede */
 .hero .eyebrow{color:var(--c-accent-light);margin-bottom:var(--s-5)}
 .hero h1 > span{display:block}
 .hero h1{
@@ -253,9 +261,9 @@ html[data-motion="on"] .hero.is-in .hero__media{
   /* cada frase do h1 é um bloco: a quebra acontece na PONTUAÇÃO, em qualquer
      largura, em vez de as duas frases escorrerem juntas */
   /* teto menor que --t-5xl: a palavra mais longa tem de caber no painel */
-  font-size:clamp(2.125rem,1.35rem + 2vw,3rem);
+  font-size:clamp(2.25rem,1.5rem + 2.6vw,4rem);
 }
-.hero__lede{color:var(--c-muted-dark);font-size:var(--t-lg);max-width:44ch;margin-bottom:var(--s-6)}
+.hero__lede{color:#DDDCE8;font-size:var(--t-lg);max-width:56ch;margin-bottom:var(--s-6)}
 .hero__actions{display:flex;flex-wrap:wrap;gap:var(--s-4)}
 .hero__actions .btn--ghost{--btn-fg:#fff;border-color:rgba(255,255,255,.32)}
 .hero__actions .btn--ghost:hover{--btn-fg:var(--c-accent-light);border-color:var(--c-accent-light)}
@@ -273,11 +281,15 @@ html[data-motion="on"] .hero.is-in .hero__media{
 }
 
 @media (max-width:1180px){
-  .hero{align-items:center;min-height:auto;padding-bottom:var(--s-8)}
-  .hero__panel{inset:0;background:rgba(10,11,50,.88)}
-  .hero__panel::after{display:none}
-  .hero__box{max-width:30rem}   /* `ch` aqui usa o corpo (16px) e daria só ~272px */
+  .hero{min-height:min(88vh,760px);padding-bottom:var(--s-8)}
   .hero__media img{object-position:50% 45%}
+}
+@media (max-width:900px){
+  /* em tela estreita o véu precisa ser vertical, não lateral */
+  .hero__media::after{
+    background:linear-gradient(to top, rgba(10,11,50,.95) 0%, rgba(10,11,50,.86) 46%,
+                                       rgba(10,11,50,.62) 100%);
+  }
 }
 @media (max-width:560px){
   .hero{padding-top:calc(var(--header-h) + var(--s-6))}
@@ -300,19 +312,27 @@ html[data-motion="on"] .hero.is-in .hero__media{
 /* =========================================================================
    Split (sobre)
    ========================================================================= */
+/* --------------------------------------------------------------------
+   Imagem em LARGURA TOTAL nas seções: a grade ocupa a tela inteira e a
+   figura sangra até a borda; só a coluna de TEXTO recebe o recuo que a
+   alinha com o container do header (padding, nunca margem negativa —
+   assim a barra de rolagem não vira overflow horizontal).
+   -------------------------------------------------------------------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.split__body{padding-right:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
 .split__media{position:relative}
 .split__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
 .split__body{display:grid;gap:var(--s-5);align-content:center}
 .split__body h2{max-width:24ch;text-wrap:balance}
-/* filete-assinatura no canto da figura */
+/* filete-assinatura: agora POR DENTRO da figura (ela sangra até a borda) */
 .split__media::after{
-  content:"";position:absolute;left:-10px;bottom:-10px;width:2px;height:64px;background:var(--c-accent)
+  content:"";position:absolute;right:0;bottom:0;width:3px;height:88px;background:var(--c-accent)
 }
 @media (max-width:900px){
   .split{grid-template-columns:1fr;gap:var(--s-6)}
-  .split__media img{aspect-ratio:16/11}
+  .split__media img{aspect-ratio:16/10}
   .split__media::after{display:none}
+  .split__body{padding:0 var(--gut)}
 }
 
 /* lista de valores com divisórias */
@@ -331,8 +351,11 @@ html[data-motion="on"] .hero.is-in .hero__media{
   display:grid;grid-template-columns:1fr 1fr;
   gap:clamp(2rem,5vw,4rem);align-items:center;
 }
+/* imagem sangra; o texto recua para alinhar com o container */
+.frente:nth-child(odd)  .frente__body{padding-right:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
+.frente:nth-child(even) .frente__body{padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
 .frente:nth-child(even) .frente__media{order:2}
-.frente__media img{width:100%;object-fit:cover;aspect-ratio:5/4}
+.frente__media img{width:100%;object-fit:cover;aspect-ratio:4/3}
 .frente__body{display:grid;gap:var(--s-4);align-content:center}
 .frente__n{
   font-family:var(--f-display);font-size:var(--t-3xl);font-weight:600;line-height:1;
@@ -352,13 +375,15 @@ html[data-motion="on"] .hero.is-in .hero__media{
   .frente{grid-template-columns:1fr;gap:var(--s-5)}
   .frente:nth-child(even) .frente__media{order:0}
   .frente__media img{aspect-ratio:16/10}
+  .frente:nth-child(odd) .frente__body,
+  .frente:nth-child(even) .frente__body{padding:0 var(--gut)}
 }
 
 /* =========================================================================
    Faixa de imagem full-bleed com parallax
    ========================================================================= */
 .band{position:relative;padding:0;overflow:hidden;isolation:isolate}
-.band__media{position:relative;height:clamp(300px,52vh,560px);overflow:hidden}
+.band__media{position:relative;height:clamp(320px,64vh,680px);overflow:hidden}
 .band__media img{width:100%;height:126%;object-fit:cover;object-position:50% 40%;will-change:transform}
 /* foto em retrato recortada numa faixa larga: sem descer o enquadramento,
    a faixa mostra só o céu e perde o assunto (a estrutura sobre a água) */
@@ -491,7 +516,8 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 /* =========================================================================
    Obra em destaque — split + ficha técnica
    ========================================================================= */
-.dest{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.dest{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.dest__body{padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
 .dest__media img{width:100%;object-fit:cover;aspect-ratio:4/5}
 .dest__body{display:grid;gap:var(--s-5)}
 .dest__body h2{max-width:20ch;text-wrap:balance}
@@ -503,7 +529,8 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 @media (max-width:900px){
   .dest{grid-template-columns:1fr}
   .dest__media{order:-1}
-  .dest__media img{aspect-ratio:16/11}
+  .dest__media img{aspect-ratio:16/10}
+  .dest__body{padding:0 var(--gut)}
 }
 @media (max-width:560px){ .ficha{grid-template-columns:1fr;gap:var(--s-4)} }
 
@@ -723,3 +750,87 @@ body.is-locked{overflow:hidden}
 @media (max-width:600px){
   :root{--ls-caps:.10em}
 }
+
+/* =========================================================================
+   Páginas internas (Política de Privacidade, Fornecedores) — mesmo sistema
+   ========================================================================= */
+.pg-head{
+  background:var(--c-ink);color:#fff;
+  padding:calc(var(--header-h) + var(--s-8)) 0 var(--s-8);
+}
+.pg-head h1{color:#fff;font-size:var(--t-4xl);max-width:26ch;text-wrap:balance}
+.pg-head .eyebrow{color:var(--c-accent-light);margin-bottom:var(--s-4)}
+.pg-head p{color:var(--c-muted-dark);margin-top:var(--s-4);max-width:62ch}
+
+.prosa{max-width:74ch;display:grid;gap:var(--s-5)}
+.prosa h2{font-size:var(--t-2xl);margin-top:var(--s-6)}
+.prosa h2:first-child{margin-top:0}
+.prosa h3{font-size:var(--t-lg);margin-top:var(--s-4)}
+.prosa p,.prosa li{color:var(--c-muted)}
+.prosa strong{color:var(--c-ink)}
+.prosa ul,.prosa ol{display:grid;gap:var(--s-3);padding-left:var(--s-5)}
+.prosa ul li{list-style:disc}
+.prosa ol li{list-style:decimal}
+.prosa a{color:var(--c-accent);text-decoration:underline;text-underline-offset:3px}
+.prosa a:hover{color:var(--c-accent-strong)}
+.prosa dl{display:grid;gap:var(--s-3)}
+.prosa dt{font-weight:600;font-size:var(--t-sm)}
+.prosa dd{color:var(--c-muted);font-size:var(--t-sm)}
+.prosa .nota{
+  border-left:2px solid var(--c-accent);padding:var(--s-4) var(--s-5);
+  background:var(--c-bg-2);border-radius:0 var(--r-md) var(--r-md) 0;
+}
+.prosa .nota p{margin:0}
+.prosa table{width:100%;border-collapse:collapse;font-size:var(--t-sm)}
+.prosa th,.prosa td{text-align:left;padding:var(--s-3);border-bottom:1px solid var(--c-line);vertical-align:top}
+.prosa th{font-family:var(--f-body);font-weight:600;color:var(--c-ink)}
+.prosa td{color:var(--c-muted)}
+.tabela-rolavel{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* voltar */
+.voltar{display:inline-flex;align-items:center;gap:var(--s-3);min-height:44px;
+  font-size:var(--t-sm);font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--c-accent);text-decoration:none}
+.voltar svg{width:18px;height:18px;transition:transform var(--dur-fast) var(--ease)}
+.voltar:hover svg{transform:translateX(-4px)}
+
+/* =========================================================================
+   Formulário (só nas páginas internas — nunca como CTA da home)
+   ========================================================================= */
+.form{display:grid;gap:var(--s-5);max-width:44rem}
+.campo{display:grid;gap:var(--s-2)}
+.campo label{font-size:var(--t-sm);font-weight:600}
+.campo .dica{font-size:var(--t-xs);color:var(--c-muted)}
+.campo input,.campo select,.campo textarea{
+  width:100%;min-height:48px;padding:var(--s-3) var(--s-4);
+  background:var(--c-surface);color:var(--c-ink);
+  border:1px solid var(--c-line);border-radius:var(--r-md);
+  font-size:var(--t-base);
+  transition:border-color var(--dur-fast) var(--ease),box-shadow var(--dur-fast) var(--ease);
+}
+.campo textarea{min-height:140px;resize:vertical;line-height:1.6}
+.campo input:focus,.campo select:focus,.campo textarea:focus{
+  border-color:var(--c-accent);box-shadow:0 0 0 3px rgba(94,76,154,.18);outline:none;
+}
+.campo input[aria-invalid="true"],.campo textarea[aria-invalid="true"],.campo select[aria-invalid="true"]{
+  border-color:#B3261E;
+}
+.campo .erro{font-size:var(--t-sm);color:#B3261E;font-weight:500}
+.campo .erro:empty{display:none}
+.dupla{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5)}
+@media (max-width:560px){ .dupla{grid-template-columns:1fr} }
+
+.consent{display:flex;gap:var(--s-4);align-items:flex-start;
+  padding:var(--s-4) var(--s-5);border:1px solid var(--c-line);border-radius:var(--r-md);
+  background:var(--c-surface)}
+.consent input[type="checkbox"]{width:22px;height:22px;min-height:0;flex:none;margin-top:2px;accent-color:var(--c-accent)}
+.consent label{font-size:var(--t-sm);color:var(--c-muted);font-weight:400}
+.consent a{color:var(--c-accent)}
+
+.form__aviso{padding:var(--s-4) var(--s-5);border-radius:var(--r-md);font-size:var(--t-sm);font-weight:500}
+.form__aviso[hidden]{display:none}
+.form__aviso--ok{background:#E7F4EC;color:#14562F;border:1px solid #A7D8BA}
+.form__aviso--erro{background:#FDECEA;color:#8C1D18;border:1px solid #F3B7B2}
+
+/* honeypot: invisível para gente, presente para robô */
+.hp{position:absolute !important;left:-9999px;width:1px;height:1px;overflow:hidden}
