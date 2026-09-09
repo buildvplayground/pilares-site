@@ -209,31 +209,42 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 
 .hdr__cta{display:flex;align-items:center;gap:var(--s-4);padding-left:var(--s-5);
   border-left:1px solid var(--c-line)}
+/* hambúrguer sem caixa (ícone menor e mais limpo); 44px de área de toque */
 .hdr__burger{
-  display:none;width:48px;height:48px;margin-left:auto;
-  background:none;border:1px solid var(--c-line);border-radius:var(--r-md);
-  cursor:pointer;place-items:center;
+  display:none;width:44px;height:44px;margin-left:auto;
+  background:none;border:0;cursor:pointer;place-items:center;
 }
-.hdr__burger span{display:block;width:20px;height:1.5px;background:var(--c-ink);
+.hdr__burger span{display:block;width:26px;height:2px;background:var(--c-ink);border-radius:2px;
   transition:transform var(--dur) var(--ease),opacity var(--dur-fast) var(--ease)}
-.hdr__burger span+span{margin-top:5px}
-.hdr__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hdr__burger span+span{margin-top:.5px}
+.hdr__burger[aria-expanded="true"] span:nth-child(1){transform:translateY(2.5px) rotate(45deg)}
 .hdr__burger[aria-expanded="true"] span:nth-child(2){opacity:0}
-.hdr__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.hdr__burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-2.5px) rotate(-45deg)}
 
-/* off-canvas */
+/* menu mobile FULLSCREEN, com botão de fechar próprio (z acima do header,
+   antes o drawer cobria o burger e não dava pra fechar) */
 .drawer{
-  position:fixed;inset:0 0 0 auto;width:min(86vw,360px);z-index:95;
+  position:fixed;inset:0;z-index:120;
   background:var(--c-ink);color:#fff;
-  padding:calc(var(--header-h) + var(--s-6)) var(--s-6) var(--s-6);
+  padding:var(--header-h) var(--gut) var(--s-7);
   transform:translateX(100%);
   transition:transform .42s var(--ease-out);
-  display:flex;flex-direction:column;gap:var(--s-2);overflow-y:auto;
+  display:flex;flex-direction:column;overflow-y:auto;
 }
 .drawer[data-open="true"]{transform:translateX(0)}
-.drawer a{text-decoration:none;font-family:var(--f-display);font-size:var(--t-xl);
-  padding:var(--s-4) 0;border-bottom:1px solid var(--c-line-dark)}
-.drawer .btn{margin-top:var(--s-5)}
+.drawer__close{
+  position:absolute;top:14px;right:var(--gut);z-index:1;
+  width:48px;height:48px;display:grid;place-items:center;
+  background:none;color:#fff;cursor:pointer;
+  border:1px solid var(--c-line-dark);border-radius:var(--r-md);
+}
+.drawer__close svg{width:22px;height:22px}
+.drawer__nav{flex:1;display:flex;flex-direction:column;justify-content:center;gap:var(--s-1)}
+.drawer__nav a{text-decoration:none;color:#fff;font-family:var(--f-display);
+  font-size:var(--t-3xl);line-height:1.15;
+  padding:var(--s-3) 0;border-bottom:1px solid var(--c-line-dark)}
+.drawer__nav a:last-child{border-bottom:0}
+.drawer .btn{width:100%;margin-top:var(--s-5)}
 .scrim{
   position:fixed;inset:0;z-index:93;background:rgba(10,11,50,.55);
   opacity:0;visibility:hidden;transition:opacity var(--dur) var(--ease),visibility var(--dur);
@@ -266,7 +277,9 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
    fundo (difere do overlay) e não sangra na borda (difere das splits do
    corpo). Fundo ink com profundidade radial; rótulo editorial de canto.
    ------------------------------------------------------------------- */
-.hero--editorial{
+/* .hero.hero--editorial: especificidade (0,2,0) para vencer as media queries
+   do .hero base (@1180 min-height / @560 padding-top), que reintroduziam vão no topo */
+.hero.hero--editorial{
   display:block;align-items:initial;min-height:auto;padding:0;
   background:radial-gradient(118% 125% at 10% 16%, var(--c-indigo) 0%, var(--c-ink) 66%);
 }
@@ -299,8 +312,8 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
   .hero--editorial .hero__box{max-width:32rem}
 }
 @media (max-width:900px){
-  .hero--editorial .hero__grid{grid-template-columns:1fr;min-height:auto;gap:var(--s-6);
-    padding-top:calc(var(--header-h) + var(--s-7));padding-bottom:var(--s-7)}
+  .hero--editorial .hero__grid{grid-template-columns:1fr;min-height:auto;gap:var(--s-5);
+    padding-top:calc(var(--header-h) + var(--s-5));padding-bottom:var(--s-7)}
   .hero--editorial .hero__box{max-width:100%}
   .hero__feature{order:-1;max-width:none;margin:0}
   .hero__feature img{aspect-ratio:16/10}
@@ -521,78 +534,80 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 @media (max-width:640px){ .proc__grid{grid-template-columns:1fr} }
 
 /* =========================================================================
-   Portfólio — mosaico 3x3 com destaque 2x2; cards SEM caixa própria
+   Galeria de obras — masonry: imagens expostas em proporção natural
    ========================================================================= */
-.obras__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-5)}
-.obra{
-  display:grid;grid-template-rows:1fr auto;gap:var(--s-4);
-  background:none;border:0;padding:0;margin:0;
-  text-align:left;font:inherit;color:inherit;cursor:pointer;
+.galeria{columns:3;column-gap:var(--s-4)}
+.gal__item{
+  display:block;width:100%;margin:0 0 var(--s-4);
+  break-inside:avoid;-webkit-column-break-inside:avoid;
+  position:relative;overflow:hidden;border-radius:var(--r-md);
+  background:var(--c-bg-2);border:0;padding:0;cursor:pointer;
 }
-.obra--big{grid-column:span 2;grid-row:span 2}
-.obra__fig{position:relative;overflow:hidden;background:var(--c-bg-2)}
-.obra__fig img{
-  width:100%;height:100%;object-fit:cover;aspect-ratio:4/5;
-  transition:transform .7s var(--ease-out);
+.gal__item img{width:100%;height:auto;display:block;transition:transform .7s var(--ease-out)}
+.gal__item:hover img,.gal__item:focus-visible img{transform:scale(1.05)}
+/* leve escurecida no hover para o ícone de ampliar aparecer */
+.gal__item::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(to top,rgba(10,11,50,.34),transparent 55%);
+  opacity:0;transition:opacity var(--dur) var(--ease);
 }
-.obra--big .obra__fig{height:100%;min-height:360px}
-.obra--big .obra__fig img{aspect-ratio:auto;object-position:50% 30%}
-/* o card grande é quase quadrado; numa foto retrato o recorte central cai no
-   piso e perde o assunto — sobe o enquadramento */
-.obra:hover .obra__fig img,.obra:focus-visible .obra__fig img{transform:scale(1.045)}
-.obra__zoom{
-  position:absolute;right:var(--s-4);bottom:var(--s-4);
+.gal__item:hover::after,.gal__item:focus-visible::after{opacity:1}
+.gal__zoom{
+  position:absolute;right:var(--s-4);bottom:var(--s-4);z-index:1;
   width:44px;height:44px;display:grid;place-items:center;
-  background:rgba(10,11,50,.85);color:#fff;border-radius:var(--r-md);
+  background:rgba(10,11,50,.85);color:#fff;border-radius:var(--pill);
   opacity:0;transform:translateY(6px);
   transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease);
 }
-.obra__zoom svg{width:18px;height:18px}
-.obra:hover .obra__zoom,.obra:focus-visible .obra__zoom{opacity:1;transform:none}
-.obra__meta{display:grid;gap:var(--s-2)}
-.obra__over{font-size:var(--t-xs);letter-spacing:var(--ls-caps);text-transform:uppercase;color:var(--c-accent)}
-.obra__t{font-family:var(--f-display);font-size:var(--t-xl);font-weight:600;line-height:1.2}
-.obra--big .obra__t{font-size:var(--t-2xl)}
-.obra__c{font-size:var(--t-sm);color:var(--c-muted)}
-@media (max-width:900px){
-  .obras__grid{grid-template-columns:repeat(2,1fr)}
-  .obra--big{grid-column:span 1;grid-row:span 1}
-  .obra--big .obra__fig{height:auto;min-height:0}
-  .obra--big .obra__fig img{aspect-ratio:4/5}
-  .obra--big .obra__t{font-size:var(--t-xl)}
-}
-@media (max-width:560px){ .obras__grid{grid-template-columns:1fr} }
+.gal__zoom svg{width:18px;height:18px}
+.gal__item:hover .gal__zoom,.gal__item:focus-visible .gal__zoom{opacity:1;transform:none}
+@media (max-width:900px){ .galeria{columns:2} }
+@media (max-width:560px){ .galeria{columns:1} }
 
 /* =========================================================================
    Lightbox — galeria por obra
    ========================================================================= */
 .lb{
-  position:fixed;inset:0;z-index:110;display:none;
-  background:rgba(6,7,28,.96);
+  position:fixed;inset:0;z-index:2000;display:none;
+  background:#07081e;
   padding:clamp(1rem,4vw,3rem);
 }
-.lb[data-open="true"]{display:grid;grid-template-rows:auto 1fr auto;gap:var(--s-4)}
-.lb__bar{display:flex;align-items:center;gap:var(--s-4);color:#fff}
-.lb__title{font-family:var(--f-display);font-size:var(--t-lg)}
-.lb__count{margin-left:auto;font-size:var(--t-sm);color:var(--c-muted-dark);
+/* o botão flutuante do Merlin não pode cobrir o lightbox nem o menu aberto */
+body.is-locked .merlin-button-container,
+body.is-locked .merlin-button{visibility:hidden;pointer-events:none}
+.lb[data-open="true"]{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto 1fr auto;gap:var(--s-4)}
+/* título centralizado em cima · contador centralizado embaixo
+   (max-width:none vence o p{max-width:66ch} global, que encostava à esquerda) */
+.lb__title{text-align:center;max-width:none;font-family:var(--f-display);font-size:var(--t-lg);color:#fff}
+.lb__count{text-align:center;max-width:none;font-size:var(--t-sm);color:var(--c-muted-dark);
   font-variant-numeric:tabular-nums}
-.lb__stage{position:relative;display:grid;place-items:center;min-height:0}
+.lb__stage{position:relative;min-height:0;overflow:hidden}
+/* % de altura não resolve em item de grid 1fr (a foto estourava o palco e cobria
+   os controles). Posicionando absoluto, o inset:0 dá altura definida e o
+   object-fit:contain enquadra a foto dentro do palco. */
 .lb__stage img{
-  max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;
   opacity:0;transition:opacity var(--dur) var(--ease);
 }
 .lb__stage img.is-ready{opacity:1}
-.lb__nav{display:flex;align-items:center;justify-content:center;gap:var(--s-4)}
 .lb__btn{
   width:52px;height:52px;display:grid;place-items:center;cursor:pointer;
   background:rgba(255,255,255,.08);color:#fff;
-  border:1px solid rgba(255,255,255,.24);border-radius:var(--r-md);
+  border:1px solid rgba(255,255,255,.24);border-radius:var(--pill);
   transition:background var(--dur-fast) var(--ease);
 }
-.lb__btn:hover{background:rgba(255,255,255,.18)}
+.lb__btn:hover{background:rgba(255,255,255,.2)}
 .lb__btn svg{width:20px;height:20px}
 .lb__btn[hidden]{display:none}
-@media (max-width:560px){ .lb__btn{width:56px;height:56px} }
+/* close: canto superior direito */
+.lb__close{position:absolute;top:clamp(.75rem,2.5vw,1.5rem);right:clamp(.75rem,2.5vw,1.5rem);z-index:3}
+/* setas: ao lado da imagem, centralizadas na vertical */
+.lb__prev,.lb__next{position:absolute;top:50%;transform:translateY(-50%);z-index:2}
+.lb__prev{left:clamp(.25rem,1.5vw,1rem)}
+.lb__next{right:clamp(.25rem,1.5vw,1rem)}
+@media (max-width:560px){
+  .lb__prev{left:2px} .lb__next{right:2px}
+}
 
 /* =========================================================================
    Obra em destaque — split + ficha técnica
