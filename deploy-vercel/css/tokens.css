@@ -62,6 +62,9 @@
   /* ---- Grid ---- */
   --wrap: 1200px;   /* largura do header = largura das seções */
   --gut:  clamp(1.25rem, 4vw, 3rem);
+  --sbw:  0px;      /* largura da barra de rolagem — script no <head> mede em px;
+                       corrige o recuo das seções que sangram (100vw inclui a barra,
+                       o .container centra sem ela) p/ alinhar tudo à mesma coluna */
 
   /* ---- Forma ---- */
   --r-sm: 2px;  --r-md: 3px;  --r-lg: 4px;   /* quase reto: engenharia, não "app" */
