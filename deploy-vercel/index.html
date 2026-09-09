@@ -152,11 +152,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="scrim" id="scrim" aria-hidden="true"></div>
 
 <nav class="drawer" id="drawer" aria-label="Navegação (menu móvel)" data-open="false">
-  <a href="#sobre">Sobre</a>
-  <a href="#atuacao">Atuação</a>
-  <a href="#processo">Processo</a>
-  <a href="#obras">Obras</a>
-  <a href="#contato">Contato</a>
+  <button class="drawer__close" type="button" id="drawerClose" aria-label="Fechar menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+  <div class="drawer__nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#atuacao">Atuação</a>
+    <a href="#processo">Processo</a>
+    <a href="#obras">Obras</a>
+    <a href="#contato">Contato</a>
+  </div>
   <button class="btn btn--wa" type="button" id="cta-merlin2">
     Solicitar orçamento
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
@@ -358,11 +363,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <article class="frente">
           <figure class="frente__media" data-reveal="mask">
-            <img src="assets/img/equipe-acabamento.webp"
-                 srcset="assets/img/equipe-acabamento@sm.webp 1080w, assets/img/equipe-acabamento.webp 1920w"
+            <img src="assets/img/detalhe-porcelanato.webp"
                  sizes="(max-width:900px) 100vw, 46vw"
-                 alt="Profissional da equipe da Pilares aplicando acabamento nas paredes de uma obra"
-                 width="1920" height="2716" loading="lazy" decoding="async">
+                 alt="Assentamento de porcelanato de grandes formatos, com espaçadores niveladores"
+                 width="1414" height="2000" loading="lazy" decoding="async">
           </figure>
           <div class="frente__body" data-reveal="up" data-rv="right">
             <p class="frente__n">03</p>
@@ -430,131 +434,100 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow" data-reveal="soft">Obras</p>
-        <h2 data-reveal="soft" data-split>Do osso ao pronto para morar</h2>
-        <p class="lede" data-reveal="up">Clique em uma obra para ver a galeria completa de fotos.</p>
+        <h2 data-reveal="soft" data-split>Espaços que entregamos</h2>
+        <p class="lede" data-reveal="up">Ambientes e fachadas entregues. Clique em qualquer foto para ampliar.</p>
       </div>
 
-      <div class="obras__grid" id="obrasGrid">
+      <div class="galeria" id="galeria">
 
-        <button class="obra obra--big" type="button" data-reveal="fig"
-          data-obra="Apartamento LSP, Salvador (BA)"
-          data-gallery="assets/img/obra-living-madeira.webp|assets/img/hero-sala-integrada.webp|assets/img/obra-cozinha-pedra.webp|assets/img/obra-apartamento-vista.webp"
-          data-alts="Sala de estar com painel de madeira e sofá curvo|Sala e cozinha americana integradas após a reforma|Cozinha americana com bancada em pedra natural e iluminação embutida|Apartamento entregue, com vista para a cidade">
-          <span class="obra__fig">
-            <img src="assets/img/obra-living-madeira.webp"
-                 srcset="assets/img/obra-living-madeira@sm.webp 900w, assets/img/obra-living-madeira.webp 1080w"
-                 sizes="(max-width:900px) 50vw, 60vw"
-                 alt="Sala de estar do Apartamento LSP, com painel de madeira e sofá curvo"
-                 width="1080" height="1350" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Salvador, BA · 2024</span>
-            <span class="obra__t">Apartamento LSP</span>
-            <span class="obra__c">Reforma completa · 175&nbsp;m² · 2&nbsp;meses · 4&nbsp;fotos</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-residencia-fachada.webp"
+          data-cap="Residência unifamiliar"
+          data-alt="Fachada de residência de dois pavimentos entregue pela Pilares">
+          <img src="assets/img/obra-residencia-fachada@sm.webp" srcset="assets/img/obra-residencia-fachada@sm.webp 1080w, assets/img/obra-residencia-fachada.webp 1920w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Fachada de residência de dois pavimentos entregue pela Pilares"
+               width="1920" height="2400" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
-        <button class="obra" type="button" data-reveal="fig"
-          data-obra="Cozinha e bancadas"
-          data-gallery="assets/img/obra-cozinha-ilha.webp|assets/img/obra-cozinha-pedra.webp"
-          data-alts="Cozinha com ilha central e bancada em pedra natural|Cozinha americana com bancada em pedra e iluminação embutida">
-          <span class="obra__fig">
-            <img src="assets/img/obra-cozinha-ilha.webp"
-                 srcset="assets/img/obra-cozinha-ilha@sm.webp 900w, assets/img/obra-cozinha-ilha.webp 1080w"
-                 sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 30vw"
-                 alt="Cozinha com ilha central e bancada em pedra natural, com piso contínuo"
-                 width="1080" height="1350" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Ambiente entregue</span>
-            <span class="obra__t">Cozinha e bancadas</span>
-            <span class="obra__c">Cozinha americana e ilha central · 2&nbsp;fotos</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-living-madeira.webp"
+          data-cap="Sala de estar"
+          data-alt="Sala de estar com painel de madeira e sofá curvo">
+          <img src="assets/img/obra-living-madeira@sm.webp" srcset="assets/img/obra-living-madeira@sm.webp 900w, assets/img/obra-living-madeira.webp 1080w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Sala de estar com painel de madeira e sofá curvo"
+               width="1080" height="1350" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
-        <button class="obra" type="button" data-reveal="fig"
-          data-obra="Residência unifamiliar"
-          data-gallery="assets/img/obra-residencia-fachada.webp|assets/img/obra-escada-vista.webp"
-          data-alts="Fachada de residência de dois pavimentos entregue|Escada interna com guarda-corpo de vidro">
-          <span class="obra__fig">
-            <img src="assets/img/obra-residencia-fachada.webp"
-                 srcset="assets/img/obra-residencia-fachada@sm.webp 1080w, assets/img/obra-residencia-fachada.webp 1920w"
-                 sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 30vw"
-                 alt="Fachada de residência de dois pavimentos entregue, com guarda-corpo de vidro"
-                 width="1920" height="2400" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Obra entregue</span>
-            <span class="obra__t">Residência unifamiliar</span>
-            <span class="obra__c">Construção e acabamento · 2&nbsp;fotos</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/hero-sala-integrada.webp"
+          data-cap="Sala e cozinha integradas"
+          data-alt="Sala e cozinha americana integradas após a reforma">
+          <img src="assets/img/hero-sala-integrada@sm.webp" srcset="assets/img/hero-sala-integrada@sm.webp 1200w, assets/img/hero-sala-integrada.webp 1920w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Sala e cozinha americana integradas após a reforma"
+               width="1920" height="1080" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
-        <button class="obra" type="button" data-reveal="fig"
-          data-obra="Área gourmet entregue"
-          data-gallery="assets/img/obra-living-vidro.webp"
-          data-alts="Área gourmet entregue, com churrasqueira revestida e bancada em granito">
-          <span class="obra__fig">
-            <img src="assets/img/obra-living-vidro.webp"
-                 srcset="assets/img/obra-living-vidro@sm.webp 600w, assets/img/obra-living-vidro.webp 900w"
-                 sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 30vw"
-                 alt="Área gourmet entregue, com churrasqueira revestida, bancada em granito e fechamento em vidro"
-                 width="900" height="1295" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Ambiente entregue</span>
-            <span class="obra__t">Área gourmet</span>
-            <span class="obra__c">Churrasqueira, bancada e fechamento em vidro · 1&nbsp;foto</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-cozinha-ilha.webp"
+          data-cap="Cozinha com ilha"
+          data-alt="Cozinha com ilha central e bancada em pedra natural">
+          <img src="assets/img/obra-cozinha-ilha@sm.webp" srcset="assets/img/obra-cozinha-ilha@sm.webp 900w, assets/img/obra-cozinha-ilha.webp 1080w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Cozinha com ilha central e bancada em pedra natural"
+               width="1080" height="1350" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
-        <button class="obra" type="button" data-reveal="fig"
-          data-obra="Apartamento com vista"
-          data-gallery="assets/img/obra-apartamento-vista.webp"
-          data-alts="Apartamento entregue, com vista para a cidade">
-          <span class="obra__fig">
-            <img src="assets/img/obra-apartamento-vista.webp"
-                 srcset="assets/img/obra-apartamento-vista@sm.webp 900w, assets/img/obra-apartamento-vista.webp 1080w"
-                 sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 30vw"
-                 alt="Apartamento entregue pela Pilares, com vista para a cidade"
-                 width="1080" height="1350" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Obra entregue</span>
-            <span class="obra__t">Apartamento com vista</span>
-            <span class="obra__c">Reforma completa · 1&nbsp;foto</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-cozinha-pedra.webp"
+          data-cap="Bancada em pedra natural"
+          data-alt="Cozinha americana com bancada em pedra natural e iluminação embutida">
+          <img src="assets/img/obra-cozinha-pedra@sm.webp" srcset="assets/img/obra-cozinha-pedra@sm.webp 1080w, assets/img/obra-cozinha-pedra.webp 1920w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Cozinha americana com bancada em pedra natural e iluminação embutida"
+               width="1920" height="2400" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
-        <button class="obra" type="button" data-reveal="fig"
-          data-obra="Acabamentos e revestimentos"
-          data-gallery="assets/img/equipe-acabamento.webp|assets/img/detalhe-porcelanato.webp"
-          data-alts="Profissional da equipe da Pilares aplicando acabamento nas paredes|Assentamento de porcelanato de grandes formatos com espaçadores niveladores">
-          <span class="obra__fig">
-            <img src="assets/img/equipe-acabamento.webp"
-                 srcset="assets/img/equipe-acabamento@sm.webp 1080w, assets/img/equipe-acabamento.webp 1920w"
-                 sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 30vw"
-                 alt="Profissional da equipe da Pilares aplicando acabamento nas paredes de uma obra"
-                 width="1920" height="2716" loading="lazy" decoding="async">
-            <span class="obra__zoom" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg>
-            </span>
-          </span>
-          <span class="obra__meta">
-            <span class="obra__over">Equipe própria</span>
-            <span class="obra__t">Acabamentos e equipe</span>
-            <span class="obra__c">Execução de acabamento e revestimento · 2&nbsp;fotos</span>
-          </span>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-apartamento-vista.webp"
+          data-cap="Apartamento com vista"
+          data-alt="Apartamento entregue pela Pilares, com vista para a cidade">
+          <img src="assets/img/obra-apartamento-vista@sm.webp" srcset="assets/img/obra-apartamento-vista@sm.webp 900w, assets/img/obra-apartamento-vista.webp 1080w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Apartamento entregue pela Pilares, com vista para a cidade"
+               width="1080" height="1350" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-escada-vista.webp"
+          data-cap="Escada com guarda-corpo de vidro"
+          data-alt="Escada interna com guarda-corpo de vidro">
+          <img src="assets/img/obra-escada-vista@sm.webp" srcset="assets/img/obra-escada-vista@sm.webp 1080w, assets/img/obra-escada-vista.webp 1920w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Escada interna com guarda-corpo de vidro"
+               width="1920" height="2400" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/obra-living-vidro.webp"
+          data-cap="Área gourmet"
+          data-alt="Área gourmet com churrasqueira revestida e fechamento em vidro">
+          <img src="assets/img/obra-living-vidro@sm.webp" srcset="assets/img/obra-living-vidro@sm.webp 600w, assets/img/obra-living-vidro.webp 900w"
+             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Área gourmet com churrasqueira revestida e fechamento em vidro"
+               width="900" height="1295" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
+        </button>
+        <button class="gal__item" type="button" data-reveal="fig"
+          data-full="assets/img/detalhe-porcelanato.webp"
+          data-cap="Porcelanato de grandes formatos"
+          data-alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores">
+          <img src="assets/img/detalhe-porcelanato.webp" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
+               alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores"
+               width="1414" height="2000" loading="lazy" decoding="async">
+          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
         </button>
 
       </div>
@@ -608,23 +581,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- ===== Clientes e parceiros ===== -->
-  <section class="parc" aria-labelledby="parcTitulo">
-    <div class="container">
-      <div class="parc__head">
-        <p class="eyebrow" id="parcTitulo" data-reveal="soft">Clientes atendidos e parceiros</p>
-      </div>
-      <ul class="parc__list">
-        <li data-reveal="up">Barbosa Tinel</li>
-        <li data-reveal="up">Reinel Construtora</li>
-        <li data-reveal="up">Administradora Aratuba</li>
-        <li data-reveal="up">KV Engenharia</li>
-        <li data-reveal="up">Claudio Cazumba</li>
-        <li data-reveal="up">Tanea Batista</li>
-        <li data-reveal="up" data-more>entre outros</li>
-      </ul>
-    </div>
-  </section>
-
   <!-- ===== CTA final: banda escura + foto sangrando com corte diagonal ===== -->
   <section class="cta" id="contato">
     <div class="cta__grid">
@@ -752,24 +708,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- ===== Lightbox ===== -->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbTitle" data-open="false">
-  <div class="lb__bar">
-    <p class="lb__title" id="lbTitle">Obra</p>
-    <p class="lb__count" id="lbCount">1 / 1</p>
-  </div>
+  <p class="lb__title" id="lbTitle">Obra</p>
+
+  <button class="lb__btn lb__close" type="button" id="lbClose" aria-label="Fechar galeria">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+  </button>
+
   <div class="lb__stage">
-    <img id="lbImg" alt="">
-  </div>
-  <div class="lb__nav">
-    <button class="lb__btn" type="button" id="lbPrev" aria-label="Foto anterior">
+    <button class="lb__btn lb__prev" type="button" id="lbPrev" aria-label="Foto anterior">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
     </button>
-    <button class="lb__btn" type="button" id="lbClose" aria-label="Fechar galeria">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-    <button class="lb__btn" type="button" id="lbNext" aria-label="Próxima foto">
+    <img id="lbImg" alt="">
+    <button class="lb__btn lb__next" type="button" id="lbNext" aria-label="Próxima foto">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
     </button>
   </div>
+
+  <p class="lb__count" id="lbCount">1 / 1</p>
 </div>
 
 <script src="js/app.js"></script>

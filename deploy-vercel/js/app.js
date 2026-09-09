@@ -100,9 +100,11 @@
     }
   }
 
+  var drawerClose = $('#drawerClose');
   burger && burger.addEventListener('click', function () {
     abreMenu(burger.getAttribute('aria-expanded') !== 'true');
   });
+  drawerClose && drawerClose.addEventListener('click', function () { abreMenu(false); });
   scrim && scrim.addEventListener('click', function () { abreMenu(false); });
   drawer && $$('a', drawer).forEach(function (a) {
     a.addEventListener('click', function () { abreMenu(false); });
@@ -383,11 +385,13 @@
   var lbNext  = $('#lbNext');
   var lbClose = $('#lbClose');
 
-  var galeria = [], alts = [], indice = 0, gatilho = null;
+  var galItems = $$('.gal__item');
+  var galeria = [], alts = [], caps = [], indice = 0, gatilho = null;
 
   function mostra(i) {
     if (!galeria.length) return;
     indice = (i + galeria.length) % galeria.length;
+    if (lbTitle) lbTitle.textContent = caps[indice] || 'Obra';
     lbImg.classList.remove('is-ready');
     var pronta = new Image();
     pronta.onload = function () {
@@ -405,20 +409,21 @@
   }
 
   function abreLb(botao) {
-    var lista = (botao.getAttribute('data-gallery') || '').split('|').filter(Boolean);
-    if (!lista.length) return;
-    galeria = lista;
-    alts = (botao.getAttribute('data-alts') || '').split('|');
+    if (!galItems.length) return;
+    // galeria única: todas as fotos, começando na que foi clicada
+    galeria = galItems.map(function (b) { return b.getAttribute('data-full'); });
+    alts    = galItems.map(function (b) { return b.getAttribute('data-alt') || ''; });
+    caps    = galItems.map(function (b) { return b.getAttribute('data-cap') || 'Obra'; });
     gatilho = botao;
 
-    lbTitle.textContent = botao.getAttribute('data-obra') || 'Obra';
     var uma = galeria.length < 2;
     lbPrev.hidden = uma;
     lbNext.hidden = uma;
 
     lb.setAttribute('data-open', 'true');
     document.body.classList.add('is-locked');
-    mostra(0);
+    var start = galItems.indexOf(botao);
+    mostra(start < 0 ? 0 : start);
     lbClose.focus();
   }
 
@@ -431,7 +436,7 @@
     if (gatilho) { gatilho.focus(); gatilho = null; }
   }
 
-  $$('.obra').forEach(function (b) {
+  galItems.forEach(function (b) {
     b.addEventListener('click', function () { abreLb(b); });
   });
 
