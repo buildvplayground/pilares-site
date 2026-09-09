@@ -1,0 +1,88 @@
+/* ==========================================================================
+   Pilares Engenharia e Construções — Design Tokens
+   Paleta e tipografia DERIVADAS DA MARCA REAL do cliente:
+     • cor da logo amostrada do vetor do cartão aprovado ......... #0A0B32
+     • violeta do filete/rodapé da apresentação institucional .... #5E4C9A / #26114A
+     • fundo lilás claro do cartão ............................... #EBEBF4
+   Todos os pares de texto/fundo verificados para WCAG 2.1 AA (ver design-system.md).
+   ========================================================================== */
+
+:root {
+  /* ---- Marca: tinta e profundidade ---- */
+  --c-ink:            #0A0B32;  /* cor exata da logo — texto principal, fundos profundos */
+  --c-indigo:         #181446;  /* fundo escuro alternativo (blocos, footer topo) */
+  --c-violet:         #26114A;  /* violeta profundo do rodapé da apresentação */
+
+  /* ---- Marca: acento ---- */
+  --c-accent:         #5E4C9A;  /* violeta do filete do cartão — acento sobre CLARO */
+  --c-accent-strong:  #4B3C7E;  /* hover/pressed sobre claro */
+  --c-accent-light:   #A996E0;  /* acento sobre ESCURO (AA: 7.34:1 no ink) */
+
+  /* ---- Neutros ---- */
+  --c-bg:             #F4F3F9;  /* fundo da página (lilás quase branco) */
+  --c-bg-2:           #EBEBF4;  /* faixas alternadas / fundo do cartão */
+  --c-surface:        #FFFFFF;  /* cards */
+  --c-muted:          #58566B;  /* texto secundário (AA: 6.43:1 no bg) */
+  --c-muted-dark:     #B9B7CC;  /* texto secundário sobre escuro */
+  --c-line:           #D8D6E6;  /* filetes sobre claro */
+  --c-line-dark:      rgba(255,255,255,.16);
+
+  /* ---- Estado ---- */
+  --c-focus:          #5E4C9A;
+  --c-wa:             #1EA65A;  /* verde WhatsApp acessível (4.0:1 no branco p/ ícone) */
+
+  /* ---- Tipografia ----
+     Display: serifada de contraste alto, espelha o wordmark "PILARES" do cartão.
+     Corpo:   grotesca neutra, como a da apresentação institucional. */
+  --f-display: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+  --f-body:    "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* escala fluida — nunca quebra em 320px */
+  --t-xs:   .8125rem;                                  /* 13px */
+  --t-sm:   .875rem;                                   /* 14px */
+  --t-base: 1rem;                                      /* 16px — piso de corpo */
+  --t-lg:   clamp(1.0625rem, 1rem + .3vw,  1.1875rem);
+  --t-xl:   clamp(1.25rem,  1.15rem + .6vw, 1.5rem);
+  --t-2xl:  clamp(1.5rem,   1.3rem + 1.1vw, 2rem);
+  --t-3xl:  clamp(1.875rem, 1.5rem + 2vw,   2.75rem);
+  --t-4xl:  clamp(2.25rem,  1.6rem + 3.4vw, 4rem);
+  --t-5xl:  clamp(2.75rem,  1.7rem + 4.8vw, 5.25rem);
+
+  --lh-tight: 1.08;
+  --lh-head:  1.18;
+  --lh-body:  1.65;
+  --ls-caps:  .16em;   /* caps espaçadas — assinatura do wordmark */
+
+  /* ---- Espaço (escala 4px, generosa: Swiss/minimalismo) ---- */
+  --s-1: .25rem;  --s-2: .5rem;   --s-3: .75rem;  --s-4: 1rem;
+  --s-5: 1.5rem;  --s-6: 2rem;    --s-7: 3rem;    --s-8: 4rem;
+  --s-9: 6rem;    --s-10: 8rem;
+  --sec-y: clamp(3.5rem, 8vw, 7.5rem);   /* respiro vertical de seção */
+
+  /* ---- Grid ---- */
+  --wrap: 1200px;   /* largura do header = largura das seções */
+  --gut:  clamp(1.25rem, 4vw, 3rem);
+  --sbw:  0px;      /* largura da barra de rolagem — script no <head> mede em px;
+                       corrige o recuo das seções que sangram (100vw inclui a barra,
+                       o .container centra sem ela) p/ alinhar tudo à mesma coluna */
+
+  /* ---- Forma ---- */
+  --r-sm: 2px;  --r-md: 3px;  --r-lg: 4px;   /* quase reto: engenharia, não "app" */
+  --pill: 999px;
+
+  /* ---- Elevação (discreta, sem sombra "flutuante" de IA) ---- */
+  --e-1: 0 1px 2px rgba(10,11,50,.06);
+  --e-2: 0 6px 24px -12px rgba(10,11,50,.18);
+  --e-3: 0 24px 60px -28px rgba(10,11,50,.30);
+
+  /* ---- Movimento ---- */
+  --dur-fast: 160ms;  --dur: 260ms;  --dur-slow: 620ms;
+  --ease:      cubic-bezier(.22,.61,.36,1);
+  --ease-out:  cubic-bezier(.16,1,.3,1);
+
+  --header-h: 76px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --dur-fast: 1ms; --dur: 1ms; --dur-slow: 1ms; }
+}
