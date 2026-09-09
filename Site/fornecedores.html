@@ -3,6 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- BuildV: GTM -->
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KZRTTKDV');</script>
+<!-- End Google Tag Manager -->
+<!-- /BuildV: GTM -->
 <title>Fornecedores e Trabalhe Conosco | Pilares Engenharia e Construções</title>
 <meta name="description" content="Cadastre sua empresa como fornecedora da Pilares Engenharia ou envie sua candidatura para trabalhar com a gente em Salvador (BA).">
 <link rel="canonical" href="https://pilaresengltda.com.br/fornecedores.html">
@@ -15,8 +24,47 @@
 <link rel="stylesheet" href="css/tokens.css">
 <link rel="stylesheet" href="css/styles.css">
 <script>document.documentElement.setAttribute('data-motion','on')</script>
+<!-- MERLIN -->
+<script src='https://scripts.gomerlin.com.br/merlin.js'></script>
+<script>
+  Merlin.Popup.initFromSource("https://tools.gomerlin.com.br/popup/11db4c92-e491-4387-9e5e-58c45c981daa");
+
+  function waitForElm(selector) {
+    return new Promise(function(resolve) {
+      if (document.querySelector(selector)) {
+        return resolve(document.querySelector(selector));
+      }
+      var observer = new MutationObserver(function() {
+        if (document.querySelector(selector)) {
+          resolve(document.querySelector(selector));
+          observer.disconnect();
+        }
+      });
+      observer.observe(document.documentElement, { childList: true, subtree: true });
+    });
+  }
+
+  waitForElm('.merlin-button').then(function() {
+    for (var i = 1; i <= 15; i++) {
+      var el = document.getElementById('cta-merlin' + i);
+      if (el) {
+        el.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector('.merlin-button').click();
+        });
+      }
+    }
+  });
+</script>
+<!-- /MERLIN -->
 </head>
 <body>
+<!-- BuildV: GTM (noscript) -->
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZRTTKDV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<!-- /BuildV: GTM (noscript) -->
 
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
 
@@ -33,13 +81,10 @@
       <a href="index.html#contato">Contato</a>
     </nav>
     <div class="hdr__cta">
-      <a class="btn btn--wa" data-wa-btn="header-fornecedores"
-         href="https://wa.me/5571983979696?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-         target="_blank" rel="noopener">
+      <button class="btn btn--wa" type="button" id="cta-merlin1">
         Solicitar orçamento
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        <span class="vh">(abre o WhatsApp em nova aba)</span>
-      </a>
+      </button>
     </div>
     <button class="hdr__burger" id="burger" type="button" aria-expanded="false" aria-controls="drawer" aria-label="Abrir menu">
       <span></span><span></span><span></span>
@@ -55,13 +100,10 @@
   <a href="index.html#processo">Processo</a>
   <a href="index.html#obras">Obras</a>
   <a href="index.html#contato">Contato</a>
-  <a class="btn btn--wa" data-wa-btn="menu-fornecedores"
-     href="https://wa.me/5571983979696?text=Ol%C3%A1!%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-     target="_blank" rel="noopener">
+  <button class="btn btn--wa" type="button" id="cta-merlin2">
     Solicitar orçamento
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-    <span class="vh">(abre o WhatsApp em nova aba)</span>
-  </a>
+  </button>
 </nav>
 
 <main id="conteudo">
@@ -275,18 +317,6 @@
   </div>
 </aside>
 
-<!-- ===== Botão flutuante de WhatsApp =====
-     Pill da marca com o glifo no verde REAL do WhatsApp (reconhecimento do canal,
-     9.57:1 sobre o ink). O círculo verde genérico do canto é o padrão mais copiado
-     da web — aqui o contêiner é da identidade, só o ícone é do canal. -->
-<a class="wa-flutua" id="waFlutua"
-   href="https://wa.me/5571983979696?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Pilares%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
-   target="_blank" rel="noopener" data-wa-btn="flutuante-fornecedores" data-visivel="false" tabindex="-1">
-  <span class="wa-flutua__ico" aria-hidden="true">
-    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 004.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.15h-.01a8.2 8.2 0 01-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.22 8.22 0 01-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.23 8.23 0 010 16.47zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.79.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.44.13-.15.17-.25.25-.42.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.16 0-.43.06-.65.31-.22.25-.85.84-.85 2.04s.87 2.37.99 2.53c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.39.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>
-  </span>
-  <span class="wa-flutua__txt">Falar no WhatsApp</span>
-</a>
 
 <script src="js/app.js"></script>
 <script src="js/form.js"></script>

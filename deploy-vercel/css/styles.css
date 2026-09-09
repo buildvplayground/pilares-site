@@ -131,6 +131,10 @@ section{padding:var(--sec-y) 0}
 .btn--on-dark{--btn-bg:#fff;--btn-fg:var(--c-ink)}
 .btn--on-dark:hover{--btn-bg:var(--c-accent-light);--btn-fg:var(--c-ink)}
 
+/* Botão flutuante do Merlin na cor da identidade (o ícone servido é opaco;
+   a marca aparece como aro em volta do glifo) */
+.merlin-button{background:var(--c-accent)!important}
+
 /* =========================================================================
    Loader
    ========================================================================= */
@@ -154,21 +158,37 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 }
 
 /* =========================================================================
-   Header — clara sólida desde o load (sem fase transparente)
+   Header — transparente sobre o hero escuro; vira sólido claro ao rolar
    ========================================================================= */
 .hdr{
   position:fixed;inset:0 0 auto;z-index:90;
-  background:rgba(244,243,249,.94);
-  backdrop-filter:saturate(160%) blur(12px);
-  border-bottom:1px solid var(--c-line);
-  transition:transform .4s var(--ease),box-shadow var(--dur) var(--ease);
+  background:transparent;
+  border-bottom:1px solid transparent;
+  transition:transform .4s var(--ease),background var(--dur) var(--ease),
+             backdrop-filter var(--dur) var(--ease),border-color var(--dur) var(--ease),
+             box-shadow var(--dur) var(--ease);
 }
 .hdr[data-hide="true"]{transform:translateY(-100%)}
-.hdr[data-scrolled="true"]{box-shadow:var(--e-2)}
+/* sólido só depois de rolar (ao sair do hero) */
+.hdr[data-scrolled="true"]{
+  background:rgba(244,243,249,.94);
+  backdrop-filter:saturate(160%) blur(12px);
+  border-bottom-color:var(--c-line);
+  box-shadow:var(--e-2);
+}
 .hdr__in{display:flex;align-items:center;gap:var(--s-5);min-height:var(--header-h)}
 .hdr__logo{display:flex;align-items:center;flex:none;text-decoration:none;min-height:48px}
-.hdr__logo img{height:40px;width:auto;transition:height var(--dur) var(--ease)}
+.hdr__logo img{height:40px;width:auto;transition:height var(--dur) var(--ease),filter var(--dur) var(--ease)}
 .hdr[data-scrolled="true"] .hdr__logo img{height:34px}
+/* topo transparente: logo, nav, divisória e menu em claro sobre o hero escuro */
+.hdr:not([data-scrolled="true"]) .hdr__logo img{filter:brightness(0) invert(1)}
+.hdr:not([data-scrolled="true"]) .nav a{color:#fff}
+.hdr:not([data-scrolled="true"]) .nav a::after{background:var(--c-accent-light)}
+.hdr:not([data-scrolled="true"]) .nav a:hover,
+.hdr:not([data-scrolled="true"]) .nav a[aria-current="true"]{color:var(--c-accent-light)}
+.hdr:not([data-scrolled="true"]) .hdr__cta{border-left-color:rgba(255,255,255,.24)}
+.hdr:not([data-scrolled="true"]) .hdr__burger{border-color:rgba(255,255,255,.34)}
+.hdr:not([data-scrolled="true"]) .hdr__burger span{background:#fff}
 
 .nav{margin-left:auto;display:flex;align-items:center;gap:var(--s-6)}
 .nav a{
@@ -238,6 +258,56 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 }
 .hero__media{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .hero__media img{width:100%;height:112%;object-fit:cover;object-position:50% 42%;will-change:transform}
+
+/* -------------------------------------------------------------------
+   Variante EDITORIAL: split de alto padrão. Tipografia grande à esquerda,
+   uma foto de obra EMOLDURADA à direita como objeto de design — não é
+   fundo (difere do overlay) e não sangra na borda (difere das splits do
+   corpo). Fundo ink com profundidade radial; rótulo editorial de canto.
+   ------------------------------------------------------------------- */
+.hero--editorial{
+  display:block;align-items:initial;min-height:auto;padding:0;
+  background:radial-gradient(118% 125% at 10% 16%, var(--c-indigo) 0%, var(--c-ink) 66%);
+}
+.hero--editorial .hero__grid{
+  display:grid;grid-template-columns:1.02fr .98fr;
+  gap:clamp(2rem,5vw,4.5rem);align-items:center;
+  min-height:min(94vh,920px);
+  padding-top:calc(var(--header-h) + var(--s-8));
+  padding-bottom:var(--s-8);
+}
+.hero--editorial .hero__box{max-width:36rem}
+.hero--editorial h1{font-size:clamp(2.1rem,1.2rem + 3.1vw,4.25rem)}
+/* a foto como card emoldurado */
+.hero__feature{position:relative;margin:0;align-self:center}
+.hero__feature img{
+  width:100%;display:block;object-fit:cover;aspect-ratio:4/5;
+  border:1px solid rgba(255,255,255,.16);box-shadow:var(--e-3);
+}
+/* filete-assinatura (herdado do cartão), na base esquerda da foto */
+.hero__feature::after{
+  content:"";position:absolute;left:0;bottom:0;width:3px;height:96px;background:var(--c-accent-light)
+}
+.hero__cap{
+  position:absolute;left:var(--s-4);bottom:var(--s-4);z-index:1;
+  font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;color:#fff;
+  background:rgba(10,11,50,.82);padding:var(--s-2) var(--s-4);border-radius:var(--r-md);
+}
+@media (max-width:1180px){
+  .hero--editorial .hero__box{max-width:32rem}
+}
+@media (max-width:900px){
+  .hero--editorial .hero__grid{grid-template-columns:1fr;min-height:auto;gap:var(--s-6);
+    padding-top:calc(var(--header-h) + var(--s-7));padding-bottom:var(--s-7)}
+  .hero--editorial .hero__box{max-width:100%}
+  .hero__feature{order:-1}
+  .hero__feature img{aspect-ratio:16/10}
+  .hero__feature::after{display:none}
+}
+@media (max-width:560px){
+  .hero__feature img{aspect-ratio:4/3}
+}
+
 /* "pilar que sobe": a foto cresce de baixo */
 html[data-motion="on"] .hero__media{clip-path:inset(100% 0 0 0)}
 html[data-motion="on"] .hero.is-in .hero__media{
@@ -328,7 +398,7 @@ html[data-motion="on"] .hero.is-in .hero__media{
    assim a barra de rolagem não vira overflow horizontal).
    -------------------------------------------------------------------- */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-.split__body{padding-right:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
+.split__body{padding-right:max(var(--gut), calc((100vw - var(--sbw) - var(--wrap)) / 2 + var(--gut)))}
 .split__media{position:relative}
 .split__media img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
 .split__body{display:grid;gap:var(--s-5);align-content:center}
@@ -361,8 +431,8 @@ html[data-motion="on"] .hero.is-in .hero__media{
   gap:clamp(2rem,5vw,4rem);align-items:center;
 }
 /* imagem sangra; o texto recua para alinhar com o container */
-.frente:nth-child(odd)  .frente__body{padding-right:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
-.frente:nth-child(even) .frente__body{padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
+.frente:nth-child(odd)  .frente__body{padding-right:max(var(--gut), calc((100vw - var(--sbw) - var(--wrap)) / 2 + var(--gut)))}
+.frente:nth-child(even) .frente__body{padding-left:max(var(--gut), calc((100vw - var(--sbw) - var(--wrap)) / 2 + var(--gut)))}
 .frente:nth-child(even) .frente__media{order:2}
 .frente__media img{width:100%;object-fit:cover;aspect-ratio:4/3}
 .frente__body{display:grid;gap:var(--s-4);align-content:center}
@@ -526,7 +596,7 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
    Obra em destaque — split + ficha técnica
    ========================================================================= */
 .dest{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
-.dest__body{padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)))}
+.dest__body{padding-left:max(var(--gut), calc((100vw - var(--sbw) - var(--wrap)) / 2 + var(--gut)))}
 .dest__media img{width:100%;object-fit:cover;aspect-ratio:4/5}
 .dest__body{display:grid;gap:var(--s-5)}
 .dest__body h2{font-size:var(--t-3xl);max-width:24ch;text-wrap:balance}
@@ -582,7 +652,7 @@ html:not([data-motion="on"]) .step::before{transform:scaleY(1)}
 .cta__grid{display:grid;grid-template-columns:1.02fr .98fr;align-items:stretch}
 .cta__texto{
   padding-block:var(--sec-y);
-  padding-left:max(var(--gut), calc((100vw - var(--wrap)) / 2 + var(--gut)));
+  padding-left:max(var(--gut), calc((100vw - var(--sbw) - var(--wrap)) / 2 + var(--gut)));
   padding-right:clamp(2rem,5vw,4.5rem);
   display:grid;align-content:center;gap:var(--s-4);
 }

@@ -1,0 +1,77 @@
+{
+  "meta": {
+    "arquivo": "pilares-hero-image.codex.json",
+    "proposito": "Prompt + instruções para o Codex gerar a IMAGEM DE HERO da Pilares dentro do padrão visual do cliente.",
+    "projeto": "Pilares Engenharia e Construções",
+    "segmento": "Construtora e incorporadora — Salvador, BA (residencial alto padrão, corporativo e contratos públicos)",
+    "gerado_em": "2026-09-09",
+    "fonte_do_padrao": "Site/css/tokens.css (design tokens da marca real) + preferências fixas do cliente"
+  },
+
+  "colocacao": {
+    "onde_aparece": "Hero editorial (seção #topo do index.html) — foto emoldurada como objeto de design à direita da manchete serifada.",
+    "seletor_alvo": ".hero--editorial .hero__feature img",
+    "observacao": "O site aplica um leve véu escuro sobre a legenda; deixe respiro/negativo e evite estourar os claros onde a legenda 'RESIDÊNCIA ENTREGUE · SALVADOR, BA' se apoia (canto inferior esquerdo)."
+  },
+
+  "especificacao_imagem": {
+    "aspect_ratio_principal": "4:5 (retrato) — formato do card do hero",
+    "aspect_ratio_alternativo": "16:9 (paisagem) — caso se opte por hero full-bleed no futuro",
+    "resolucao_minima": "1600 x 2000 px",
+    "formato_entrega": "webp",
+    "variacoes_de_saida": [
+      { "nome": "hero-arquitetura-pilares.webp",     "largura": 1600, "uso": "desktop / retina" },
+      { "nome": "hero-arquitetura-pilares@sm.webp",   "largura": 900,  "uso": "mobile / srcset 900w" }
+    ],
+    "pasta_destino": "Site/assets/img/  (espelhar depois em deploy-vercel/assets/img/)"
+  },
+
+  "identidade_visual_cliente": {
+    "principio": "Monocromático, limpo, alto padrão, editorial. Nada de 'cara de banco de imagem'.",
+    "paleta_hex": {
+      "ink":          "#0A0B32",
+      "indigo":       "#181446",
+      "violet":       "#26114A",
+      "accent":       "#5E4C9A",
+      "accent_light": "#A996E0",
+      "bg_claro":     "#F4F3F9"
+    },
+    "grade_de_cor": "Foto EM COR (nunca P&B), porém com temperatura fria e desaturação sutil que harmonize com o índigo/violeta profundo da marca. Sombras densas e limpas.",
+    "tipografia_da_marca": "Display serifado de contraste alto (Cormorant Garamond) + corpo grotesco (Inter) — a imagem deve conversar com essa sofisticação editorial.",
+    "motivo_da_marca": "O nome é 'Pilares': valorize pilares/colunas verticais, ritmo estrutural e linhas de engenharia na composição."
+  },
+
+  "prompt": {
+    "positivo": "Architectural photograph of a premium contemporary residential building in Salvador, Bahia, Brazil. Clean modernist facade with strong vertical concrete pillars and columns (echoing the brand name 'Pilares'), floor-to-ceiling glazing, cantilevered volumes and exposed structural lines. Low, dignified hero angle at blue hour / early evening: deep navy-indigo sky, subtle warm interior glow reading through the glass. Sophisticated architecture-magazine aesthetic; cool, slightly desaturated color grade harmonizing with deep indigo (#0A0B32) and muted violet (#5E4C9A); crisp directional shadows; refined materials — board-formed concrete, glass, natural stone, brushed metal. Generous negative space, calm and premium. Ultra-detailed, high dynamic range without halos, professional real-estate/architectural photography, medium-format look, sharp focus. Vertical 4:5 composition.",
+    "negativo": "people, human figures, silhouettes, crowds, text, captions, watermark, logo, brand names, signage, cars, street clutter, power lines tangle, illustration, cartoon, 3d render look, oversaturated colors, neon, HDR halos, heavy vignette, fisheye/distorted perspective, tilt, black-and-white, sepia, grain overload, blurry, low resolution, duplicated windows, warped geometry"
+  },
+
+  "restricoes_marca_obrigatorias": [
+    "SEM PESSOAS em nenhuma hipótese (preferência fixa do cliente).",
+    "Foto EM COR — nunca preto e branco nem sépia.",
+    "Sem texto, sem logo, sem marca d'água, sem placas na imagem.",
+    "Paleta fria puxando para índigo/violeta da marca; evitar cores quentes dominantes (verde/laranja saturado).",
+    "Composição com respiro: área mais escura/uniforme no canto inferior esquerdo para a legenda do hero.",
+    "Perspectiva reta e digna (arquitetura), sem distorção de grande angular exagerada.",
+    "Assunto arquitetônico real e plausível para Salvador/BA — nada surreal ou futurista demais."
+  ],
+
+  "instrucoes_codex": [
+    "1. Gere a imagem usando o campo prompt.positivo (e prompt.negativo como negative prompt), no aspect ratio 4:5, resolução mínima 1600x2000.",
+    "2. Confira as restricoes_marca_obrigatorias ANTES de aceitar: se aparecer pessoa, texto, logo ou P&B, refaça.",
+    "3. Salve o master em PNG temporário e converta para webp: `cwebp -q 82 master.png -o Site/assets/img/hero-arquitetura-pilares.webp`.",
+    "4. Gere a variação mobile 900px de largura: redimensione e exporte `Site/assets/img/hero-arquitetura-pilares@sm.webp` (mesma proporção 4:5, `cwebp -q 80`).",
+    "5. Espelhe os dois arquivos em `deploy-vercel/assets/img/` (mesmos nomes).",
+    "6. (Opcional) Fie no hero trocando o `src`/`srcset` de `.hero--editorial .hero__feature img` em Site/index.html e no deploy-vercel: `src=\"assets/img/hero-arquitetura-pilares.webp\"`, `srcset=\"assets/img/hero-arquitetura-pilares@sm.webp 900w, assets/img/hero-arquitetura-pilares.webp 1600w\"`, mantendo `alt`, `width=\"1600\" height=\"2000\"` e `sizes` atuais.",
+    "7. Não altere a copy, os CTAs, nem os tokens. A troca é só de imagem.",
+    "8. Verifique no preview: 0 overflow horizontal, imagem nítida no card 4:5, legenda legível sobre o canto inferior esquerdo."
+  ],
+
+  "criterios_de_aceite": [
+    "Arquitetura contemporânea de alto padrão, sem pessoas, em cor com grade fria alinhada à marca.",
+    "Pilares/colunas verticais visíveis (amarra ao nome da marca).",
+    "Canto inferior esquerdo com área calma para a legenda.",
+    "Nitidez de foto profissional; sem artefatos de render/IA óbvios.",
+    "Dois arquivos webp entregues (1600w + 900w) nas duas pastas (Site e deploy-vercel)."
+  ]
+}
