@@ -197,14 +197,15 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
   letter-spacing:.03em;color:var(--c-ink);
   transition:color var(--dur-fast) var(--ease);
 }
-/* filete vertical do cartão como marcador de ativo/hover */
+/* sublinhado fino que cresce do centro — marcador de ativo/hover */
 .nav a::after{
-  content:"";position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
-  width:2px;height:0;background:var(--c-accent);
-  transition:height var(--dur) var(--ease);
+  content:"";position:absolute;left:0;right:0;bottom:4px;height:1.5px;
+  background:var(--c-accent);
+  transform:scaleX(0);transform-origin:center;
+  transition:transform var(--dur) var(--ease);
 }
 .nav a:hover,.nav a[aria-current="true"]{color:var(--c-accent)}
-.nav a:hover::after,.nav a[aria-current="true"]::after{height:12px}
+.nav a:hover::after,.nav a[aria-current="true"]::after{transform:scaleX(1)}
 
 .hdr__cta{display:flex;align-items:center;gap:var(--s-4);padding-left:var(--s-5);
   border-left:1px solid var(--c-line)}
@@ -270,7 +271,7 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
   background:radial-gradient(118% 125% at 10% 16%, var(--c-indigo) 0%, var(--c-ink) 66%);
 }
 .hero--editorial .hero__grid{
-  display:grid;grid-template-columns:1.02fr .98fr;
+  display:grid;grid-template-columns:1fr 1fr;
   gap:clamp(2rem,5vw,4.5rem);align-items:center;
   min-height:min(94vh,920px);
   padding-top:calc(var(--header-h) + var(--s-8));
@@ -279,7 +280,8 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 .hero--editorial .hero__box{max-width:36rem}
 .hero--editorial h1{font-size:clamp(2.1rem,1.2rem + 3.1vw,4.25rem)}
 /* a foto como card emoldurado */
-.hero__feature{position:relative;margin:0;align-self:center}
+/* slot menor = imagem mais densa/nítida (limita a largura mesmo em telas grandes) */
+.hero__feature{position:relative;margin:0 0 0 auto;align-self:center;width:100%;max-width:560px}
 .hero__feature img{
   width:100%;display:block;object-fit:cover;aspect-ratio:4/5;
   border:1px solid rgba(255,255,255,.16);box-shadow:var(--e-3);
@@ -300,7 +302,7 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
   .hero--editorial .hero__grid{grid-template-columns:1fr;min-height:auto;gap:var(--s-6);
     padding-top:calc(var(--header-h) + var(--s-7));padding-bottom:var(--s-7)}
   .hero--editorial .hero__box{max-width:100%}
-  .hero__feature{order:-1}
+  .hero__feature{order:-1;max-width:none;margin:0}
   .hero__feature img{aspect-ratio:16/10}
   .hero__feature::after{display:none}
 }
