@@ -107,3 +107,21 @@ Escritas para este projeto, dirigem o Chrome por CDP (Node puro, sem dependênci
 ⚠️ Todas medem no **estado assentado** (transições desligadas): ler `getComputedStyle`
 no mesmo frame em que a classe de reveal entra devolve o valor **inicial** da transição —
 foi a origem de vários falsos positivos durante o build.
+
+
+## LP Projetos (nova frente, 19/10/2026)
+
+Nova LP para a frente de **projetos arquitetônico, de interiores e complementares** (construção e
+reforma, alto padrão, mesmas praças da construção). As LPs de obras e reformas seguem intactas.
+
+- **Fonte:** `lp/projetos/` (sai também em `/projetos` no projeto Vercel das LPs)
+- **Deploy:** `deploy-lp-projetos/vercel/` e `deploy-lp-projetos/public_html/`, gerados por
+  `python scripts/build-lp-projetos.py`
+- **Seções:** hero com persianas que se abrem, Projetos (6, grade espelhada 6/3/3 + 3/3/6, lightbox),
+  Escopo (cena travada com 3 disciplinas), Acompanhamento (banda navy), Construtora (números),
+  Perguntas e CTA final. Todo CTA abre o Merlin (`cta-merlin1..8`).
+- **Visual:** Host Grotesk 300 a 600; navy #0A0B32 e violeta #5E4C9A da marca sobre travertino
+  #F1EEE8/#E4DED3; patterns `Square Grid` (prancha, no Escopo) e `Vertical Lines` (ripado, no CTA).
+- **Parceiro:** sem marca do parceiro, como pedido. A copy fala em "num só contrato", sem afirmar que
+  toda a arquitetura é feita internamente.
+- **Pendências:** ver `state.json > pendencias`, grupo "LP Projetos".

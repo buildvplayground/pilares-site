@@ -5,7 +5,7 @@
  "setor": "construtora e incorporadora",
  "praca": "Salvador, BA",
  "etapa_atual": 8,
- "atualizado_em": "2026-08-31",
+ "atualizado_em": "2026-10-19",
  "etapas": [
   {
    "n": 1,
@@ -73,7 +73,13 @@
   "repo": "https://github.com/dev-buildv/pilares-site",
   "preview": "http://localhost:8795/",
   "dominio": null,
-  "deploy_vercel": "deploy-vercel/ (gerada por node _raw/build-deploy-vercel.js)"
+  "deploy_vercel": "deploy-vercel/ (gerada por node _raw/build-deploy-vercel.js)",
+  "lp_projetos": {
+   "fonte": "lp/projetos/ (também em /projetos no projeto Vercel das LPs)",
+   "vercel": "deploy-lp-projetos/vercel/",
+   "public_html": "deploy-lp-projetos/public_html/",
+   "build": "python scripts/build-lp-projetos.py"
+  }
  },
  "pendencias": [
   {
@@ -187,6 +193,62 @@
    "prioridade": "baixa",
    "titulo": "As pastas 02 (Criativos) e 03 (Site e páginas) do Drive estão vazias",
    "detalhe": "Se houver mais material (logo em vetor original, brandbook, fotos profissionais, wireframes), enviar — o site foi construído com o que havia na pasta 01."
+  },
+  {
+   "id": "lp-proj-visitas",
+   "grupo": "LP Projetos",
+   "prioridade": "alta",
+   "titulo": "Confirmar as 2 visitas técnicas presenciais durante a obra",
+   "detalhe": "O briefing disse \"acredito que duas visitas fique interessante\". A LP publica isso como compromisso (seção Acompanhamento). Confirmar ou ajustar o número."
+  },
+  {
+   "id": "lp-proj-complementares",
+   "grupo": "LP Projetos",
+   "prioridade": "alta",
+   "titulo": "Confirmar a lista de projetos complementares",
+   "detalhe": "A LP lista Estrutural, Elétrico e Hidrossanitário. Confirmar se é isso (ou incluir climatização, luminotécnico, SPDA etc.)."
+  },
+  {
+   "id": "lp-proj-prazo",
+   "grupo": "LP Projetos",
+   "prioridade": "media",
+   "titulo": "Informar o prazo médio de entrega do projeto",
+   "detalhe": "O diferencial \"rapidez\" está sem número para não inventar dado. Com o prazo real, vira big number."
+  },
+  {
+   "id": "lp-proj-ticket",
+   "grupo": "LP Projetos",
+   "prioridade": "media",
+   "titulo": "Decidir se a LP mostra \"projetos a partir de R$ 20 mil\"",
+   "detalhe": "Hoje o valor não aparece. Mostrar filtra leads abaixo do ticket. Alternativa: perguntar a faixa de investimento no popup Merlin."
+  },
+  {
+   "id": "lp-proj-merlin",
+   "grupo": "LP Projetos",
+   "prioridade": "media",
+   "titulo": "Confirmar se a frente de Projetos usa o mesmo popup Merlin das LPs de obra e reforma",
+   "detalhe": "Hoje usa o popup 11db4c92 e o GTM GTM-KZRTTKDV. Se o comercial quiser separar os leads, criar um popup próprio e trocar o ID em lp/projetos/index.html."
+  },
+  {
+   "id": "lp-proj-imagens",
+   "grupo": "LP Projetos",
+   "prioridade": "media",
+   "titulo": "Autorizar o uso dos renders do portfólio do parceiro",
+   "detalhe": "As imagens dos 6 projetos vêm do portfólio em PDF do parceiro, sem a marca dele. Confirmar que o parceiro autoriza. Ficaram de fora renders com logos de terceiros (novak, Paraguassu) e um com LED verde."
+  },
+  {
+   "id": "lp-proj-clarity",
+   "grupo": "LP Projetos",
+   "prioridade": "baixa",
+   "titulo": "Clarity Project ID para medir scroll death da LP",
+   "detalhe": "Sem ID o Clarity não foi instalado. Pode entrar via GTM."
+  },
+  {
+   "id": "lp-proj-deploy",
+   "grupo": "LP Projetos",
+   "prioridade": "alta",
+   "titulo": "Publicar a LP de Projetos",
+   "detalhe": "Vercel: Root Directory deploy-lp-projetos/vercel (ou já sai em /projetos no projeto das LPs, Root lp). Hostinger: enviar o conteúdo de deploy-lp-projetos/public_html. Definir domínio ou subdomínio."
   }
  ],
  "metricas": {
@@ -198,5 +260,24 @@
   "paginas": 3,
   "obras_no_portfolio": 6,
   "deploy_vercel_mb": 3.7
- }
+ },
+ "lps": [
+  {
+   "slug": "projetos",
+   "nome": "LP Projetos (arquitetônico, interiores e complementares)",
+   "status": "revisao",
+   "criada_em": "2026-10-19",
+   "branch": "feat/lp-projetos",
+   "secoes": [
+    "hero",
+    "projetos",
+    "escopo (cena travada)",
+    "acompanhamento",
+    "construtora",
+    "perguntas",
+    "cta final"
+   ],
+   "qa": "overflow 0 de 320 a 1920; seções cabem na janela de 360px para cima (320x568 excede ~80px em 3 seções); lightbox, teclado, menu, âncoras, abas, reduced-motion e consentimento testados por Playwright"
+  }
+ ]
 }
