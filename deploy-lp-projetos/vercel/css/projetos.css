@@ -118,12 +118,11 @@ ul{padding:0;list-style:none}
 .pf{background:var(--bone)}
 .pf__head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:clamp(20px,3.4vh,36px)}
 .pf__grid{--row:clamp(170px,calc((100svh - var(--hdr) - 2*var(--pad) - 96px)/2),400px);display:grid;grid-template-columns:repeat(12,1fr);grid-template-rows:repeat(2,var(--row));gap:12px}
-.pf__it--a{grid-column:1/7}
-.pf__it--b{grid-column:7/10}
-.pf__it--c{grid-column:10/13}
-.pf__it--d{grid-column:1/4}
-.pf__it--e{grid-column:4/7}
-.pf__it--f{grid-column:7/13}
+.pf__it--a{grid-column:1/8}
+.pf__it--b{grid-column:8/13}
+.pf__it--c{grid-column:1/5}
+.pf__it--e{grid-column:5/9}
+.pf__it--f{grid-column:9/13}
 .pf__card{position:relative;display:block;width:100%;height:100%;overflow:hidden;background:var(--ink-2);text-align:left;color:var(--bone)}
 .pf__card img{width:100%;height:100%;object-fit:cover;transition:transform 1.3s var(--e)}
 .pf__card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(10,11,50,.78) 0,rgba(10,11,50,0) 46%);transition:opacity .6s var(--e2)}
@@ -136,13 +135,16 @@ ul{padding:0;list-style:none}
 @media (hover:none){.pf__more{opacity:1;transform:none}}
 
 @media (max-width:899px){
-  .pf__grid{grid-template-columns:repeat(3,1fr);grid-template-rows:none;gap:8px}
-  .pf__it{grid-column:auto!important;aspect-ratio:4/3}
+  .pf__grid{grid-template-columns:repeat(6,1fr);grid-template-rows:none;gap:8px}
+  .pf__it{grid-column:span 2!important;aspect-ratio:4/3}
+  .pf__it--a,.pf__it--b{grid-column:span 3!important;aspect-ratio:16/10}
   .pf__cap b{font-size:.9375rem}
   .pf__cap span{font-size:.75rem}
 }
 @media (max-width:599px){
   .pf__grid{grid-template-columns:1fr 1fr}
+  .pf__it,.pf__it--b{grid-column:auto!important;aspect-ratio:4/3}
+  .pf__it--a{grid-column:1/-1!important;aspect-ratio:2/1}
   .pf__head{flex-wrap:wrap}
   .pf__head .btn{min-height:44px;padding:0 16px;font-size:.875rem}
   .pf__more{display:none}
@@ -160,6 +162,7 @@ ul{padding:0;list-style:none}
 .esc__fig[data-on=true]{clip-path:inset(0 0 0 0);z-index:1}
 .esc__fig img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.6s var(--e)}
 .esc__fig[data-on=true] img{transform:none}
+.esc__fig--compl img{object-position:85% 50%}
 .esc__tabs{position:relative;display:flex;flex-direction:column;margin:clamp(22px,4vh,40px) 0 clamp(16px,2.6vh,24px);padding-left:22px}
 .esc__tab{display:flex;align-items:baseline;gap:14px;padding:clamp(4px,.8vh,8px) 0;font-size:clamp(1.35rem,2.2vw,2rem);font-weight:300;letter-spacing:-.02em;line-height:1.2;color:rgba(10,11,50,.38);text-align:left;transition:color .5s var(--e2)}
 .esc__tab:hover{color:rgba(10,11,50,.7)}
@@ -223,19 +226,21 @@ ul{padding:0;list-style:none}
 /* ---------- 05 Quem constrói ---------- */
 .qc{background:var(--stone)}
 .qc__in{display:grid;grid-template-columns:repeat(12,1fr);gap:0 24px;align-items:center}
-.qc__txt{grid-column:1/8}
+.qc__txt{grid-column:1/7}
 .qc__p{max-width:52ch;margin-top:clamp(16px,3vh,28px);color:var(--muted);font-size:1.0625rem}
 .qc__stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:clamp(28px,6vh,64px);max-width:640px}
 .qc__stats li{padding:4px 18px 4px 0;border-left:1px solid var(--line);padding-left:18px}
 .qc__stats li:first-child{border-left:0;padding-left:0}
 .qc__stats b{display:block;font-size:clamp(2rem,4vw,3.5rem);font-weight:300;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
 .qc__stats span{display:block;margin-top:8px;font-size:.8125rem;color:var(--muted)}
-.qc__fig{grid-column:9/13}
-.qc__fig img{width:100%;height:min(72svh,620px);object-fit:cover}
+.qc__fig{grid-column:8/13}
+.qc__fig img{width:100%;height:min(66svh,580px);object-fit:cover;object-position:52% 50%}
+.qc__fig figcaption{margin-top:10px;font-size:.75rem;color:var(--muted)}
 @media (max-width:899px){
   .qc__in{display:flex;flex-direction:column;align-items:stretch}
   .qc__fig{order:-1;margin-bottom:24px}
-  .qc__fig img{height:22svh;min-height:130px;object-position:50% 70%}
+  .qc__fig img{height:22svh;min-height:130px;object-position:52% 60%}
+  .qc__fig figcaption{display:none}
   .qc__stats li{padding-left:12px;padding-right:8px}
 }
 

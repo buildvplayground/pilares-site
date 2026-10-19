@@ -234,7 +234,7 @@
    "grupo": "LP Projetos",
    "prioridade": "media",
    "titulo": "Autorizar o uso dos renders do portfólio do parceiro",
-   "detalhe": "As imagens dos 6 projetos vêm do portfólio em PDF do parceiro, sem a marca dele. Confirmar que o parceiro autoriza. Ficaram de fora renders com logos de terceiros (novak, Paraguassu) e um com LED verde."
+   "detalhe": "A LP usa renders do portfólio em PDF do parceiro (sem a marca dele) e uma foto REAL de obra entregue da Pilares (sala integrada). Confirmar que o parceiro autoriza. Fotos de canteiro cru foram removidas a pedido (não comunicam alto padrão). Ideal: 3 ou 4 fotos profissionais de obras entregues (luz de fim de tarde, ambiente produzido) para substituir renders."
   },
   {
    "id": "lp-proj-clarity",
@@ -277,7 +277,8 @@
     "perguntas",
     "cta final"
    ],
-   "qa": "overflow 0 de 320 a 1920; seções cabem na janela de 360px para cima (320x568 excede ~80px em 3 seções); lightbox, teclado, menu, âncoras, abas, reduced-motion e consentimento testados por Playwright"
+   "qa": "overflow 0 de 320 a 1920; seções cabem na janela de 360px para cima (320x568 excede ~80px em 3 seções); lightbox, teclado, menu, âncoras, abas, reduced-motion e consentimento testados por Playwright",
+   "imagens": "revisadas 19/10: painel de 3 juízes + verificador adversarial; canteiro cru removido; portfólio com 5 projetos"
   }
  ]
 }
