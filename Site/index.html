@@ -239,7 +239,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="split__body">
         <p class="eyebrow" data-reveal="soft">Quem somos</p>
-        <h2 data-reveal="soft" data-split>É no detalhe que não aparece que a qualidade se decide.</h2>
+        <h2 data-reveal="soft" data-split>É no detalhe que não aparece <em>que a qualidade se decide.</em></h2>
         <p class="lede" data-reveal="up" data-rv="right">
           O que fica escondido no resultado final, como fundação e instalações, é exatamente
           o que <strong>garante a qualidade dele</strong>. Por isso a Pilares faz a gestão
@@ -295,7 +295,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow" data-reveal="soft">Onde atuamos</p>
-        <h2 data-reveal="soft" data-split>Frentes sustentadas pelo mesmo padrão técnico</h2>
+        <h2 data-reveal="soft" data-split>Frentes sustentadas pelo <em>mesmo padrão técnico</em></h2>
       </div>
     </div>
 
@@ -395,7 +395,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="container">
       <div class="sec-head">
         <p class="eyebrow" data-reveal="soft">Como trabalhamos</p>
-        <h2 data-reveal="soft" data-split>O mesmo fluxo para qualquer porte e contratante</h2>
+        <h2 data-reveal="soft" data-split>O mesmo fluxo para <em>qualquer porte e contratante</em></h2>
       </div>
 
       <ol class="proc__grid">
@@ -428,108 +428,79 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- ===== Obras: mosaico com lightbox por obra ===== -->
+  <!-- ===== Obras: portfólio editorial (legenda abaixo da foto), lightbox ===== -->
   <section id="obras">
     <div class="container">
-      <div class="sec-head">
-        <p class="eyebrow" data-reveal="soft">Obras</p>
-        <h2 data-reveal="soft" data-split>Espaços que entregamos</h2>
-        <p class="lede" data-reveal="up">Ambientes e fachadas entregues. Clique em qualquer foto para ampliar.</p>
+      <div class="obras__head">
+        <div class="obras__title">
+          <p class="eyebrow" data-reveal="soft">Obras entregues</p>
+          <h2 data-reveal="soft" data-split>Espaços que <em>entregamos</em></h2>
+        </div>
+        <div class="obras__aside" data-reveal="up">
+          <p>Ambientes, fachadas e acabamentos de obras da Pilares. Abra qualquer foto para ver a galeria completa.</p>
+          <button class="btn" type="button" id="cta-merlin8">
+            Quero uma obra assim
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
 
-      <div class="galeria" id="galeria">
-
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-residencia-fachada.webp"
-          data-cap="Residência unifamiliar"
-          data-alt="Fachada de residência de dois pavimentos entregue pela Pilares">
-          <img src="assets/img/obra-residencia-fachada@sm.webp" srcset="assets/img/obra-residencia-fachada@sm.webp 1080w, assets/img/obra-residencia-fachada.webp 1920w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Fachada de residência de dois pavimentos entregue pela Pilares"
-               width="1920" height="2400" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-living-madeira.webp"
-          data-cap="Sala de estar"
-          data-alt="Sala de estar com painel de madeira e sofá curvo">
-          <img src="assets/img/obra-living-madeira@sm.webp" srcset="assets/img/obra-living-madeira@sm.webp 900w, assets/img/obra-living-madeira.webp 1080w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Sala de estar com painel de madeira e sofá curvo"
-               width="1080" height="1350" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/hero-sala-integrada.webp"
-          data-cap="Sala e cozinha integradas"
-          data-alt="Sala e cozinha americana integradas após a reforma">
-          <img src="assets/img/hero-sala-integrada@sm.webp" srcset="assets/img/hero-sala-integrada@sm.webp 1200w, assets/img/hero-sala-integrada.webp 1920w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Sala e cozinha americana integradas após a reforma"
-               width="1920" height="1080" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-cozinha-ilha.webp"
-          data-cap="Cozinha com ilha"
-          data-alt="Cozinha com ilha central e bancada em pedra natural">
-          <img src="assets/img/obra-cozinha-ilha@sm.webp" srcset="assets/img/obra-cozinha-ilha@sm.webp 900w, assets/img/obra-cozinha-ilha.webp 1080w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Cozinha com ilha central e bancada em pedra natural"
-               width="1080" height="1350" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-cozinha-pedra.webp"
-          data-cap="Bancada em pedra natural"
-          data-alt="Cozinha americana com bancada em pedra natural e iluminação embutida">
-          <img src="assets/img/obra-cozinha-pedra@sm.webp" srcset="assets/img/obra-cozinha-pedra@sm.webp 1080w, assets/img/obra-cozinha-pedra.webp 1920w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Cozinha americana com bancada em pedra natural e iluminação embutida"
-               width="1920" height="2400" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-apartamento-vista.webp"
-          data-cap="Apartamento com vista"
-          data-alt="Apartamento entregue pela Pilares, com vista para a cidade">
-          <img src="assets/img/obra-apartamento-vista@sm.webp" srcset="assets/img/obra-apartamento-vista@sm.webp 900w, assets/img/obra-apartamento-vista.webp 1080w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Apartamento entregue pela Pilares, com vista para a cidade"
-               width="1080" height="1350" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-escada-vista.webp"
-          data-cap="Escada com guarda-corpo de vidro"
-          data-alt="Escada interna com guarda-corpo de vidro">
-          <img src="assets/img/obra-escada-vista@sm.webp" srcset="assets/img/obra-escada-vista@sm.webp 1080w, assets/img/obra-escada-vista.webp 1920w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Escada interna com guarda-corpo de vidro"
-               width="1920" height="2400" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/obra-living-vidro.webp"
-          data-cap="Área gourmet"
-          data-alt="Área gourmet com churrasqueira revestida e fechamento em vidro">
-          <img src="assets/img/obra-living-vidro@sm.webp" srcset="assets/img/obra-living-vidro@sm.webp 600w, assets/img/obra-living-vidro.webp 900w"
-             sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Área gourmet com churrasqueira revestida e fechamento em vidro"
-               width="900" height="1295" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-        <button class="gal__item" type="button" data-reveal="fig"
-          data-full="assets/img/detalhe-porcelanato.webp"
-          data-cap="Porcelanato de grandes formatos"
-          data-alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores">
-          <img src="assets/img/detalhe-porcelanato.webp" sizes="(max-width:560px) 100vw, (max-width:900px) 50vw, 33vw"
-               alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores"
-               width="1414" height="2000" loading="lazy" decoding="async">
-          <span class="gal__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6"/></svg></span>
-        </button>
-
-      </div>
+      <ul class="obras" id="galeria" role="list">
+        <li class="obra obra--a" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-cozinha-pedra.webp" data-cap="Bancada em pedra natural" data-alt="Cozinha americana com bancada em pedra natural e iluminação embutida">
+            <span class="obra__img"><img src="assets/img/obra-cozinha-pedra@sm.webp" srcset="assets/img/obra-cozinha-pedra@sm.webp 1080w, assets/img/obra-cozinha-pedra.webp 1920w" sizes="(max-width:899px) 100vw, 66vw" alt="Cozinha americana com bancada em pedra natural e iluminação embutida" width="1920" height="2400" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">01</span><b>Bancada em pedra natural</b><span class="obra__t">Interiores · cozinha</span></span>
+          </button>
+        </li>
+        <li class="obra obra--b" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-living-madeira.webp" data-cap="Sala de estar" data-alt="Sala de estar com painel de madeira e sofá curvo">
+            <span class="obra__img"><img src="assets/img/obra-living-madeira@sm.webp" srcset="assets/img/obra-living-madeira@sm.webp 900w, assets/img/obra-living-madeira.webp 1080w" sizes="(max-width:899px) 100vw, 33vw" alt="Sala de estar com painel de madeira e sofá curvo" width="1080" height="1350" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">02</span><b>Sala de estar</b><span class="obra__t">Interiores · marcenaria</span></span>
+          </button>
+        </li>
+        <li class="obra obra--c" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-escada-vista.webp" data-cap="Escada com guarda-corpo de vidro" data-alt="Escada interna com guarda-corpo de vidro">
+            <span class="obra__img"><img src="assets/img/obra-escada-vista@sm.webp" srcset="assets/img/obra-escada-vista@sm.webp 1080w, assets/img/obra-escada-vista.webp 1920w" sizes="(max-width:599px) 100vw, (max-width:899px) 50vw, 33vw" alt="Escada interna com guarda-corpo de vidro" width="1920" height="2400" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">03</span><b>Escada com guarda-corpo de vidro</b><span class="obra__t">Acabamento</span></span>
+          </button>
+        </li>
+        <li class="obra obra--d" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-cozinha-ilha.webp" data-cap="Cozinha com ilha" data-alt="Cozinha com ilha central e bancada em pedra natural">
+            <span class="obra__img"><img src="assets/img/obra-cozinha-ilha@sm.webp" srcset="assets/img/obra-cozinha-ilha@sm.webp 900w, assets/img/obra-cozinha-ilha.webp 1080w" sizes="(max-width:599px) 100vw, (max-width:899px) 50vw, 33vw" alt="Cozinha com ilha central e bancada em pedra natural" width="1080" height="1350" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">04</span><b>Cozinha com ilha</b><span class="obra__t">Interiores · cozinha</span></span>
+          </button>
+        </li>
+        <li class="obra obra--e" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-apartamento-vista.webp" data-cap="Apartamento com vista" data-alt="Apartamento entregue pela Pilares, com vista para a cidade">
+            <span class="obra__img"><img src="assets/img/obra-apartamento-vista@sm.webp" srcset="assets/img/obra-apartamento-vista@sm.webp 900w, assets/img/obra-apartamento-vista.webp 1080w" sizes="(max-width:599px) 100vw, (max-width:899px) 50vw, 33vw" alt="Apartamento entregue pela Pilares, com vista para a cidade" width="1080" height="1350" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">05</span><b>Apartamento com vista</b><span class="obra__t">Interiores · apartamento</span></span>
+          </button>
+        </li>
+        <li class="obra obra--f" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-residencia-fachada.webp" data-cap="Residência unifamiliar" data-alt="Fachada de residência de dois pavimentos entregue pela Pilares">
+            <span class="obra__img"><img src="assets/img/obra-residencia-fachada@sm.webp" srcset="assets/img/obra-residencia-fachada@sm.webp 1080w, assets/img/obra-residencia-fachada.webp 1920w" sizes="(max-width:599px) 100vw, (max-width:899px) 50vw, 42vw" alt="Fachada de residência de dois pavimentos entregue pela Pilares" width="1920" height="2400" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">06</span><b>Residência unifamiliar</b><span class="obra__t">Obra · fachada</span></span>
+          </button>
+        </li>
+        <li class="obra obra--g" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/hero-sala-integrada.webp" data-cap="Sala com painel de madeira" data-alt="Sala com painel de madeira do piso ao teto e sofá orgânico curvo">
+            <span class="obra__img"><img src="assets/img/hero-sala-integrada@sm.webp" srcset="assets/img/hero-sala-integrada@sm.webp 1200w, assets/img/hero-sala-integrada.webp 1920w" sizes="(max-width:899px) 100vw, 58vw" alt="Sala com painel de madeira do piso ao teto e sofá orgânico curvo" width="1920" height="1080" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">07</span><b>Sala com painel de madeira</b><span class="obra__t">Interiores · marcenaria</span></span>
+          </button>
+        </li>
+        <li class="obra obra--h" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/obra-living-vidro.webp" data-cap="Área gourmet" data-alt="Área gourmet com churrasqueira revestida e fechamento em vidro">
+            <span class="obra__img"><img src="assets/img/obra-living-vidro@sm.webp" srcset="assets/img/obra-living-vidro@sm.webp 600w, assets/img/obra-living-vidro.webp 900w" sizes="(max-width:599px) 100vw, 50vw" alt="Área gourmet com churrasqueira revestida e fechamento em vidro" width="900" height="1295" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">08</span><b>Área gourmet</b><span class="obra__t">Obra · área externa</span></span>
+          </button>
+        </li>
+        <li class="obra obra--i" data-reveal="fig">
+          <button class="gal__item" type="button" data-full="assets/img/detalhe-porcelanato.webp" data-cap="Porcelanato de grandes formatos" data-alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores">
+            <span class="obra__img"><img src="assets/img/detalhe-porcelanato.webp" sizes="(max-width:599px) 100vw, 50vw" alt="Assentamento de porcelanato de grandes formatos com espaçadores niveladores" width="1414" height="2000" loading="lazy" decoding="async"><span class="obra__more" aria-hidden="true">Ampliar</span></span>
+            <span class="obra__cap"><span class="obra__n">09</span><b>Porcelanato de grandes formatos</b><span class="obra__t">Execução · acabamento</span></span>
+          </button>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -538,7 +509,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="dest">
       <div class="dest__body">
         <p class="eyebrow" data-reveal="soft">Obra em destaque · Apartamento LSP · Salvador,&nbsp;BA · 2024</p>
-        <h2 id="destTitulo" data-reveal="soft" data-split>Do estado bruto ao&nbsp;padrão do imóvel</h2>
+        <h2 id="destTitulo" data-reveal="soft" data-split>Do estado bruto <em>ao&nbsp;padrão do imóvel</em></h2>
 
         <dl class="ficha" data-reveal="up">
           <div><dt>Área construída</dt><dd>175&nbsp;m²</dd></div>
@@ -585,7 +556,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="cta__grid">
       <div class="cta__texto">
         <p class="eyebrow" data-reveal="soft">Fale com a Pilares</p>
-        <h2 data-reveal="soft" data-split>Vamos construir juntos?</h2>
+        <h2 data-reveal="soft" data-split>Vamos construir <em>juntos?</em></h2>
         <p class="cta__lede" data-reveal="up">
           Diga o que você quer construir ou reformar. Sem formulário: você fala
           direto com a Pilares pelo&nbsp;WhatsApp.

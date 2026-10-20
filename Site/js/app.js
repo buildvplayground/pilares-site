@@ -123,18 +123,23 @@
   function dividePalavras(el) {
     if (el.getAttribute('data-split-ok') === '1') return;
     var filhos = Array.prototype.slice.call(el.childNodes);
-    if (filhos.some(function (x) { return x.nodeType === 1; })) return;
+    // aceita só <em> (acento em itálico do título); qualquer outro filho, sai fora
+    if (filhos.some(function (x) { return x.nodeType === 1 && x.tagName !== 'EM'; })) return;
     // Só colapsa espaço ASCII: \s também casa U+00A0, e normalizar o espaço
     // inquebrável desfaria justamente as amarrações de quebra de linha.
-    var texto = (el.textContent || '').replace(/[ \t\r\n]+/g, ' ').trim();
-    if (!texto) return;
-    var palavras = texto.split(' ');   // pares presos por &nbsp; viram UMA palavra
+    var palavras = [];   // pares presos por &nbsp; viram UMA palavra
+    filhos.forEach(function (x) {
+      var em = x.nodeType === 1;
+      x.textContent.split(/[ \t\r\n]+/).forEach(function (p) { if (p) palavras.push({ t: p, em: em }); });
+    });
+    if (!palavras.length) return;
     el.textContent = '';
     palavras.forEach(function (pal, i) {
       var w = document.createElement('span');
       w.className = 'w';
       var it = document.createElement('i');
-      it.textContent = pal;
+      if (pal.em) { var e = document.createElement('em'); e.textContent = pal.t; it.appendChild(e); }
+      else it.textContent = pal.t;
       // 42ms por palavra (calibragem da casa), com teto para não arrastar
       it.style.setProperty('--wd', Math.min(i, 15) * 42 + 'ms');
       w.appendChild(it);
@@ -149,10 +154,15 @@
 
   var alvos = $$('[data-reveal], .step, .passos, .hero');
 
+  // imagem (fig/mask) nunca espera: sem stagger e com gatilho próprio, que
+  // dispara antes de ela entrar na tela (guard rail "imagem entra atrasada")
+  function ehMidia(el) { return /^(fig|mask)$/.test(el.getAttribute('data-reveal') || ''); }
+
   // stagger automático entre irmãos diretos: índice × 80ms, teto 480ms
   (function aplicaStagger() {
     var porPai = new Map();
     $$('[data-reveal], .step').forEach(function (el) {
+      if (ehMidia(el)) return;
       var pai = el.parentElement;
       if (!pai) return;
       if (!porPai.has(pai)) porPai.set(pai, 0);
@@ -188,12 +198,17 @@
     $$('[data-count]').forEach(function (el) { el.classList.add('is-counted'); });
   } else {
     if ('IntersectionObserver' in window) {
-      var obs = new IntersectionObserver(function (entradas) {
-        entradas.forEach(function (e) {
-          if (e.isIntersecting) { revela(e.target); obs.unobserve(e.target); }
-        });
-      }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
-      alvos.forEach(function (el) { obs.observe(el); });
+      var criaObs = function (opcoes) {
+        var o = new IntersectionObserver(function (entradas) {
+          entradas.forEach(function (e) {
+            if (e.isIntersecting) { revela(e.target); o.unobserve(e.target); }
+          });
+        }, opcoes);
+        return o;
+      };
+      var obs = criaObs({ threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+      var obsMidia = criaObs({ threshold: 0, rootMargin: '0px 0px 12% 0px' });
+      alvos.forEach(function (el) { (ehMidia(el) ? obsMidia : obs).observe(el); });
     } else {
       alvos.forEach(revela);
     }

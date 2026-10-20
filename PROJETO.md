@@ -92,6 +92,12 @@ Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cad
    Inter), a pedido; o circunflexo da Cormorant segue como pendência `lp-proj-fonte-site`.
    `_raw/build-deploy-vercel.js` passou a preservar o `.gitignore` de `deploy-vercel/`.
 
+13. **Linguagem da LP no site principal (20/10/2026):** a galeria virou portfólio editorial (grade de
+   12 colunas, legenda abaixo da foto com número, nome e tipo; sem véu sobre a imagem), cabeçalho da
+   seção com texto e CTA ao lado, e acento em itálico nos títulos (`<em>`, o split do `app.js` preserva).
+   A foto "Sala e cozinha integradas" era a mesma sala do painel de madeira: legenda e `alt` corrigidos.
+   Imagens com gatilho próprio (disparam antes de entrar na tela), sem stagger e com a cortina na `<img>`.
+
 ## Como rodar o preview
 
 ```bash
