@@ -233,8 +233,8 @@
    "id": "lp-proj-imagens",
    "grupo": "LP Projetos",
    "prioridade": "media",
-   "titulo": "Autorizar o uso dos renders do portfólio do parceiro",
-   "detalhe": "A LP usa renders do portfólio em PDF do parceiro (sem a marca dele) e uma foto REAL de obra entregue da Pilares (sala integrada). Confirmar que o parceiro autoriza. Fotos de canteiro cru foram removidas a pedido (não comunicam alto padrão). Ideal: 3 ou 4 fotos profissionais de obras entregues (luz de fim de tarde, ambiente produzido) para substituir renders."
+   "titulo": "Autorizar o uso dos renders e da marca Carol Cocco Arquitetura",
+   "detalhe": "A LP (revisão 20/10/2026) mostra a co-assinatura \"Arquitetura e interiores assinados por Carol Cocco Arquitetura\" (hero, seção Assinatura, FAQ, rodapé) e 7 projetos do portfólio dela, incluindo Casa Caribe e Clínica CSB. Confirmar com a parceira: uso da marca, a frase de assinatura e a publicação dos renders (a Clínica CSB mostra o logo do cliente na recepção). Ideal futuro: 3 ou 4 fotos profissionais de obras entregues."
   },
   {
    "id": "lp-proj-clarity",
@@ -249,6 +249,13 @@
    "prioridade": "alta",
    "titulo": "Publicar a LP de Projetos",
    "detalhe": "Vercel: Root Directory deploy-lp-projetos/vercel (ou já sai em /projetos no projeto das LPs, Root lp). Hostinger: enviar o conteúdo de deploy-lp-projetos/public_html. Definir domínio ou subdomínio."
+  },
+  {
+   "id": "lp-proj-fonte-site",
+   "grupo": "LP Projetos",
+   "prioridade": "baixa",
+   "titulo": "Circunflexo da Cormorant no site institucional",
+   "detalhe": "A Cormorant Garamond desenha o circunflexo alto e solto (você, Arquitetônico). A LP Projetos trocou para Newsreader; avaliar o mesmo no Site/ institucional."
   }
  ],
  "metricas": {
