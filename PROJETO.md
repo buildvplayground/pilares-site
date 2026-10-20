@@ -85,6 +85,13 @@ Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cad
    fonte única. Na variante da Vercel o backend PHP sai e entra uma serverless function;
    o campo de anexo sai (upload exigiria dependência externa) e a página pede por e-mail.
 
+12. **Paleta "alto padrão" no site principal (20/10/2026):** a mesma da LP Projetos. O violeta e o
+   lilás saem; entram travertino #F3F0EA / pedra #E8E2D8, bronze #7A5640 (texto sobre claro) e
+   champanhe #D2B9A2 (acento sobre escuro); véus de foto neutro-quentes (`--veil`) no lugar do
+   navy. Navy #0A0B32 da logo segue como tinta e fundo escuro. **Fontes mantidas** (Cormorant +
+   Inter), a pedido; o circunflexo da Cormorant segue como pendência `lp-proj-fonte-site`.
+   `_raw/build-deploy-vercel.js` passou a preservar o `.gitignore` de `deploy-vercel/`.
+
 ## Como rodar o preview
 
 ```bash

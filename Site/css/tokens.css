@@ -2,33 +2,37 @@
    Pilares Engenharia e Construções — Design Tokens
    Paleta e tipografia DERIVADAS DA MARCA REAL do cliente:
      • cor da logo amostrada do vetor do cartão aprovado ......... #0A0B32
-     • violeta do filete/rodapé da apresentação institucional .... #5E4C9A / #26114A
-     • fundo lilás claro do cartão ............................... #EBEBF4
-   Todos os pares de texto/fundo verificados para WCAG 2.1 AA (ver design-system.md).
+   Revisão "alto padrão" (20/10/2026), a mesma da LP Projetos: o violeta e o lilás saem;
+   entram neutros de travertino (#F3F0EA / #E8E2D8) e o bronze #9B715A da arquiteta
+   parceira (#7A5640 para texto sobre claro, champanhe #D2B9A2 sobre escuro). Véus de foto
+   neutro-quentes (--veil), não navy, para não esfriar as imagens. Tipografia mantida.
+   Todos os pares de texto/fundo verificados para WCAG 2.1 AA.
    ========================================================================== */
 
 :root {
   /* ---- Marca: tinta e profundidade ---- */
   --c-ink:            #0A0B32;  /* cor exata da logo — texto principal, fundos profundos */
-  --c-indigo:         #181446;  /* fundo escuro alternativo (blocos, footer topo) */
-  --c-violet:         #26114A;  /* violeta profundo do rodapé da apresentação */
+  --c-indigo:         #14163F;  /* fundo escuro alternativo (blocos, footer topo) */
+  --c-violet:         #1A1B3A;  /* navy profundo (era violeta #26114A) */
 
   /* ---- Marca: acento ---- */
-  --c-accent:         #5E4C9A;  /* violeta do filete do cartão — acento sobre CLARO */
-  --c-accent-strong:  #4B3C7E;  /* hover/pressed sobre claro */
-  --c-accent-light:   #A996E0;  /* acento sobre ESCURO (AA: 7.34:1 no ink) */
+  --c-accent:         #7A5640;  /* bronze para texto sobre CLARO (AA: 5.71:1 no bg) */
+  --c-accent-strong:  #634532;  /* hover/pressed sobre claro */
+  --c-accent-light:   #D2B9A2;  /* champanhe — acento sobre ESCURO (AA: 10.12:1 no ink) */
+  --c-bronze:         #9B715A;  /* bronze decorativo (fios, marcas), nunca texto pequeno */
 
   /* ---- Neutros ---- */
-  --c-bg:             #F4F3F9;  /* fundo da página (lilás quase branco) */
-  --c-bg-2:           #EBEBF4;  /* faixas alternadas / fundo do cartão */
-  --c-surface:        #FFFFFF;  /* cards */
-  --c-muted:          #58566B;  /* texto secundário (AA: 6.43:1 no bg) */
-  --c-muted-dark:     #B9B7CC;  /* texto secundário sobre escuro */
-  --c-line:           #D8D6E6;  /* filetes sobre claro */
+  --c-bg:             #F3F0EA;  /* fundo da página (travertino claro) */
+  --c-bg-2:           #E8E2D8;  /* faixas alternadas (pedra) */
+  --c-surface:        #FBF9F5;  /* cards (branco quente) */
+  --c-muted:          #5A5866;  /* texto secundário (AA: 6.11:1 no bg, 5.39:1 no bg-2) */
+  --c-muted-dark:     #B3AFA8;  /* texto secundário sobre escuro (AA: 8.69:1 no ink) */
+  --c-line:           #DDD5C8;  /* filetes sobre claro */
   --c-line-dark:      rgba(255,255,255,.16);
 
   /* ---- Estado ---- */
-  --c-focus:          #5E4C9A;
+  --c-focus:          #7A5640;
+  --veil:             12,10,9;  /* véu neutro-quente das fotos: rgba(var(--veil),a) */
   --c-wa:             #1EA65A;  /* verde WhatsApp acessível (4.0:1 no branco p/ ícone) */
 
   /* ---- Tipografia ----
