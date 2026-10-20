@@ -27,7 +27,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..500;1,6..72,300..400&family=Host+Grotesk:wght@300..600&display=swap" rel="stylesheet">
 
 <link rel="preload" as="image" href="assets/img/casa-zs-1.webp" imagesrcset="assets/img/casa-zs-1@sm.webp 860w, assets/img/casa-zs-1.webp 1505w" imagesizes="100vw" fetchpriority="high">
 <link rel="stylesheet" href="css/projetos.css">
@@ -87,6 +87,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <nav class="nav" id="nav" aria-label="Navegação principal">
       <a href="#projetos">Projetos</a>
+      <a href="#assinatura">Assinatura</a>
       <a href="#escopo">Escopo</a>
       <a href="#acompanhamento">Acompanhamento</a>
       <a href="#perguntas">Perguntas</a>
@@ -107,10 +108,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="hero__slats" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
   </figure>
   <div class="wrap hero__in" id="heroIn">
-    <p class="eyebrow eyebrow--light" data-reveal="soft">Projetos para construção e reforma · Salvador e região</p>
-    <h1 class="hero__h" id="heroTitle"><span class="ln"><span>Projeto completo,</span></span><span class="ln"><span>pensado por quem constrói.</span></span></h1>
+    <p class="eyebrow eyebrow--light" data-reveal="soft">Arquitetura · Interiores · Complementares</p>
+    <h1 class="hero__h" id="heroTitle"><span class="ln"><span>Projeto completo,</span></span><span class="ln"><span><em>pensado por quem constrói.</em></span></span></h1>
     <div class="hero__foot">
-      <p class="hero__sub" data-reveal>Arquitetura, interiores e projetos complementares num só contrato, entregues com agilidade e acompanhados até a entrega da sua obra.</p>
+      <div class="hero__copy">
+        <p class="hero__sub" data-reveal>Para construir ou reformar em Salvador, Lauro de Freitas e Camaçari: arquitetura, interiores e complementares num só contrato, acompanhados até a entrega da obra.</p>
+        <p class="sig sig--light" data-reveal><span>Arquitetura e interiores assinados por</span><img src="assets/img/cc-horizontal-claro.svg" alt="Carol Cocco Arquitetura" width="719" height="121"></p>
+      </div>
       <button class="btn btn--light btn--lg" type="button" id="cta-merlin2" data-reveal>Solicitar proposta <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
     </div>
   </div>
@@ -121,39 +125,70 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="sec pf" id="projetos" data-bg="light" aria-labelledby="pfTitle">
   <div class="wrap">
     <div class="pf__head">
-      <h2 class="h2" id="pfTitle">Projetos</h2>
-      <button class="btn btn--solid" type="button" id="cta-merlin3">Quero um projeto assim</button>
+      <div class="pf__title">
+        <p class="eyebrow">Portfólio</p>
+        <h2 class="h2" id="pfTitle" data-split>Projetos que saem do papel <em>como foram desenhados.</em></h2>
+      </div>
+      <div class="pf__aside">
+        <p data-reveal>Residências, apartamentos e interiores comerciais, do conceito ao detalhamento técnico. Abra um projeto para ver todas as imagens.</p>
+        <button class="btn btn--solid" type="button" id="cta-merlin3" data-reveal>Quero um projeto assim <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+      </div>
     </div>
     <ul class="pf__grid" role="list">
-      <li class="pf__it pf__it--a" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-zs" data-n="2" data-title="Casa Z|S">
-        <img src="assets/img/casa-zs-2@sm.webp" srcset="assets/img/casa-zs-2@sm.webp 860w, assets/img/casa-zs-2.webp 1505w" sizes="(max-width:700px) 100vw, 50vw" alt="Casa Z|S, fachada iluminada à noite" width="1505" height="847" loading="lazy">
-        <span class="pf__cap"><b>Casa Z|S</b><span>Arquitetura</span></span><span class="pf__more">2 imagens</span></button></li>
+      <li class="pf__it pf__it--a" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-caribe" data-n="2" data-title="Casa Caribe">
+        <span class="pf__img"><img src="assets/img/casa-caribe-1@sm.webp" srcset="assets/img/casa-caribe-1@sm.webp 860w, assets/img/casa-caribe-1.webp 1600w" sizes="(max-width:899px) 100vw, 66vw" alt="Casa Caribe, fachada neoclássica com molduras iluminadas ao entardecer" width="1600" height="900" loading="lazy"><span class="pf__more">2 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">01</span><b>Casa Caribe</b><span class="pf__t">Arquitetura · residência</span></span></button></li>
       <li class="pf__it pf__it--b" data-reveal="fig"><button class="pf__card" type="button" data-gal="apto-terraco" data-n="5" data-title="Apartamento Terraço">
-        <img src="assets/img/apto-terraco-1@sm.webp" alt="Apartamento Terraço, cozinha integrada com ripado de madeira" width="860" height="688" loading="lazy">
-        <span class="pf__cap"><b>Apartamento Terraço</b><span>Reforma e interiores</span></span><span class="pf__more">5 imagens</span></button></li>
-      <li class="pf__it pf__it--c" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-sa" data-n="3" data-title="Casa S|A">
-        <img src="assets/img/casa-sa-1@sm.webp" alt="Casa S|A, fachada com frisos de luz e marquise" width="860" height="484" loading="lazy">
-        <span class="pf__cap"><b>Casa S|A</b><span>Arquitetura e interiores</span></span><span class="pf__more">3 imagens</span></button></li>
-      <li class="pf__it pf__it--d" data-reveal="fig"><button class="pf__card" type="button" data-gal="apto-rio" data-n="5" data-title="Apartamento Rio">
-        <img src="assets/img/apto-rio-1@sm.webp" alt="Apartamento Rio, sala de estar com painel de madeira e sofá claro" width="860" height="484" loading="lazy">
-        <span class="pf__cap"><b>Apartamento Rio</b><span>Reforma e interiores</span></span><span class="pf__more">5 imagens</span></button></li>
-      <li class="pf__it pf__it--e" data-reveal="fig"><button class="pf__card" type="button" data-gal="gourmet" data-n="4" data-title="Espaço gourmet">
-        <img src="assets/img/gourmet-1@sm.webp" alt="Espaço gourmet, raia de piscina junto a parede de pedra iluminada" width="860" height="484" loading="lazy">
-        <span class="pf__cap"><b>Espaço gourmet</b><span>Arquitetura e interiores</span></span><span class="pf__more">4 imagens</span></button></li>
-      <li class="pf__it pf__it--f" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-mm" data-n="4" data-title="Casa M|M">
-        <img src="assets/img/casa-mm-1@sm.webp" srcset="assets/img/casa-mm-1@sm.webp 860w, assets/img/casa-mm-1.webp 1536w" sizes="(max-width:700px) 100vw, 50vw" alt="Casa M|M, fachada térrea com garagem e jardim frontal" width="1536" height="864" loading="lazy">
-        <span class="pf__cap"><b>Casa M|M</b><span>Arquitetura</span></span><span class="pf__more">4 imagens</span></button></li>
+        <span class="pf__img"><img src="assets/img/apto-terraco-1@sm.webp" srcset="assets/img/apto-terraco-1@sm.webp 860w, assets/img/apto-terraco-1.webp 1440w" sizes="(max-width:899px) 100vw, 33vw" alt="Apartamento Terraço, cozinha integrada com ripado de madeira e ilha" width="1440" height="1152" loading="lazy"><span class="pf__more">5 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">02</span><b>Apartamento Terraço</b><span class="pf__t">Reforma e interiores</span></span></button></li>
+      <li class="pf__it pf__it--c" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-zs" data-n="2" data-title="Casa Z|S">
+        <span class="pf__img"><img src="assets/img/casa-zs-2@sm.webp" srcset="assets/img/casa-zs-2@sm.webp 860w, assets/img/casa-zs-2.webp 1505w" sizes="(max-width:899px) 100vw, 33vw" alt="Casa Z|S, fachada iluminada à noite" width="1505" height="847" loading="lazy"><span class="pf__more">2 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">03</span><b>Casa Z|S</b><span class="pf__t">Arquitetura · residência</span></span></button></li>
+      <li class="pf__it pf__it--d" data-reveal="fig"><button class="pf__card" type="button" data-gal="clinica-csb" data-n="2" data-title="Clínica CSB">
+        <span class="pf__img"><img src="assets/img/clinica-csb-1@sm.webp" srcset="assets/img/clinica-csb-1@sm.webp 860w, assets/img/clinica-csb-1.webp 1600w" sizes="(max-width:899px) 100vw, 33vw" alt="Clínica CSB, recepção com balcão curvo, jardim vertical e iluminação embutida" width="1600" height="1280" loading="lazy"><span class="pf__more">2 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">04</span><b>Clínica CSB</b><span class="pf__t">Interiores · comercial</span></span></button></li>
+      <li class="pf__it pf__it--e" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-sa" data-n="3" data-title="Casa S|A">
+        <span class="pf__img"><img src="assets/img/casa-sa-1@sm.webp" srcset="assets/img/casa-sa-1@sm.webp 860w, assets/img/casa-sa-1.webp 1505w" sizes="(max-width:899px) 100vw, 33vw" alt="Casa S|A, fachada com frisos de luz e marquise" width="1505" height="847" loading="lazy"><span class="pf__more">3 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">05</span><b>Casa S|A</b><span class="pf__t">Arquitetura e interiores</span></span></button></li>
+      <li class="pf__it pf__it--f" data-reveal="fig"><button class="pf__card" type="button" data-gal="gourmet" data-n="4" data-title="Espaço gourmet">
+        <span class="pf__img"><img src="assets/img/gourmet-1@sm.webp" srcset="assets/img/gourmet-1@sm.webp 860w, assets/img/gourmet-1.webp 1600w" sizes="(max-width:899px) 100vw, 42vw" alt="Espaço gourmet, raia de piscina junto a parede de pedra iluminada" width="1600" height="900" loading="lazy"><span class="pf__more">4 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">06</span><b>Espaço gourmet</b><span class="pf__t">Arquitetura e interiores</span></span></button></li>
+      <li class="pf__it pf__it--g" data-reveal="fig"><button class="pf__card" type="button" data-gal="casa-mm" data-n="4" data-title="Casa M|M">
+        <span class="pf__img"><img src="assets/img/casa-mm-1@sm.webp" srcset="assets/img/casa-mm-1@sm.webp 860w, assets/img/casa-mm-1.webp 1536w" sizes="(max-width:899px) 100vw, 58vw" alt="Casa M|M, fachada térrea com garagem e jardim frontal" width="1536" height="864" loading="lazy"><span class="pf__more">4 imagens</span></span>
+        <span class="pf__cap"><span class="pf__n">07</span><b>Casa M|M</b><span class="pf__t">Arquitetura · residência</span></span></button></li>
     </ul>
   </div>
 </section>
 
-<!-- ===== 03 Escopo ===== -->
+<!-- ===== 03 Assinatura ===== -->
+<section class="sec as" id="assinatura" data-bg="light" aria-labelledby="asTitle">
+  <div class="wrap as__in">
+    <figure class="as__fig" data-reveal="mask">
+      <img src="assets/img/apto-rio-4@sm.webp" srcset="assets/img/apto-rio-4@sm.webp 860w, assets/img/apto-rio-4.webp 896w" sizes="(max-width:899px) 100vw, 40vw" alt="Sala de jantar com pé-direito alto, painel de madeira, prateleiras suspensas e pendente escultórico" width="896" height="1120" loading="lazy">
+      <figcaption>Apartamento Rio · interiores</figcaption>
+    </figure>
+    <div class="as__txt">
+      <img class="as__mark" src="assets/img/cc-simbolo-bronze.svg" alt="" width="418" height="498" aria-hidden="true">
+      <p class="eyebrow">Arquitetura assinada</p>
+      <h2 class="h2" id="asTitle" data-split>Carol Cocco desenha. <em>A&nbsp;Pilares constrói.</em></h2>
+      <p class="as__p" data-reveal>A arquitetura e os interiores são assinados pela Carol Cocco Arquitetura, parceira da Pilares. Quem projeta e quem executa trabalham juntos desde o primeiro traço, então cada detalhe já nasce pensando em como vai ser construído.</p>
+      <ul class="as__list" role="list">
+        <li data-reveal><span>Autoria</span>Projeto autoral, do conceito ao detalhamento</li>
+        <li data-reveal><span>Execução</span>Engenharia e obra conduzidas pela Pilares</li>
+        <li data-reveal><span>Contrato</span>Um só responsável, do projeto à entrega</li>
+      </ul>
+      <img class="as__logo" src="assets/img/cc-horizontal-ink.svg" alt="Carol Cocco Arquitetura" width="719" height="121" loading="lazy" data-reveal>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 04 Escopo ===== -->
 <section class="sec esc" id="escopo" data-bg="light" aria-labelledby="escTitle">
   <div class="esc__stage" id="escStage">
     <div class="wrap esc__in">
       <div class="esc__txt">
         <p class="eyebrow">Construção ou reforma</p>
-        <h2 class="h2" id="escTitle" data-split>Tudo o que a obra precisa, desenhado em conjunto.</h2>
+        <h2 class="h2" id="escTitle" data-split>Tudo o que a obra precisa, <em>desenhado em conjunto.</em></h2>
 
         <div class="esc__tabs" role="tablist" aria-label="Disciplinas do projeto">
           <button class="esc__tab" role="tab" id="tab-0" aria-controls="pan-0" aria-selected="true" data-i="0"><span class="esc__n">01</span>Arquitetônico</button>
@@ -195,22 +230,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="esc__media" aria-hidden="true">
         <figure class="esc__fig" data-on="true"><img src="assets/img/casa-sa-2@sm.webp" srcset="assets/img/casa-sa-2@sm.webp 860w, assets/img/casa-sa-2.webp 1505w" sizes="(max-width:900px) 100vw, 52vw" alt="" width="1505" height="847" loading="lazy"></figure>
         <figure class="esc__fig" data-on="false"><img src="assets/img/apto-terraco-2@sm.webp" srcset="assets/img/apto-terraco-2@sm.webp 860w, assets/img/apto-terraco-2.webp 1440w" sizes="(max-width:900px) 100vw, 52vw" alt="" width="1440" height="1152" loading="lazy"></figure>
-        <figure class="esc__fig" data-on="false"><img src="assets/img/pilares-projeto-plantas@sm.webp" srcset="assets/img/pilares-projeto-plantas@sm.webp 860w, assets/img/pilares-projeto-plantas.webp 1400w" sizes="(max-width:900px) 100vw, 52vw" alt="" width="1400" height="1867" loading="lazy"></figure>
+        <figure class="esc__fig esc__fig--compl" data-on="false"><img src="assets/img/gourmet-2@sm.webp" srcset="assets/img/gourmet-2@sm.webp 860w, assets/img/gourmet-2.webp 1600w" sizes="(max-width:900px) 100vw, 52vw" alt="" width="1600" height="900" loading="lazy"></figure>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== 04 Acompanhamento ===== -->
+<!-- ===== 05 Acompanhamento ===== -->
 <section class="sec ac" id="acompanhamento" data-bg="dark" aria-labelledby="acTitle">
   <div class="wrap ac__in">
     <figure class="ac__fig" data-reveal="mask">
-      <img src="assets/img/pilares-obra-laje@sm.webp" srcset="assets/img/pilares-obra-laje@sm.webp 860w, assets/img/pilares-obra-laje.webp 1100w" sizes="(max-width:900px) 100vw, 38vw" alt="Obra da Pilares em andamento, laje com tubulações elétricas aparentes" width="1100" height="1467" loading="lazy">
-      <figcaption>Obra Pilares em andamento</figcaption>
+      <img src="assets/img/apto-terraco-4@sm.webp" srcset="assets/img/apto-terraco-4@sm.webp 860w, assets/img/apto-terraco-4.webp 1560w" sizes="(max-width:899px) 100vw, 46vw" alt="Prancha de detalhamento técnico com planta baixa de sala e cozinha, cotas e especificação de mobiliário" width="1560" height="1071" loading="lazy">
+      <figcaption>Apartamento Terraço · prancha de detalhamento</figcaption>
     </figure>
     <div class="ac__txt">
       <p class="eyebrow eyebrow--light">Depois das pranchas</p>
-      <h2 class="h2" id="acTitle" data-split>O projeto acompanha a obra até a entrega.</h2>
+      <h2 class="h2" id="acTitle" data-split>O projeto acompanha a obra <em>até a entrega.</em></h2>
       <ul class="ac__rows" role="list">
         <li class="ac__row" data-reveal>
           <span class="ac__k">Agilidade</span>
@@ -230,36 +265,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== 05 Quem constrói ===== -->
+<!-- ===== 06 Quem constrói ===== -->
 <section class="sec qc" id="construtora" data-bg="light" aria-labelledby="qcTitle">
   <div class="wrap qc__in">
     <div class="qc__txt">
       <p class="eyebrow">Pilares Engenharia</p>
-      <h2 class="h2" id="qcTitle" data-split>Uma construtora por trás de cada prancha.</h2>
+      <h2 class="h2" id="qcTitle" data-split>Uma construtora <em>por trás de cada prancha.</em></h2>
       <p class="qc__p" data-reveal>Executamos obras residenciais de alto padrão em Salvador. Esse olhar de canteiro entra no projeto: soluções que se constroem exatamente como foram desenhadas.</p>
       <ul class="qc__stats" role="list">
         <li data-reveal><b data-count="20" data-prefix="+">+20</b><span>obras entregues</span></li>
-        <li data-reveal><b data-count="1500" data-prefix="+" data-group="1">+1.500</b><span>m² construídos</span></li>
-        <li data-reveal><b data-count="3" data-prefix="+">+3</b><span>anos de experiência</span></li>
+        <li data-reveal><b>3</b><span>cidades atendidas</span></li>
+        <li data-reveal><b>1</b><span>contrato, do projeto à obra</span></li>
       </ul>
     </div>
     <figure class="qc__fig" data-reveal="mask">
-      <img src="assets/img/pilares-obra-mar@sm.webp" srcset="assets/img/pilares-obra-mar@sm.webp 860w, assets/img/pilares-obra-mar.webp 1200w" sizes="(max-width:900px) 100vw, 36vw" alt="Estrutura de obra da Pilares de frente para o mar em Salvador" width="1200" height="1600" loading="lazy">
+      <img src="assets/img/pilares-sala-integrada@sm.webp" srcset="assets/img/pilares-sala-integrada@sm.webp 1080w, assets/img/pilares-sala-integrada.webp 1920w" sizes="(max-width:900px) 100vw, 40vw" alt="Sala com painel de madeira do piso ao teto e sofá orgânico curvo, em obra entregue pela Pilares" width="1920" height="1080" loading="lazy">
+      <figcaption>Obra entregue pela Pilares</figcaption>
     </figure>
   </div>
 </section>
 
-<!-- ===== 06 Perguntas ===== -->
+<!-- ===== 07 Perguntas ===== -->
 <section class="sec fq" id="perguntas" data-bg="light" aria-labelledby="fqTitle">
   <div class="wrap fq__in">
     <div class="fq__head">
-      <h2 class="h2" id="fqTitle" data-split>Antes de começar</h2>
+      <p class="eyebrow">Perguntas frequentes</p>
+      <h2 class="h2" id="fqTitle" data-split>Antes de <em>começar</em></h2>
       <button class="btn btn--solid" type="button" id="cta-merlin6">Falar com a Pilares</button>
     </div>
     <div class="fq__list">
       <details class="fq__it" data-reveal>
         <summary>Vocês fazem projeto para reforma?<i aria-hidden="true"></i></summary>
         <div class="fq__a"><p>Sim. Atendemos construção do zero e reforma, de casas e apartamentos.</p></div>
+      </details>
+      <details class="fq__it" data-reveal>
+        <summary>Quem assina os projetos?<i aria-hidden="true"></i></summary>
+        <div class="fq__a"><p>A arquitetura e os interiores são assinados pela Carol Cocco Arquitetura, parceira da Pilares. Os complementares são desenvolvidos em conjunto e compatibilizados com a arquitetura.</p></div>
       </details>
       <details class="fq__it" data-reveal>
         <summary>Quais regiões vocês atendem?<i aria-hidden="true"></i></summary>
@@ -271,7 +312,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </details>
       <details class="fq__it" data-reveal>
         <summary>A Pilares também pode executar a obra?<i aria-hidden="true"></i></summary>
-        <div class="fq__a"><p>Pode. Se você preferir, a mesma empresa que projeta conduz a construção ou a reforma.</p></div>
+        <div class="fq__a"><p>Pode. Se você preferir, a mesma empresa que acompanha o projeto conduz a construção ou a reforma.</p></div>
       </details>
       <details class="fq__it" data-reveal>
         <summary>Como recebo a proposta?<i aria-hidden="true"></i></summary>
@@ -281,13 +322,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
-<!-- ===== 07 CTA final ===== -->
+<!-- ===== 08 CTA final ===== -->
 <section class="cta" id="contato" data-bg="dark" aria-labelledby="ctaTitle">
   <figure class="cta__media" aria-hidden="true">
-    <img src="assets/img/apto-rio-2@sm.webp" srcset="assets/img/apto-rio-2@sm.webp 860w, assets/img/apto-rio-2.webp 1536w" sizes="100vw" alt="" width="1536" height="864" loading="lazy">
+    <img src="assets/img/casa-sa-3@sm.webp" srcset="assets/img/casa-sa-3@sm.webp 860w, assets/img/casa-sa-3.webp 1505w" sizes="100vw" alt="" width="1505" height="847" loading="lazy">
   </figure>
   <div class="wrap cta__in">
-    <h2 class="cta__h" id="ctaTitle" data-split>Conte o que você quer construir.</h2>
+    <p class="eyebrow eyebrow--light" data-reveal="soft">Proposta de projeto</p>
+    <h2 class="cta__h" id="ctaTitle" data-split>Conte o que você quer <em>construir.</em></h2>
     <button class="btn btn--light btn--lg" type="button" id="cta-merlin7" data-reveal>Solicitar proposta de projeto <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
   </div>
 </section>
@@ -298,7 +340,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <footer class="ft" data-bg="dark">
   <div class="wrap ft__in">
     <img class="ft__logo" src="assets/img/pilares-logo-branco.png" alt="Pilares Engenharia e Construções" width="339" height="289" loading="lazy">
-    <p class="ft__txt">Projetos e obras residenciais de alto padrão em Salvador, Lauro de Freitas e&nbsp;Camaçari.</p>
+    <div class="ft__mid">
+      <p class="ft__txt">Projetos e obras residenciais de alto padrão em Salvador, Lauro de Freitas e&nbsp;Camaçari.</p>
+      <p class="sig sig--light sig--sm"><span>Arquitetura e interiores</span><img src="assets/img/cc-horizontal-claro.svg" alt="Carol Cocco Arquitetura" width="719" height="121" loading="lazy"></p>
+    </div>
     <ul class="ft__links" role="list">
       <li><a href="mailto:contratos@pilaresengltda.com.br">contratos@pilaresengltda.com.br</a></li>
       <li><a href="https://www.instagram.com/pilareseconstrutora" target="_blank" rel="noopener">@pilareseconstrutora</a></li>

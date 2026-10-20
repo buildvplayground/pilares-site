@@ -13,8 +13,15 @@
 
   /* ---------- 1. Títulos palavra a palavra ---------- */
   if (MOTION) {
+    // preserva o <em> (acento em itálico da serifada) palavra a palavra;
+    // quebra só em espaço comum, para o &nbsp; manter palavras juntas (sem viúva)
     $$('[data-split]').forEach(function (h) {
-      h.innerHTML = h.textContent.trim().split(/\s+/).map(function (w) {
+      var ws = [];
+      Array.prototype.forEach.call(h.childNodes, function (n) {
+        var em = n.nodeType === 1 && n.tagName === 'EM';
+        n.textContent.split(/[ \t\n\r]+/).forEach(function (w) { if (w) ws.push(em ? '<em>' + w + '</em>' : w); });
+      });
+      h.innerHTML = ws.map(function (w) {
         return '<span class="w"><i>' + w + '</i></span>';
       }).join(' ');
       $$('.w>i', h).forEach(function (i, k) { i.style.transitionDelay = (k * 42) + 'ms'; });

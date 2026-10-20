@@ -117,11 +117,22 @@ reforma, alto padrão, mesmas praças da construção). As LPs de obras e reform
 - **Fonte:** `lp/projetos/` (sai também em `/projetos` no projeto Vercel das LPs)
 - **Deploy:** `deploy-lp-projetos/vercel/` e `deploy-lp-projetos/public_html/`, gerados por
   `python scripts/build-lp-projetos.py`
-- **Seções:** hero com persianas que se abrem, Projetos (6, grade espelhada 6/3/3 + 3/3/6, lightbox),
-  Escopo (cena travada com 3 disciplinas), Acompanhamento (banda navy), Construtora (números),
-  Perguntas e CTA final. Todo CTA abre o Merlin (`cta-merlin1..8`).
-- **Visual:** Host Grotesk 300 a 600; navy #0A0B32 e violeta #5E4C9A da marca sobre travertino
-  #F1EEE8/#E4DED3; patterns `Square Grid` (prancha, no Escopo) e `Vertical Lines` (ripado, no CTA).
-- **Parceiro:** sem marca do parceiro, como pedido. A copy fala em "num só contrato", sem afirmar que
-  toda a arquitetura é feita internamente.
+- **Seções (revisão 20/10/2026):** hero com persianas → Portfólio editorial (7 projetos com legenda
+  numerada abaixo da foto, lightbox) → Arquitetura assinada (Carol Cocco) → Escopo (cena travada com
+  3 disciplinas) → Acompanhamento (banda navy com prancha técnica) → Construtora → Perguntas → CTA final.
+  Todo CTA abre o Merlin (`cta-merlin1..8`).
+- **Visual (revisão 20/10/2026, direção "alto padrão"):** display em **Newsreader** 300 com acento em
+  itálico (`<em>` nos títulos; o split palavra a palavra do JS preserva o `<em>` e respeita `&nbsp;`),
+  Host Grotesk no texto, botões e rótulos em caixa-alta espaçada. Navy #0A0B32 segue como tinta e banda
+  escura; o acento violeta saiu e entrou o **bronze #9B715A** da marca Carol Cocco (#7A5640 para texto
+  sobre claro, champanhe #D2B9A2 sobre escuro). Véus de foto neutro-quentes (não azulados).
+  ⚠️ Cormorant Garamond (fonte do site institucional) foi descartada aqui: o circunflexo dela fica alto
+  e solto em "você", "Arquitetônico". Vale revisar no site institucional também.
+- **Parceiro:** co-assinatura discreta aprovada em 20/10/2026 ("Arquitetura e interiores assinados por
+  Carol Cocco Arquitetura"): linha no hero, seção `#assinatura`, pergunta no FAQ e rodapé. Pilares segue
+  como marca principal. Logos limpos (só vetor, `fill` fixo) em `assets/img/cc-*.svg`, extraídos da pasta
+  de marca do Drive.
+- **Material novo usado:** Casa Caribe (2 renders) e Clínica CSB (2 renders da recepção). Ficaram de fora
+  os renders comerciais com marca de terceiros (Novak, Paraguassu), escritórios genéricos e as imagens
+  com nome de geração por IA ("ChatGPT Image…").
 - **Pendências:** ver `state.json > pendencias`, grupo "LP Projetos".
