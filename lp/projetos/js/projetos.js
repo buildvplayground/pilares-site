@@ -28,10 +28,11 @@
     });
   }
 
-  /* ---------- 2. Reveal (stagger por irmãos) ---------- */
+  /* ---------- 2. Reveal (stagger por irmãos; imagem nunca espera) ---------- */
   var targets = $$('[data-reveal],[data-split]');
+  function isMedia(el) { return /^(fig|mask)$/.test(el.getAttribute('data-reveal') || ''); }
   targets.forEach(function (el) {
-    if (!el.hasAttribute('data-reveal')) return;
+    if (!el.hasAttribute('data-reveal') || isMedia(el)) return;
     var sibs = $$(':scope > [data-reveal]', el.parentNode);
     var i = sibs.indexOf(el);
     if (i > 0) el.style.transitionDelay = Math.min(i, 6) * 80 + 'ms';
@@ -46,15 +47,21 @@
   if (!MOTION) {
     targets.forEach(show);
   } else {
-    // clip-path 100% recortado zera a interseção no Chrome: a máscara observa o pai
-    var io = 'IntersectionObserver' in window ? new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { show(e.target.__rv || e.target); io.unobserve(e.target); } });
-    }, { threshold: .12, rootMargin: '0px 0px -7% 0px' }) : null;
+    // texto entra com a peça já um pouco na tela; imagem dispara ANTES de entrar
+    // (12% da viewport abaixo da dobra), senão aparece com o scroll já passando por ela.
+    // A máscara recorta a <img> interna, então a <figure> mantém a caixa e é observada direto.
+    function mkIO(opts) {
+      if (!('IntersectionObserver' in window)) return null;
+      var o = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { show(e.target); o.unobserve(e.target); } });
+      }, opts);
+      return o;
+    }
+    var io = mkIO({ threshold: .12, rootMargin: '0px 0px -7% 0px' });
+    var ioMedia = mkIO({ threshold: 0, rootMargin: '0px 0px 12% 0px' });
     targets.forEach(function (el) {
       if (!io) return show(el);
-      var obs = el;
-      if (el.getAttribute('data-reveal') === 'mask') { obs = el.parentNode; obs.__rv = el; }
-      io.observe(obs);
+      (isMedia(el) ? ioMedia : io).observe(el);
     });
     // primeira tela por timer (IO não dispara em aba oculta)
     setTimeout(function () {
@@ -66,7 +73,7 @@
     window.addEventListener('scroll', function () {
       targets.forEach(function (el) {
         if (el.getBoundingClientRect().bottom < vh() * .3 && !el.classList.contains('is-in') && !el.classList.contains('is-split')) {
-          el.style.transition = 'none'; $$('i', el).forEach(function (i) { i.style.transition = 'none'; }); show(el);
+          el.style.transition = 'none'; $$(el.getAttribute('data-reveal') === 'mask' ? 'i,img' : 'i', el).forEach(function (i) { i.style.transition = 'none'; }); show(el);
         }
       });
     }, { passive: true });

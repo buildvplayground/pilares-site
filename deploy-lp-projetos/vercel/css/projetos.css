@@ -381,11 +381,13 @@ ul{padding:0;list-style:none}
    ========================================================= */
 html[data-motion] [data-reveal]{opacity:0;transform:translateY(24px);filter:blur(5px);transition:opacity .9s var(--e),transform .9s var(--e),filter .9s var(--e)}
 html[data-motion] [data-reveal=soft]{transform:none;filter:none;transition:opacity 1s var(--e)}
-html[data-motion] [data-reveal=fig]{transform:translateY(28px);filter:none;transition:opacity 1.1s var(--e),transform 1.3s var(--e)}
-html[data-motion] [data-reveal=mask]{transform:none;filter:none;opacity:1;clip-path:inset(0 0 101% 0);transition:clip-path 1.5s var(--e)}
-html[data-motion] [data-reveal=mask] img{transform:scale(1.08);transition:transform 1.5s var(--e)}
-html[data-motion] [data-reveal].is-in{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0)}
-html[data-motion] [data-reveal=mask].is-in img{transform:none}
+/* imagem: curta e sem atraso (dispara antes de entrar na tela, ver projetos.js §2).
+   A máscara recorta a <img>, não a <figure>: a caixa da figure segue observável. */
+html[data-motion] [data-reveal=fig]{transform:translateY(20px);filter:none;transition:opacity .8s var(--e),transform .9s var(--e)}
+html[data-motion] [data-reveal=mask]{transform:none;filter:none;opacity:1;transition:none}
+html[data-motion] [data-reveal=mask] img{clip-path:inset(0 0 101% 0);transform:scale(1.06);transition:clip-path 1s var(--e),transform 1.2s var(--e)}
+html[data-motion] [data-reveal].is-in{opacity:1;transform:none;filter:none}
+html[data-motion] [data-reveal=mask].is-in img{clip-path:inset(0 0 0 0);transform:none}
 
 html[data-motion] .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.12em;margin-bottom:-.12em}
 html[data-motion] .w>i{display:inline-block;font-style:normal;transform:translateY(108%);transition:transform .9s var(--e)}
