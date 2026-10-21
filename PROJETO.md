@@ -98,6 +98,12 @@ Nenhuma seção adjacente repete o mesmo tipo de layout, e há imagem real a cad
    A foto "Sala e cozinha integradas" era a mesma sala do painel de madeira: legenda e `alt` corrigidos.
    Imagens com gatilho próprio (disparam antes de entrar na tela), sem stagger e com a cortina na `<img>`.
 
+14. **Hero da LP no site principal (21/10/2026, pedido do cliente):** foto em tela cheia (Casa Z|S, render
+   do portfólio da Carol Cocco, com crédito no canto e linha "Arquitetura e interiores em parceria com"),
+   véu neutro-quente, manchete com a 2ª frase em itálico champanhe e persianas na entrada. No site
+   principal a frase é "em parceria com", não "assinados por": o site fala da construtora inteira.
+   A imagem anterior do hero era gerada por IA (`pilares-hero-image.codex.json`) e saiu.
+
 ## Como rodar o preview
 
 ```bash

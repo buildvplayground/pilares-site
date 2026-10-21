@@ -275,59 +275,68 @@ body.is-loaded .loader{opacity:0;visibility:hidden;pointer-events:none}
 .hero__media img{width:100%;height:112%;object-fit:cover;object-position:50% 42%;will-change:transform}
 
 /* -------------------------------------------------------------------
-   Variante EDITORIAL: split de alto padrão. Tipografia grande à esquerda,
-   uma foto de obra EMOLDURADA à direita como objeto de design — não é
-   fundo (difere do overlay) e não sangra na borda (difere das splits do
-   corpo). Fundo ink com profundidade radial; rótulo editorial de canto.
+   Variante LP (21/10/2026, aprovada pelo cliente na LP Projetos): foto em
+   tela cheia, véu neutro-quente, manchete grande com a 2ª frase em itálico
+   champanhe, filete fino separando o rodapé do hero (texto + ações) e
+   crédito da foto no canto. Entrada: persianas que se abrem do centro.
    ------------------------------------------------------------------- */
-/* .hero.hero--editorial: especificidade (0,2,0) para vencer as media queries
-   do .hero base (@1180 min-height / @560 padding-top), que reintroduziam vão no topo */
-.hero.hero--editorial{
-  display:block;align-items:initial;min-height:auto;padding:0;
-  background:radial-gradient(118% 125% at 10% 16%, var(--c-indigo) 0%, var(--c-ink) 66%);
+.hero.hero--lp{
+  display:block;min-height:0;padding:0;
+  height:100svh;min-height:600px;max-height:1100px;background:#0C0A09;color:#fff;
 }
-.hero--editorial .hero__grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:clamp(2rem,5vw,4.5rem);align-items:center;
-  min-height:min(94vh,920px);
-  padding-top:calc(var(--header-h) + var(--s-8));
-  padding-bottom:var(--s-8);
+.hero--lp .hero__media::after{
+  background:
+    linear-gradient(180deg,rgba(var(--veil),.5) 0,rgba(var(--veil),0) 20%),
+    linear-gradient(0deg,rgba(var(--veil),.88) 0,rgba(var(--veil),.5) 36%,rgba(var(--veil),0) 66%),
+    linear-gradient(90deg,rgba(var(--veil),.62) 0,rgba(var(--veil),.3) 38%,rgba(var(--veil),0) 62%);
 }
-.hero--editorial .hero__box{max-width:36rem}
-.hero--editorial h1{font-size:clamp(2.1rem,1.2rem + 3.1vw,4.25rem)}
-/* a foto como card emoldurado */
-/* slot menor = imagem mais densa/nítida (limita a largura mesmo em telas grandes) */
-.hero__feature{position:relative;margin:0 0 0 auto;align-self:center;width:100%;max-width:560px}
-.hero__feature img{
-  width:100%;display:block;object-fit:cover;aspect-ratio:4/5;
-  border:1px solid rgba(255,255,255,.16);box-shadow:var(--e-3);
-}
-/* filete-assinatura (herdado do cartão), na base esquerda da foto */
-.hero__feature::after{
-  content:"";position:absolute;left:0;bottom:0;width:3px;height:96px;background:var(--c-accent-light)
-}
-.hero__cap{
-  position:absolute;left:var(--s-4);bottom:var(--s-4);z-index:1;
-  font-size:var(--t-xs);letter-spacing:.12em;text-transform:uppercase;color:#fff;
-  background:rgba(var(--veil),.82);padding:var(--s-2) var(--s-4);border-radius:var(--r-md);
-}
-@media (max-width:1180px){
-  .hero--editorial .hero__box{max-width:32rem}
-}
+.hero--lp .hero__media img{object-position:58% 50%}
+.hero--lp::after{display:none}
+.hero__in{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;
+  padding-bottom:clamp(2rem,7vh,5.25rem)}
+.hero--lp .eyebrow{margin-bottom:var(--s-5)}
+.hero--lp .hero__h{
+  font-size:clamp(2.6rem,1.4rem + 4.6vw,6.25rem);line-height:.98;font-weight:500;letter-spacing:-.02em;
+  max-width:15ch;margin:0;text-wrap:balance}
+.hero__h .ln{display:block;overflow:hidden;padding-bottom:.1em;margin-bottom:-.1em}
+.hero__h .ln>span{display:block}
+.hero__h em{font-style:italic;font-weight:500;color:var(--c-accent-light)}
+.hero__foot{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:var(--s-6) var(--s-7);
+  margin-top:clamp(1.5rem,4.4vh,3rem);padding-top:clamp(1.25rem,3.4vh,2.1rem);border-top:1px solid rgba(255,255,255,.16)}
+.hero__copy{display:grid;gap:var(--s-4)}
+.hero--lp .hero__lede{margin:0;max-width:52ch;font-size:var(--t-base);color:#E6E0D6}
+.hero--lp .hero__actions{flex:none;display:grid;gap:var(--s-3);min-width:min(100%,19rem)}
+.hero--lp .hero__actions .btn{width:100%}
+/* assinatura da parceira (texto + logotipo) */
+.sig{display:flex;align-items:center;flex-wrap:wrap;gap:var(--s-2) var(--s-4);margin:0;
+  font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.74)}
+.sig img{height:22px;width:auto}
+.hero--lp .hero__credit{top:calc(var(--header-h) + var(--s-5));bottom:auto;background:none;padding:0;
+  color:rgba(255,255,255,.8);font-size:.6875rem;letter-spacing:.14em;text-shadow:0 1px 12px rgba(var(--veil),.5)}
 @media (max-width:900px){
-  .hero--editorial .hero__grid{grid-template-columns:1fr;min-height:auto;gap:var(--s-5);
-    padding-top:calc(var(--header-h) + var(--s-5));padding-bottom:var(--s-7)}
-  .hero--editorial .hero__box{max-width:100%}
-  .hero__feature{order:-1;max-width:none;margin:0}
-  .hero__feature img{aspect-ratio:16/10}
-  .hero__feature::after{display:none}
+  .hero--lp .hero__actions{width:100%}
 }
 @media (max-width:560px){
-  .hero__feature img{aspect-ratio:4/3}
+  .hero--lp .hero__actions .btn{flex:1 1 100%}
 }
 
+/* persianas (só com movimento ligado); abrem do centro para fora */
+.hero__slats{position:absolute;inset:0;z-index:1;display:none}
+html[data-motion="on"] .hero__slats{display:flex}
+.hero__slats i{flex:1;background:#0C0A09;transform-origin:50% 0;
+  transition:transform 1.25s var(--ease-out) calc(var(--i,0) * 70ms)}
+.hero__slats i+i{margin-left:-1px}
+html[data-motion="on"] .hero.is-in .hero__slats i{transform:scaleY(0)}
+html[data-motion="on"] .hero--lp .hero__h .ln>span{transform:translateY(105%);transition:transform 1.1s var(--ease-out) .25s}
+html[data-motion="on"] .hero--lp .hero__h .ln:nth-child(2)>span{transition-delay:.34s}
+html[data-motion="on"] .hero--lp.is-in .hero__h .ln>span{transform:none}
+html[data-motion="on"] .hero--lp .eyebrow,
+html[data-motion="on"] .hero--lp .hero__foot{opacity:0;transition:opacity 1s var(--ease-out) .55s}
+html[data-motion="on"] .hero--lp.is-in .eyebrow,
+html[data-motion="on"] .hero--lp.is-in .hero__foot{opacity:1}
+
 /* "pilar que sobe": a foto cresce de baixo */
-html[data-motion="on"] .hero__media{clip-path:inset(100% 0 0 0)}
+html[data-motion="on"] .hero:not(.hero--lp) .hero__media{clip-path:inset(100% 0 0 0)}
 html[data-motion="on"] .hero.is-in .hero__media{
   clip-path:inset(0 0 0 0);
   transition:clip-path 1s var(--ease-out) .15s;
@@ -910,6 +919,9 @@ html[data-motion="on"] [data-split].is-in .w>i{transform:translateY(0)}
   html[data-motion="on"] [data-split] .w{overflow:visible;padding-bottom:0;margin-bottom:0}
   html[data-motion="on"] [data-split] .w>i{transform:none !important}
   html[data-motion="on"] .hero__media{clip-path:none !important}
+  html[data-motion="on"] .hero__slats{display:none}
+  html[data-motion="on"] .hero--lp .hero__h .ln>span{transform:none !important}
+  html[data-motion="on"] .hero--lp .eyebrow,html[data-motion="on"] .hero--lp .hero__foot{opacity:1 !important}
   .hero__media img,.band__media img{transform:none !important}
 }
 
